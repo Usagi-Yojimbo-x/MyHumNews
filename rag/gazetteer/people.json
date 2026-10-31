@@ -1,0 +1,68 @@
+{
+ "Aung San Suu Kyi": {
+  "burmese": "အောင်ဆန်းစုကြည်",
+  "docs": 1516,
+  "hits": 6692,
+  "pct_docs": 3.97
+ },
+ "Mahn Win Khaing Than": {
+  "burmese": "မန်းဝင်းခိုင်သန်း",
+  "docs": 80,
+  "hits": 101,
+  "pct_docs": 0.21
+ },
+ "Min Aung Hlaing": {
+  "burmese": "မင်းအောင်လှိုင်",
+  "docs": 3921,
+  "hits": 12386,
+  "pct_docs": 10.28
+ },
+ "Myint Swe": {
+  "burmese": "မြင့်ဆွေ",
+  "docs": 78,
+  "hits": 308,
+  "pct_docs": 0.2
+ },
+ "Soe Win": {
+  "burmese": "စိုးဝင်း",
+  "docs": 396,
+  "hits": 630,
+  "pct_docs": 1.04
+ },
+ "Than Shwe": {
+  "burmese": "သန်းရွှေ",
+  "docs": 460,
+  "hits": 980,
+  "pct_docs": 1.21
+ },
+ "Win Myint": {
+  "burmese": "ဝင်းမြင့်",
+  "docs": 345,
+  "hits": 761,
+  "pct_docs": 0.9
+ },
+ "Xi Jinping": {
+  "burmese": "ရှီကျင့်ဖျင်",
+  "docs": 447,
+  "hits": 945,
+  "pct_docs": 1.17
+ },
+ "Yee Mon": {
+  "burmese": "ရည်မွန်",
+  "docs": 45,
+  "hits": 58,
+  "pct_docs": 0.12
+ },
+ "Zaw Min Tun": {
+  "burmese": "ဇော်မင်းထွန်း",
+  "docs": 560,
+  "hits": 792,
+  "pct_docs": 1.47
+ },
+ "Zin Mar Aung": {
+  "burmese": "ဇင်မာအောင်",
+  "docs": 102,
+  "hits": 207,
+  "pct_docs": 0.27
+ }
+}

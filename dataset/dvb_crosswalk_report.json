@@ -1,0 +1,245 @@
+{
+ "n_articles": 134667,
+ "before": 65858,
+ "after": 80235,
+ "gained_by_label": {
+  "နိုင်ငံရေး": 3124,
+  "လူ့အခွင့်အရေး": 1554,
+  "COVID19": 439,
+  "တိုင်းရင်းသား": 1360,
+  "crime": 1447,
+  "ငြိမ်းချမ်းရေး/စစ်ရေး": 6609,
+  "အလုပ်သမား/ရွှေ့ပြောင်းလုပ်သား": 227,
+  "ကျန်းမာရေး": 208,
+  "အနုပညာ": 512,
+  "သဘာဝပတ်ဝန်းကျင်/ရာသီဥတု/မိုးလေဝသ": 651,
+  "ရွေးကောက်ပွဲ": 780,
+  "ပညာရေး/နည်းပညာ": 327,
+  "အမျိုးသမီး/လူငယ်": 565,
+  "နိုင်ငံတကာ": 3934,
+  "စီးပွားရေး": 270,
+  "လူမှုရေး": 160
+ },
+ "first_label_by_outlet": {
+  "irrawaddy_burmese": 8439,
+  "dvb_burmese": 2,
+  "myanmar_now_burmese": 13,
+  "bbc_burmese": 5923
+ },
+ "new_label": "လူ့အခွင့်အရေး",
+ "new_label_by_outlet": {
+  "irrawaddy_burmese": 1539,
+  "dvb_burmese": 15
+ },
+ "crosswalk": {
+  "Politics": [
+   "နိုင်ငံရေး",
+   "same desk, English name"
+  ],
+  "Military": [
+   "ငြိမ်းချမ်းရေး/စစ်ရေး",
+   "DVB files war under peace/military; same desk"
+  ],
+  "Ethnic Issues": [
+   "တိုင်းရင်းသား",
+   "same desk, English name"
+  ],
+  "Crime": [
+   "crime",
+   "same desk, English name"
+  ],
+  "Environment": [
+   "သဘာဝပတ်ဝန်းကျင်/ရာသီဥတု/မိုးလေဝသ",
+   "same desk, English name"
+  ],
+  "Health": [
+   "ကျန်းမာရေး",
+   "same desk, English name"
+  ],
+  "Entertainment": [
+   "အနုပညာ",
+   "DVB's အနုပညာ is the arts/entertainment desk"
+  ],
+  "Labor Rights": [
+   "အလုပ်သမား/ရွှေ့ပြောင်းလုပ်သား",
+   "labour desk; the rights framing is Irrawaddy's"
+  ],
+  "Human Rights": [
+   "လူ့အခွင့်အရေး",
+   "the new label this file adds"
+  ],
+  "Coronavirus Update": [
+   "COVID19",
+   "same subject, outlet's own wording"
+  ],
+  "စစ်တပ်": [
+   "ငြိမ်းချမ်းရေး/စစ်ရေး",
+   "military"
+  ],
+  "မြန်မာပြည်တွင်းစစ်": [
+   "ငြိမ်းချမ်းရေး/စစ်ရေး",
+   "Myanmar civil war"
+  ],
+  "လူမျိုး နှင့် တိုင်းရင်းသားရေးရာ": [
+   "တိုင်းရင်းသား",
+   "ethnic and nationality affairs"
+  ],
+  "လူ့အခွင့်အရေး": [
+   "လူ့အခွင့်အရေး",
+   "human rights"
+  ],
+  "အမျိုးသမီး အခွင့်အရေး": [
+   "လူ့အခွင့်အရေး",
+   "women's rights"
+  ],
+  "လွှတ်တော်": [
+   "နိုင်ငံရေး",
+   "parliament"
+  ],
+  "၂၀၂၀ ရွေးကောက်ပွဲ": [
+   "ရွေးကောက်ပွဲ",
+   "the 2020 election"
+  ],
+  "အထွေထွေ ရွေးကောက်ပွဲ၊ ၂၀၂၅-၂၀၂၆": [
+   "ရွေးကောက်ပွဲ",
+   "the 2025-26 general election"
+  ],
+  "ရာဇဝတ်မှု": [
+   "crime",
+   "crime"
+  ],
+  "ရာသီဥတုပြောင်းလဲမှု": [
+   "သဘာဝပတ်ဝန်းကျင်/ရာသီဥတု/မိုးလေဝသ",
+   "climate change"
+  ],
+  "ပြင်းထန်သည့် ရာသီဥတု": [
+   "သဘာဝပတ်ဝန်းကျင်/ရာသီဥတု/မိုးလေဝသ",
+   "extreme weather"
+  ],
+  "ငလျင်": [
+   "သဘာဝပတ်ဝန်းကျင်/ရာသီဥတု/မိုးလေဝသ",
+   "earthquake; DVB files disasters here"
+  ],
+  "ကိုရိုနာဗိုင်းရပ်စ်": [
+   "COVID19",
+   "coronavirus"
+  ],
+  "ပညာရေး": [
+   "ပညာရေး/နည်းပညာ",
+   "education"
+  ],
+  "နည်းပညာ": [
+   "ပညာရေး/နည်းပညာ",
+   "DVB's desk is education/technology"
+  ],
+  "စီးပွားရေးလုပ်ငန်း": [
+   "စီးပွားရေး",
+   "business"
+  ],
+  "ကုန်သွယ်ရေး": [
+   "စီးပွားရေး",
+   "trade"
+  ],
+  "အမျိုးသမီး": [
+   "အမျိုးသမီး/လူငယ်",
+   "women"
+  ],
+  "ကလေးသူငယ်": [
+   "အမျိုးသမီး/လူငယ်",
+   "DVB's desk is women/youth"
+  ],
+  "လူမှုဘဝ": [
+   "လူမှုရေး",
+   "social life"
+  ],
+  "ရဲလုပ်ငန်း": [
+   "crime",
+   "policing"
+  ],
+  "တရုတ်": [
+   "နိုင်ငံတကာ",
+   "China"
+  ],
+  "အမေရိကန်": [
+   "နိုင်ငံတကာ",
+   "United States"
+  ],
+  "ရုရှား": [
+   "နိုင်ငံတကာ",
+   "Russia"
+  ],
+  "ယူကရိန်း": [
+   "နိုင်ငံတကာ",
+   "Ukraine"
+  ],
+  "ထိုင်း": [
+   "နိုင်ငံတကာ",
+   "Thailand"
+  ],
+  "အိန္ဒိယ": [
+   "နိုင်ငံတကာ",
+   "India"
+  ],
+  "ဗြိတိန်": [
+   "နိုင်ငံတကာ",
+   "Britain"
+  ],
+  "အာရှ": [
+   "နိုင်ငံတကာ",
+   "Asia"
+  ],
+  "အစ္စရေး": [
+   "နိုင်ငံတကာ",
+   "Israel"
+  ],
+  "အစ္စရေး နှင့် ပါလက်စတိုင်း": [
+   "နိုင်ငံတကာ",
+   "Israel and Palestine"
+  ],
+  "ဥရောပ": [
+   "နိုင်ငံတကာ",
+   "Europe"
+  ],
+  "အရှေ့အလယ်ပိုင်း": [
+   "နိုင်ငံတကာ",
+   "Middle East"
+  ],
+  "အီရန်": [
+   "နိုင်ငံတကာ",
+   "Iran"
+  ],
+  "ဂျပန်": [
+   "နိုင်ငံတကာ",
+   "Japan"
+  ],
+  "တောင်ကိုရီးယား": [
+   "နိုင်ငံတကာ",
+   "South Korea"
+  ],
+  "အရှေ့တောင်အာရှ": [
+   "နိုင်ငံတကာ",
+   "Southeast Asia"
+  ]
+ },
+ "not_mapped": {
+  "Culture": "VERIFIED UNMAPPABLE -- sampled 4, all also tagged ဆောင်းပါး (feature), which dvb_scheme drops as format. Contents were a Buddhist essay, a correspondent's memoir, a religious festival and university nostalgia. It is Irrawaddy's essay section, not an arts desk. I had mapped it to အနုပညာ and verification said no.",
+  "Lifestyle": "VERIFIED UNMAPPABLE -- co-occurs with Entertainment, Culture AND Coronavirus Update; samples ranged from an artist's detention to Putin's vaccination. A soft-features bucket spanning unrelated subjects. I had mapped it to လူမှုရေး, which would have injected noise into a label already too inconsistent to propagate.",
+  "မြန်မာ": "BBC's domestic marker; the complement of the geographic tags",
+  "လူသားချင်းစာနာမှုဆိုင်ရာ အကူအညီ": "humanitarian assistance -- no DVB desk",
+  "ဒုက္ခသည်များ နှင့် ခိုလှုံခွင့်တောင်းသူများ": "refugees/asylum -- DVB's labour desk is migrant WORK, not displacement",
+  "ရိုဟင်ဂျာ": "Rohingya -- an affected group, not a desk",
+  "ဗိုလ်ချုပ်မှူးကြီး မင်းအောင်လှိုင်": "person tag",
+  "ဒေါ်အောင်ဆန်းစုကြည်": "person tag",
+  "ဒေါ်နယ်ထရမ့်": "person tag",
+  "ဗလာဒီမီယာ ပူတင်": "person tag",
+  "ကုလသမဂ္ဂ": "organisation tag",
+  "အာဆီယံ": "organisation tag",
+  "အမျိုးသားညီညွတ်ရေးအစိုးရ": "organisation tag",
+  "အမျိုးသားဒီမိုကရေစီ အဖွဲ့ချုပ်": "organisation tag",
+  "ကန့်ကွက်ဆန္ဒပြခြင်း": "protest -- spans politics and social; no clean desk",
+  "ဆန္ဒထုတ်ဖော်ခြင်း": "protest -- as above",
+  "ဥပဒေ": "law -- spans politics and crime",
+  "သမိုင်း": "history -- not a news desk",
+  "ရန်ကုန်": "place tag"
+ }
+}

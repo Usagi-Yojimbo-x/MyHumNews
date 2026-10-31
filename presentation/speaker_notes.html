@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MyHumNews — Speaker Notes</title>
+<style>
+  @page { size: A4; margin: 15mm 16mm 17mm; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; color: #1b1f22; font-size: 10.5pt; line-height: 1.5; margin: 0; }
+  .mm { font-family: "Noto Sans Myanmar", "Myanmar MN", sans-serif; }
+  h1 { font-size: 22pt; margin: 0 0 1.5mm; }
+  h2.part { font-size: 16pt; margin: 0 0 1mm; }
+  .sub { color: #5b6770; margin: 0 0 5mm; }
+  .box { border: 1px solid #d5dbdf; border-radius: 6px; padding: 3.5mm 5mm; margin-bottom: 5mm; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.8pt; }
+  td, th { padding: 1.2mm 2mm; border-bottom: 1px solid #edf0f2; text-align: left; vertical-align: top; }
+  th { font-size: 8.5pt; text-transform: uppercase; letter-spacing: .06em; color: #5b6770; }
+  td.t { text-align: right; font-variant-numeric: tabular-nums; color: #5b6770; width: 14mm; }
+  .slide { border-top: 2px solid #1b1f22; padding-top: 3mm; margin-top: 7mm; }
+  .head { display: flex; justify-content: space-between; align-items: baseline; }
+  .head h3 { font-size: 14pt; margin: 0; }
+  .head .time { font-size: 10pt; color: #5b6770; white-space: nowrap; margin-left: 4mm; }
+  .label { font-size: 8.3pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #5b6770; margin: 3mm 0 .8mm; break-after: avoid; }
+  p { margin: 0 0 1.5mm; }
+  .say { border-left: 3px solid #1b1f22; padding-left: 3.5mm; }
+  ul { margin: 0; padding-left: 5mm; }
+  li { margin: .5mm 0; }
+  .qa { break-inside: avoid; margin: 0 0 2.5mm; }
+  .qa .q { font-weight: 700; }
+  .trans { color: #5b6770; font-style: italic; }
+  .warn { background: #fff4ef; border-left: 3px solid #d9643a; padding: 2mm 3.5mm; }
+  .pb { break-before: page; }
+  .nobreak { break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<h1>MyHumNews — Speaker Notes</h1>
+<p class="sub">Reading Myanmar in Burmese · BDAPP Fall 2026 · Sejong University · Prof. Mugahed A. Al-antari · Zwe Htet Aung (23013124)</p>
+
+<div class="box">
+  <div class="label" style="margin-top:0">How to use this</div>
+  <ul>
+    <li><b>Say</b> is the script. Read it a few times and then speak it in your own words; don't read it word for word.</li>
+    <li><b>On screen</b> tells you what the audience is looking at, so you can point at it.</li>
+    <li><b>Background</b> explains the terms in case you need them. You don't have to say it.</li>
+    <li><b>If asked</b> covers questions that slide is likely to get. More are in Part C.</li>
+    <li>Part D lists things <b>not</b> to say, because they overclaim. Read it once before the talk.</li>
+  </ul>
+</div>
+
+<div class="box nobreak">
+  <div class="label" style="margin-top:0">Time plan · 8 slides · about 9 minutes</div>
+  <table>
+    <tr><td>1 · Title</td><td class="t">0:30</td><td>5 · Names and the place-name table</td><td class="t">1:30</td></tr>
+    <tr><td>2 · The dataset and its labels</td><td class="t">1:10</td><td>6 · Answers and live demo</td><td class="t">1:30</td></tr>
+    <tr><td>3 · 383 gold articles</td><td class="t">1:20</td><td>7 · Conclusion and next steps</td><td class="t">0:50</td></tr>
+    <tr><td>4 · 62k articles, 16 of 19, label agreement</td><td class="t">1:30</td><td>8 · Thank you</td><td class="t">0:10</td></tr>
+    <tr><td></td><td></td><td><b>Total</b></td><td class="t"><b>8:30</b></td></tr>
+  </table>
+  <p style="margin:2mm 0 0; font-size:9.5pt; color:#5b6770">Running long? Shorten the label part of slide 2 and the chunking part of slide 5 first. Running short? Add the "Background" points on slides 4 and 6.</p>
+</div>
+
+<div class="box nobreak">
+  <div class="label" style="margin-top:0">The whole talk in 60 seconds</div>
+  <p>Since the 2021 coup, most first-hand reporting on Myanmar is in Burmese, and most international crisis workers can't read it. The question: can someone ask in English and get answers from Burmese news without translating it first?</p>
+  <p>Three things were built. <b>(1) A dataset</b> of 134,667 Burmese articles from 5 outlets, with newsroom topic labels. <b>(2) Classifiers:</b> a 7-label humanitarian classifier trained on 383 hand-labelled articles, and a 19-topic classifier trained on 62k DVB articles. <b>(3) A search-and-answer system:</b> English question in, Burmese articles found by meaning, English answer with citations out.</p>
+  <p>Main findings: part of the classifiers' error is in the labels themselves; more labelled data mattered more than a bigger model; and meaning crosses languages but sounded-out names don't, which a small place-name table partly fixes.</p>
+</div>
+
+<!-- ============================================================ PART A -->
+<div class="pb"></div>
+<h2 class="part">Part A · Slide by slide</h2>
+<p class="sub">Numbers here were checked against the result files.</p>
+
+<!-- 1 -->
+<div class="slide">
+  <div class="head"><h3>Slide 1 · Reading Myanmar in Burmese</h3><span class="time">0:30</span></div>
+  <div class="label">On screen</div>
+  <p>Title, subtitle, and four numbers: 134,667 articles · 16 of 19 topics won by XLM-R · Recall@10 0.586 · 5/5 refusals and 0 invalid citations.</p>
+  <div class="label">Say</div>
+  <p class="say">Good morning, Professor Al-antari and everyone. This is MyHumNews. Since the 2021 coup, most first-hand reporting on airstrikes, displacement and casualties in Myanmar is written in Burmese. Most people who respond to the crisis internationally don't read Burmese. So the question of this project is: can someone ask in English and get answers from Burmese news, without translating anything first? I built three things to answer it: a dataset of 134,667 Burmese articles, classifiers that label them, and a search-and-answer system. The four numbers here are the headline of each part; I'll explain each one as we go.</p>
+  <div class="label">Why this slide matters</div>
+  <p>It sets the question everything else answers. Come back to that question on slide 7.</p>
+  <p class="trans">Transition: "Let's start with the data."</p>
+</div>
+
+<!-- 2 -->
+<div class="slide">
+  <div class="head"><h3>Slide 2 · MyHumNews: 134,667 Burmese articles</h3><span class="time">1:10</span></div>
+  <div class="label">On screen</div>
+  <p>Four stat cards (134,667 articles · 5 outlets · 372.7M characters · 20 topic labels), a stacked bar (59.6% publisher · 32.7% predicted · 7.7% no label) and an orange "Honest limit" line: only 2 of 13 labels reach 0.80 outside DVB.</p>
+  <div class="label">Say</div>
+  <p class="say">First, the dataset. I crawled five Burmese news outlets, DVB, RFA, The Irrawaddy, BBC Burmese and Myanmar Now, from February 2021 to September 2026. I started with 142,274 rows, removed 7,607 duplicate URLs, cleaned HTML entities and timestamps, and ended with 134,667 articles. It's on Hugging Face as a private, gated dataset. One thing to keep separate: the search system later uses only the 38,092 articles from 2025 onward, and the 20 topic labels here are not the same as the 7 humanitarian labels on the next slide. The topic labels are the newsrooms' own desks, like politics, health or environment: DVB's 19 desks, plus human rights. DVB labels almost everything. For The Irrawaddy and BBC, I mapped their own tags onto DVB's desks, which recovered 14,377 labels. Altogether 59.6% of articles have a label from the publisher. RFA and Myanmar Now have almost none, so a classifier trained only on DVB fills in another 32.7%, with thresholds set for 80% precision. When I tested that classifier on other outlets' real labels, only 2 of 13 topics, economy and arts, actually reached 80% precision. The reason is that each newsroom uses each topic at a different rate. So predicted labels sit in a separate column and are never mixed with the publisher's labels. 7.7% of articles have no label at all.</p>
+  <div class="label">Numbers to know</div>
+  <table>
+    <tr><th>Outlet</th><th>Articles</th><th>Outlet</th><th>Articles</th></tr>
+    <tr><td>DVB</td><td>78,083</td><td>BBC Burmese</td><td>9,279</td></tr>
+    <tr><td>RFA</td><td>23,534</td><td>Myanmar Now</td><td>9,201</td></tr>
+    <tr><td>The Irrawaddy</td><td>14,570</td><td><b>Total</b></td><td><b>134,667</b></td></tr>
+  </table>
+  <div class="label">Background</div>
+  <ul>
+    <li><b>Gated</b> means people must request access and be approved before they can download it.</li>
+    <li>There are three different article counts in the talk. 134,667 is the whole dataset. 62,016 is the DVB articles used for topic classification. 38,092 is the 2025+ articles used for search and the humanitarian classifier.</li>
+    <li><b>Crosswalk:</b> a mapping table from one outlet's tags to DVB's desks. It has 47 mappings. It raised label coverage for The Irrawaddy from 10.2% to 68.2% and for BBC from 23.6% to 87.4%. Some tags were deliberately not mapped, for example "Lifestyle" and "Culture", because they describe a format, not a topic.</li>
+    <li><b>Distant supervision:</b> training on one source's labels (DVB) and applying the model to other sources.</li>
+    <li><b>Precision 0.80:</b> of the articles the model labels "economy", 80% really are economy.</li>
+    <li><b>Why transfer fails:</b> the thresholds were tuned on how often DVB uses each topic. Another outlet using a topic more or less often shifts the right threshold. Sport did worst (0.12 precision).</li>
+  </ul>
+  <div class="label">If asked</div>
+  <div class="qa"><div class="q">Why is it private?</div><div>The articles belong to the newsrooms. It stays gated until I've asked them, and the dataset card gives a takedown contact.</div></div>
+  <div class="qa"><div class="q">Why keep predicted labels in a separate column?</div><div>So nobody uses a guessed label thinking it came from the newsroom. Someone who wants both has to choose that on purpose.</div></div>
+  <p class="trans">Transition: "Now the classifiers, starting with the humanitarian labels."</p>
+</div>
+
+<!-- 3 -->
+<div class="slide">
+  <div class="head"><h3>Slide 3 · 383 gold articles: what moved the score</h3><span class="time">1:20</span></div>
+  <div class="label">On screen</div>
+  <p>A purple "Fair comparison" line (XLM-R cuts 60.1% of gold articles at 512 tokens), three cards: (1) 0.727 vs 0.621, gold only · (2) 0.755 → 0.702, weak labels · (3) +0.040, targeted labels, and a takeaway line.</p>
+  <div class="label">Say</div>
+  <p class="say">One fairness point first. XLM-R, the transformer I compare against, reads at most 512 tokens. Burmese breaks into many small tokens, so 60.1% of the 383 gold articles, 230 of them, are longer than that. The simple TF-IDF model reads the whole article, so in cards 1 and 3 I give it the same first 512 tokens. Otherwise "better model" and "saw more text" get mixed up. This is the humanitarian classifier. It gives each article any of 7 labels: context, shock or event, displacement, casualties, humanitarian access, information and communication, and other. It's trained on the 383 gold articles. With so little data, the simple model wins: 0.727 against 0.621 for XLM-R. I tried two ways to get more training data. First, free weak labels: 16,087 articles labelled automatically by rules on the newsroom's section names, for example "an article in the sport section is 'other'". The more I added, the worse it got, from 0.755 down to 0.702. Second, targeted labels: I ranked the corpus by how likely each article was to carry one of the two rare labels, and the top ones were labelled by hand. Adding 180 of those, XLM-R gained 0.040 while the simple model gained only 0.005, so the gap shrank from 0.106 to 0.071. That points to the gap being about data, not the model. All three random seeds improved, but three seeds is a small sample.</p>
+  <div class="label">Numbers to know</div>
+  <table>
+    <tr><th>Label</th><th>Gold examples</th><th>Label</th><th>Gold examples</th></tr>
+    <tr><td>context</td><td>186</td><td>displacement</td><td>46</td></tr>
+    <tr><td>shock_event</td><td>179</td><td>humanitarian_access</td><td>16</td></tr>
+    <tr><td>casualties</td><td>85</td><td>information_communication</td><td>6</td></tr>
+    <tr><td>other</td><td>69</td><td></td><td></td></tr>
+  </table>
+  <p style="margin-top:1.5mm">Scores are <b>macro-F1 over the 5 labels with at least 20 examples</b>. The two rarest labels are too thin to measure reliably.</p>
+  <div class="label">Background</div>
+  <ul>
+    <li><b>Token:</b> a piece of text the model reads, often part of a word. The median gold article is 564 tokens long.</li>
+    <li><b>XLM-R:</b> a multilingual transformer pre-trained on 100 languages, including Burmese. It is fine-tuned here for labelling.</li>
+    <li><b>TF-IDF + linear SVM:</b> counts character sequences (3 to 5 characters long), weights rare ones higher, and draws a straight-line boundary per label. It's fast, simple and a strong baseline.</li>
+    <li><b>Gold articles:</b> the 383 articles labelled by hand. They are the test set for the humanitarian classifier. 298 were labelled by Hsu Lin Htet and 85 by me.</li>
+    <li><b>F1:</b> combines precision (how many predicted labels are right) and recall (how many true labels are found). 1.0 is perfect.</li>
+    <li><b>Macro-F1:</b> the average F1 across labels, so every label counts equally, rare or common.</li>
+    <li><b>Seeds:</b> XLM-R training has randomness. Running it 3 times with different seeds shows how much the score moves by chance (sd 0.040).</li>
+    <li><b>Weak-label rules and their precision against gold:</b> sport → other 100% · politics → context 92% · military/civil war → shock_event 91% · crime → shock_event 87% · weather → shock_event 86% · economy → context 75%. No newsroom section matches displacement, casualties, humanitarian access or information, so those labels got nothing.</li>
+    <li><b>Did the targeted ranking work?</b> Yes. In the targeted sample, 50.0% and 64.4% of articles carried the two rare labels, against 4.2% and 1.6% in a random sample. Those targeted articles were used only for training, never for testing.</li>
+    <li><b>Tokens:</b> Burmese is about 0.31 tokens per character; the 512-token cut throws away 29.8% of all gold tokens.</li>
+  </ul>
+  <div class="label">If asked</div>
+  <div class="qa"><div class="q">Why does card 2 start at 0.755 when card 1 says 0.727?</div><div>The weak-label test used the simple model on the full text (0.755). Cards 1 and 3 use the matched 512-token input (0.727).</div></div>
+  <div class="qa"><div class="q">Why did weak labels hurt?</div><div>What I measured is that the harm grows with the amount added: 400 was neutral, 16,087 hurt. The rules also only cover the labels that were already strongest. I didn't test exactly why beyond that.</div></div>
+  <div class="qa"><div class="q">Is +0.040 significant?</div><div>Not at the usual level. All three seeds improved, but the paired p-value is about 0.16. I describe it as a direction, not a proof.</div></div>
+  <div class="qa"><div class="q">Does the search model have the same limit?</div><div>Yes, in this project. BGE-M3 can read longer text, but the search index was built from the first 512 tokens of each article.</div></div>
+  <p class="trans">Transition: "If data is the issue, what happens with a lot of it? DVB gives us 62 thousand labelled articles."</p>
+</div>
+
+<!-- 4 -->
+<div class="slide">
+  <div class="head"><h3>Slide 4 · With 62k articles, XLM-R wins 16 of 19 desks</h3><span class="time">1:30</span></div>
+  <div class="label">On screen</div>
+  <p>Card 0.672 (XLM-R macro-F1, linear 0.643) · card 0.124 (COVID-19, down from 0.818) · five bars showing the biggest gains · a purple line: r = +0.874 and κ 0.091.</p>
+  <div class="label">Say</div>
+  <p class="say">Now the same comparison with a lot of data: 62,016 DVB articles with their 19 desk labels. I train on articles up to 2024 and test on 2025 onward, which is how it would really be used: learn from the past, label the future. XLM-R scores 0.672 macro-F1 against 0.643 for the simple model on the same 512 tokens, and wins 16 of 19 topics. The biggest gains are environment, education, arts, election and media, where meaning matters more than a few keywords. The one big loss is COVID-19, down to 0.124, because there's almost no COVID news after 2024: 11 test articles against 1,282 in training. Without COVID, XLM-R scores 0.702. This is one training run. Some topics still score low, so is that the model or the labels? I found 13,283 pairs of near-identical DVB stories, published a few days apart about the same event. For each topic, I measured how often DVB gives both versions the same label. The topics where DVB is inconsistent are the topics where the model scores low: the correlation is 0.874 across the 19 topics. "Social" is labelled consistently only 15% of the time, "ethnic" 18%. So part of the low score is in the labels. For the humanitarian labels, I re-labelled 50 of Hsu Lin Htet's gold articles blind. We agree reasonably on context and casualties, but on humanitarian access kappa is only 0.091: I used it for suffering in general, while the guide means aid reaching people. So the app shows that label separately as low confidence.</p>
+  <div class="label">Numbers to know · classifier</div>
+  <ul>
+    <li>Split: train 31,855 · validation 5,622 · test 24,539.</li>
+    <li>Gains: environment +0.176 (to 0.867) · education +0.143 · arts +0.130 · election +0.125 · media +0.112.</li>
+    <li>Without COVID-19: XLM-R 0.702 vs linear 0.633 (+0.069). Weighted-F1 0.821.</li>
+    <li>Training: XLM-R base, 3 epochs, learning rate 2e-5, batch 16, 512 tokens, on a free Colab T4 GPU. The score rose every epoch (0.635 → 0.660 → 0.672), and the last epoch is reported.</li>
+    <li>The linear model reading full text scores 0.658, so even against that XLM-R is ahead.</li>
+  </ul>
+  <div class="label">Numbers to know · label agreement</div>
+  <ul>
+    <li>Agreement on the 50 articles, before any correction: exact same label set 26% of the time, Jaccard 0.51, mean kappa 0.264.</li>
+    <li>Per label: casualties κ 0.691, context κ 0.500, humanitarian access κ 0.091. I used humanitarian access on 15 articles, Hsu Lin Htet on 1, and we overlapped on 1.</li>
+    <li>Label consistency examples: sport 0.986, social 0.152, ethnic 0.178, women/youth 0.250, religion 0.286.</li>
+  </ul>
+  <div class="label">Background</div>
+  <ul>
+    <li><b>Temporal split:</b> train on older articles and test on newer ones. A random split would put near-identical stories about the same event into both train and test, which inflates the score. Splitting by time costs 0.044 macro-F1 compared to a random split, so the reported number is the harder, more honest one.</li>
+    <li><b>Weighted-F1:</b> like macro-F1, but big topics count more.</li>
+    <li><b>Correlation r:</b> from −1 to +1. 0.874 means the two numbers rise and fall together very closely across the 19 topics.</li>
+    <li><b>Kappa (κ):</b> agreement between two annotators after removing agreement expected by chance. 0 is chance, 1 is perfect, and above about 0.6 is good.</li>
+    <li><b>Is it just rare topics?</b> No. Environment (4.0% of articles) is consistent at 0.895, while social (3.9%) is at 0.152. Same rarity, very different consistency.</li>
+  </ul>
+  <div class="label">If asked</div>
+  <div class="qa"><div class="q">Is +0.029 meaningful with one run?</div><div>One run gives no confidence interval. What supports it is that XLM-R wins 16 of 19 individual topics, not just the average.</div></div>
+  <div class="qa"><div class="q">Why not just merge COVID into health?</div><div>I tested it and it made things worse (full-text 0.658 → 0.651), so it stayed separate.</div></div>
+  <div class="qa"><div class="q">Does the model beat a human annotator?</div><div>No claim of that. The model learned the gold annotator's habits, so agreement with gold isn't a fair human-vs-model comparison.</div></div>
+  <p class="trans">Transition: "That's classification. Now the main part: searching Burmese in English."</p>
+</div>
+
+<!-- 5 -->
+<div class="slide">
+  <div class="head"><h3>Slide 5 · Names break retrieval; a 54-place gazetteer helps</h3><span class="time">1:30</span></div>
+  <div class="label">On screen</div>
+  <p>Two small tables: translated names (lime, ~0.77–0.79) and sounded-out names (orange, lose to Naypyitaw). Three cards: Recall@10 0.517 → 0.586 · place Recall@1 0.118 → 0.235 · chunking 0.207 → 0.103.</p>
+  <div class="label">Say</div>
+  <p class="say">Search works like this: you type an English question, and BGE-M3, a multilingual embedding model, turns the question and every Burmese article into vectors. The closest articles come back, with no translation step. On my 29 test questions, it puts the right article in the top 10 for 0.517 of them. I looked at the 13 questions where the right article wasn't even in the top 20. In 7 of them, it found the right kind of event in the wrong place: a question about Myingyan returned Kawkareik, and Mandalay floods returned Assam. Testing names directly shows why. Names that are translated, like National Unity Government, match their Burmese at 0.79. Names that are only sounded out, places and people, sit around 0.44 to 0.49. "Mandalay" is even closer to Burmese "Naypyitaw" than to Burmese "Mandalay". The fix is a small lookup table: 54 places with their Burmese spelling. If the question names a place and an article contains it, the article's score gets a small bonus, 0.10. Questions without a place don't change at all. One detail matters: Burmese has no spaces between words, so a short name can hide inside other words. <span class="mm">ကလေး</span>, Kalay, also means "child" and appears in 18,086 articles. With the town suffix, <span class="mm">ကလေးမြို့</span>, it's 1,059. Results: on the 17 questions that name a place, the right article at rank 1 goes from 2 to 4 questions. Overall, top-10 goes from 15 to 17 of 29. I tried nine other variants, and splitting articles into 218,000 chunks. Chunking made it worse: 15 questions got worse and only 5 better. With 29 questions, trust the direction more than the exact size.</p>
+  <div class="label">Numbers to know</div>
+  <ul>
+    <li>Translated names: mean 0.734, and all 7 rank their Burmese match first. NUG 0.790 · PDF 0.780 · UN 0.778 · WFP 0.773.</li>
+    <li>Sounded-out names: places mean 0.487, people mean 0.443. Mandalay 0.403 vs Naypyitaw 0.440 · Myingyan 0.364 vs Naypyitaw 0.476 · Aung San Suu Kyi 0.488 vs ASEAN 0.665.</li>
+    <li>Dense-only baseline: Recall@1 0.207 · Recall@5 0.414 · Recall@10 0.517 · Recall@20 0.552.</li>
+    <li>Hybrid: Recall@1 0.207 → 0.276 · Recall@5 0.414 → 0.483 · Recall@10 0.517 → 0.586 · MRR 0.310 → 0.391.</li>
+    <li>Big moves: Myingyan rank 110 → 2 · Tanintharyi 3 → 1.</li>
+    <li>The bonus 0.10 was chosen leave-one-out, and results are flat from 0.05 to 0.5, so it isn't fine-tuned to the test.</li>
+    <li>Things that didn't beat it: IDF weighting, adding people's names, adding 27 topic terms, and chunked search (Recall@1 0.103).</li>
+  </ul>
+  <div class="label">Background</div>
+  <ul>
+    <li><b>Embedding / vector:</b> a list of 1,024 numbers that represents meaning. Texts with similar meaning get similar vectors, even across languages.</li>
+    <li><b>Cosine similarity:</b> how close two vectors point, from −1 to 1. Higher means more similar.</li>
+    <li><b>Known-item question:</b> written from one specific article. A hit means that article comes back.</li>
+    <li><b>Recall@10:</b> the share of questions whose article is in the top 10 results.</li>
+    <li><b>Transliterated:</b> written by sound in another script. "Mandalay" and <span class="mm">မန္တလေး</span> share no meaning-bearing parts the model can align.</li>
+    <li><b>RAG (retrieval-augmented generation):</b> first find relevant documents, then have a language model write an answer from them.</li>
+    <li><b>MRR:</b> the average of 1/rank of the right article, so rank 1 = 1.0 and rank 2 = 0.5. It rewards ranking near the top.</li>
+    <li><b>Leave-one-out:</b> choose the setting using 28 questions and test on the 29th, rotating through all 29. That avoids tuning on the test question.</li>
+    <li><b>Text normalisation:</b> matching ignores spaces and normalises Unicode (NFC), because 18% of articles store the same Burmese letters in a different order.</li>
+    <li><b>Chunking:</b> split long articles into pieces and match the best piece. Here it let many off-topic pieces score high.</li>
+  </ul>
+  <div class="label">If asked</div>
+  <div class="qa"><div class="q">Is 29 questions enough?</div><div>It's small. Each question is about 3.4 points of recall, which is why I give counts. The direction is consistent; the exact size is uncertain.</div></div>
+  <div class="qa"><div class="q">Why not add people's names too?</div><div>I tried it and it didn't change the score on these 29 questions. It's in the plan with new test questions that need it.</div></div>
+  <p class="trans">Transition: "Finding articles is half of it. The other half is answering, and knowing when not to."</p>
+</div>
+
+<!-- 6 -->
+<div class="slide">
+  <div class="head"><h3>Slide 6 · Answers cite their sources; out-of-scope questions are refused</h3><span class="time">1:30</span></div>
+  <div class="label">On screen</div>
+  <p>Left: a screenshot of the live page answering K04. Right: four numbers (5/5 · 0/16 · 16/16 · 0), timing (0.3 s search · ~7 s answer · 4 GB, 2 vCPU, no GPU) and an orange "Open" line about the 12 unchecked answers.</p>
+  <div class="label">Say</div>
+  <p class="say">Can the system say "I don't know" based on the search score alone? No. A question about a SpaceX Starship launch scores 0.647, higher than 24 of my 29 real questions, because there's a Starship article in the corpus. So refusing has to happen when the answer is written. Gemini, on the free tier, reads the top 8 Burmese passages and must say whether they support an answer and which passages it used. Across 49 test questions: all 5 out-of-scope questions were refused. Of the 16 where the right article was retrieved, none was wrongly refused, and all 16 cited it. There were no invalid citations anywhere. Here it is live, on a small Azure VM with no GPU. I asked: how many people fled the fighting around Myingyan? The place table recognised Myingyan and matched its Burmese spelling in 188 articles. Search took about a third of a second, and Gemini wrote the English answer with citations in about 7 seconds. The original Burmese articles are listed below so you can check the sources, and a grey line says the answer hasn't been verified by a human. The honest limit: on 13 questions the right article wasn't in the top 8, and on 12 of those Gemini still answered from other articles on the same topic. I haven't hand-checked those 12 against the Burmese yet.</p>
+  <div class="label">Numbers to know</div>
+  <ul>
+    <li>49 questions: 29 known-item, 15 topical, 5 out-of-scope.</li>
+    <li>Each passage given to Gemini is the first 1,800 characters of the article.</li>
+    <li>An invalid citation means a passage number that wasn't one of the 8 given. There were 0.</li>
+  </ul>
+  <div class="label">Background</div>
+  <ul>
+    <li><b>Out-of-scope / negative question:</b> a question the corpus can't answer. The right behaviour is to refuse.</li>
+    <li><b>False refusal:</b> refusing when the answer was actually there.</li>
+    <li><b>Faithfulness:</b> whether every sentence of the answer is supported by the cited Burmese text. This is not measured yet; it needs a Burmese reader to check.</li>
+  </ul>
+  <div class="label">Deployment</div>
+  <ul>
+    <li>The server runs as a system service that starts on boot, behind HTTPS with a password.</li>
+    <li>Cost: about $30 a month from student cloud credit. Gemini is on the free tier.</li>
+  </ul>
+  <div class="label">If the live demo fails</div>
+  <p>Stay on this slide. The screenshot is a real run. Say: "This is a screenshot of the same query from the live system."</p>
+  <div class="label">If asked</div>
+  <div class="qa"><div class="q">So are the answers correct?</div><div>I've verified refusals and that every citation is a real retrieved passage. Whether each sentence matches the Burmese is the hand check that's still open.</div></div>
+  <div class="qa"><div class="q">Why Gemini and not a local model?</div><div>No budget, and the server has no GPU. The free tier answers in seconds; a local model on a 2-CPU server would be far slower.</div></div>
+  <p class="trans">Transition: "So, back to the question from the start."</p>
+</div>
+
+<!-- 7 -->
+<div class="slide">
+  <div class="head"><h3>Slide 7 · Conclusion and next steps</h3><span class="time">0:50</span></div>
+  <div class="label">On screen</div>
+  <p>Title, three lesson cards (labels · classification · retrieval), and four next steps.</p>
+  <div class="label">Say</div>
+  <p class="say">So, the answer: yes, someone who doesn't read Burmese can ask Burmese news in English and get a cited answer. The right article is in the top 10 for about 6 in 10 questions, and names are the weak spot. Three lessons. One, part of the error is in the labels: where DVB tags the same story inconsistently, the model scores low too. Two, more labels beat a bigger model: with 383 articles the simple model wins, and with 62 thousand XLM-R wins 16 of 19. Three, meaning crosses languages but sounded-out names don't. Next, I'll go from 38 thousand articles to all 134,667, which adds the coup years from 2021. First I'll hand-label about 100 older articles to test the classifier on that period, because it has only seen 2025 news. Then I'll classify and search everything, with new test questions and coup-era places and names. Last, I'll hand-check the 12 answers and ask the newsrooms before a public release.</p>
+  <div class="label">Why test old news first</div>
+  <p>The DVB experiment showed that time shift matters: COVID went from 0.818 to 0.124 between periods. 2021–2022 news is about the coup, protests and strikes, which the model has never seen.</p>
+  <p class="trans">Transition: "Thank you."</p>
+</div>
+
+<!-- 8 -->
+<div class="slide">
+  <div class="head"><h3>Slide 8 · Thank you</h3><span class="time">0:10</span></div>
+  <div class="label">Say</div>
+  <p class="say">Thank you. The demo login and the dataset link are on screen, so you can try it yourselves. I'm happy to take questions, and I can show the live demo if there's time.</p>
+  <div class="label">On screen</div>
+  <p>Demo: https://humnews.indonesiacentral.cloudapp.azure.com/rag/ · username <b>demo</b> · password <b>humnews-demo</b>. Dataset: https://huggingface.co/datasets/usagi-yojimbo/MyHumNews (private for now: anyone not logged in gets an error page, so give access by request).</p>
+</div>
+
+<!-- ============================================================ PART B -->
+<div class="pb"></div>
+<h2 class="part">Part B · Glossary</h2>
+<p class="sub">Plain definitions for every technical term in the talk.</p>
+<table>
+  <tr><td style="width:36mm"><b>BGE-M3</b></td><td>A multilingual embedding model used for search. It turns text in any language into a 1,024-number vector.</td></tr>
+  <tr><td><b>Cosine similarity</b></td><td>How close two vectors are, from −1 to 1. Higher means more similar meaning.</td></tr>
+  <tr><td><b>XLM-R</b></td><td>A multilingual transformer (XLM-RoBERTa base), fine-tuned here to label articles. It reads at most 512 tokens.</td></tr>
+  <tr><td><b>TF-IDF + linear SVM</b></td><td>The simple baseline: counts short character sequences, weights rare ones up, and learns a straight-line boundary per label.</td></tr>
+  <tr><td><b>Token</b></td><td>A small piece of text a model reads. Burmese is about 0.31 tokens per character.</td></tr>
+  <tr><td><b>Gold labels</b></td><td>Labels made by a person reading the article and treated as correct. Here: 383 articles (298 by Hsu Lin Htet, 85 by me).</td></tr>
+  <tr><td><b>Weak labels</b></td><td>Labels made automatically by rules (here, from newsroom section names). Cheap, but not checked by a person.</td></tr>
+  <tr><td><b>Targeted labels</b></td><td>Articles picked by a ranking because they likely carry a rare label, then labelled by hand. Used for training only.</td></tr>
+  <tr><td><b>Precision / recall</b></td><td>Precision: of the labels predicted, how many are right. Recall: of the true labels, how many were found.</td></tr>
+  <tr><td><b>F1 / macro-F1</b></td><td>F1 combines precision and recall. Macro-F1 averages F1 over labels so each label counts equally.</td></tr>
+  <tr><td><b>Weighted-F1</b></td><td>Like macro-F1, but common labels count more.</td></tr>
+  <tr><td><b>Seed</b></td><td>The random starting point for training. Different seeds give slightly different scores.</td></tr>
+  <tr><td><b>Kappa (κ)</b></td><td>Agreement between two annotators, corrected for chance. 0 = chance, 1 = perfect.</td></tr>
+  <tr><td><b>Jaccard</b></td><td>Overlap of two label sets: shared labels divided by all labels used.</td></tr>
+  <tr><td><b>Correlation (r)</b></td><td>How closely two numbers move together, from −1 to +1.</td></tr>
+  <tr><td><b>Temporal split</b></td><td>Train on older data, test on newer data.</td></tr>
+  <tr><td><b>Recall@k</b></td><td>The share of questions whose correct article appears in the top k results.</td></tr>
+  <tr><td><b>MRR</b></td><td>The average of 1 / rank of the correct article. Rewards putting it near the top.</td></tr>
+  <tr><td><b>Known-item question</b></td><td>A test question written from one specific article. Success means finding that article.</td></tr>
+  <tr><td><b>Gazetteer</b></td><td>A place-name list, here 54 English names with their Burmese spellings.</td></tr>
+  <tr><td><b>Transliteration</b></td><td>Writing a name by its sound in another script, e.g. Mandalay ↔ <span class="mm">မန္တလေး</span>.</td></tr>
+  <tr><td><b>Chunking</b></td><td>Splitting articles into smaller pieces for search.</td></tr>
+  <tr><td><b>RAG</b></td><td>Retrieval-augmented generation: find relevant documents, then have a language model answer from them.</td></tr>
+  <tr><td><b>Citation (valid / invalid)</b></td><td>A passage number the answer points to. Invalid means it points to a passage that wasn't given.</td></tr>
+  <tr><td><b>Faithfulness</b></td><td>Whether every sentence of an answer is supported by its sources. Not yet hand-checked.</td></tr>
+  <tr><td><b>Distant supervision</b></td><td>Training on one source's labels and applying the model to a different source.</td></tr>
+  <tr><td><b>Crosswalk</b></td><td>A mapping from one outlet's tags to DVB's desks.</td></tr>
+</table>
+
+<!-- ============================================================ PART C -->
+<div class="pb"></div>
+<h2 class="part">Part C · Question bank</h2>
+<p class="sub">Short, honest answers. If you don't know something, say what was measured and what wasn't.</p>
+
+<div class="label">About the project</div>
+<div class="qa"><div class="q">Why not translate the Burmese to English first?</div><div>I didn't compare against translate-then-search, so I can't say which is better. The point was to test whether search works without translation. Comparing the two is a fair next experiment.</div></div>
+<div class="qa"><div class="q">Who is this for?</div><div>Analysts and responders who need Burmese reporting but don't read Burmese: humanitarian agencies, researchers, journalists outside Myanmar.</div></div>
+<div class="qa"><div class="q">What did you build yourself vs use off the shelf?</div><div>Off the shelf: XLM-R, BGE-M3, Gemini. Built: the crawlers and dataset, the label mapping, the training and evaluation setups, the place table, the answer prompt with refusal and citations, the test questions, and the deployed web app.</div></div>
+
+<div class="label">About the data and labels</div>
+<div class="qa"><div class="q">Is it legal or ethical to publish news articles?</div><div>That's why the dataset is private and gated, with a takedown contact. I'll ask the five newsrooms before making it public.</div></div>
+<div class="qa"><div class="q">Who labelled the gold set?</div><div>383 articles: 298 by Hsu Lin Htet and 85 by me. I then re-labelled 50 of Hsu Lin Htet's articles blind to measure agreement.</div></div>
+<div class="qa"><div class="q">How reliable are the gold labels?</div><div>Moderately. On 50 articles, two annotators chose exactly the same label set 26% of the time, with mean kappa 0.264. Casualties agreement is good (0.691); humanitarian access is poor (0.091).</div></div>
+<div class="qa"><div class="q">Why are there two different label schemes?</div><div>The 20 topic labels are what newsrooms already assign, so they're available at scale. The 7 humanitarian labels are what crisis workers need, but they had to be labelled by hand.</div></div>
+<div class="qa"><div class="q">What's in the 7.7% with no label?</div><div>Articles where neither the publisher's label nor the model's prediction passed the threshold. They're kept in the dataset, unlabelled.</div></div>
+
+<div class="label">About the classifiers</div>
+<div class="qa"><div class="q">Why does XLM-R only read 512 tokens?</div><div>It's a fixed limit of the model's design. The simple model gets the same 512 tokens in every comparison so the comparison is fair.</div></div>
+<div class="qa"><div class="q">Why did the simple model win on 383 articles?</div><div>Transformers need more examples to learn a label. After adding 180 targeted articles, XLM-R gained 8 times as much as the simple model, which points to data as the limit.</div></div>
+<div class="qa"><div class="q">Is +0.029 significant?</div><div>It's one training run, so there's no confidence interval. What supports it is winning 16 of 19 topics.</div></div>
+<div class="qa"><div class="q">Why did you choose the last epoch?</div><div>The score rose every epoch, 0.635 → 0.660 → 0.672, so I report the last one rather than picking the best.</div></div>
+<div class="qa"><div class="q">Why is COVID so bad?</div><div>Only 11 COVID articles exist in the 2025+ test set, against 1,282 in training. There's almost nothing to measure.</div></div>
+<div class="qa"><div class="q">What does r = 0.874 measure?</div><div>For each of the 19 topics, two numbers: how often DVB gives the same label to two near-identical stories, and the model's F1. Across the 19 topics, those two numbers move together with correlation 0.874.</div></div>
+<div class="qa"><div class="q">Couldn't low consistency just mean the topic is rare?</div><div>No. Environment and social are equally rare (about 4% of articles), but environment is consistent at 0.895 and social at 0.152.</div></div>
+
+<div class="label">About search and answers</div>
+<div class="qa"><div class="q">Is 0.586 Recall@10 good?</div><div>It means the right article is in the top 10 for 17 of 29 questions, with no translation step. It's usable for finding sources, not for exhaustive search. It's the best of everything I tried.</div></div>
+<div class="qa"><div class="q">Why only 29 test questions?</div><div>Each was written by hand from a real article and checked. That's slow, and it limits precision, which is why I report counts.</div></div>
+<div class="qa"><div class="q">Why only articles from 2025 onward?</div><div>The test questions were written from 2025–2026 articles. Adding older articles adds distractors and would lower the score for reasons unrelated to the method. Extending to 2021 is the next step, with new test questions.</div></div>
+<div class="qa"><div class="q">Does the search model read whole articles?</div><div>No. The index was built from the first 512 tokens of each article. Gemini then gets the first 1,800 characters of each of the top 8.</div></div>
+<div class="qa"><div class="q">How do you know the answers are right?</div><div>Refusals work (5 of 5), there were no false refusals when the article was there (0 of 16), and no invalid citations (0 in 49). Sentence-by-sentence faithfulness is the open hand check.</div></div>
+<div class="qa"><div class="q">What happens if Gemini changes or the free tier ends?</div><div>Search still works without it; only the written answer needs the model. The prompt could move to another model, but I haven't tested one.</div></div>
+<div class="qa"><div class="q">What does it cost to run?</div><div>About $30 a month for the VM, paid from student cloud credit. Gemini is free tier. No GPU.</div></div>
+
+<!-- ============================================================ PART D -->
+<div class="pb"></div>
+<h2 class="part">Part D · Things not to say</h2>
+<p class="sub">Each of these sounds good but isn't supported. Use the version on the right.</p>
+<table>
+  <tr><th style="width:48%">Don't say</th><th>Say instead</th></tr>
+  <tr><td>"The answers are faithful" / "hallucination-free"</td><td>"Refusals and citations were checked; sentence-level faithfulness isn't hand-checked yet."</td></tr>
+  <tr><td>"This proves the gap was data"</td><td>"It points to data: all 3 seeds improved, p ≈ 0.16."</td></tr>
+  <tr><td>"The model beats a human annotator"</td><td>"The model learned the gold annotator's habits; the chart shows a ceiling."</td></tr>
+  <tr><td>"I labelled the 383 articles"</td><td>"383 hand-labelled articles: 298 by Hsu Lin Htet, 85 by me."</td></tr>
+  <tr><td>"The search reads whole articles"</td><td>"The index uses the first 512 tokens of each article."</td></tr>
+  <tr><td>"It covers 2021 to 2026"</td><td>"The dataset does; search and the humanitarian classifier cover 2025–2026."</td></tr>
+  <tr><td>"Hosting is free"</td><td>"About $30 a month from student credit; Gemini is free tier."</td></tr>
+  <tr><td>"Weak labels hurt because they were noisy"</td><td>"The harm grew with the amount added; I didn't test why beyond that."</td></tr>
+  <tr><td>"Chunking destroys context"</td><td>"Chunking made 15 of 29 questions worse and 5 better."</td></tr>
+  <tr><td>"0.586 is the ceiling of the encoder"</td><td>"0.586 is the best of what I tried."</td></tr>
+  <tr><td>"Percentages like 100% refusal"</td><td>"5 of 5" — the samples are small, so give counts.</td></tr>
+</table>
+
+<div class="label" style="margin-top:6mm">Before the talk</div>
+<ul>
+  <li>Open the live demo once beforehand so it's warm. The demo login (demo / humnews-demo) is on the last slide.</li>
+  <li>If the Wi-Fi fails, slide 6's screenshot is a real run; present from that.</li>
+  <li>Use <b>F</b> for fullscreen and <b>N</b> to show the in-deck notes; the arrow keys move slides.</li>
+</ul>
+
+</body>
+</html>

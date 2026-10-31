@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyHumNews — Reading Myanmar in Burmese</title>
+<!--
+  BDAPP Fall 2026, Sejong University (Prof. Mugahed A. Al-antari)
+  Student: Zwe Htet Aung (23013124)
+  "Reading Myanmar in Burmese" — humanitarian news classification + cross-lingual RAG
+
+  Controls:
+    ← / → / Space / PageUp / PageDown : Navigate slides
+    Home / End : First / Last slide
+    N : Toggle speaker notes
+    F : Toggle fullscreen
+    Cmd+P : Pixel-perfect 1600x900 PDF export (one slide per page)
+    ?check : Headless overflow test
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e1418;
+    --panel: #141d22;
+    --card: #182329;
+    --card-hi: #1d2c34;
+    --ink: #f0f4f6;
+    --ink2: #9aaeb7;
+    --muted: #627782;
+    --lime: #dcfb71;
+    --lime-dim: rgba(220, 251, 113, 0.12);
+    --lime-border: rgba(220, 251, 113, 0.35);
+    --lilac: #b9a5e3;
+    --lilac-dim: rgba(185, 165, 227, 0.12);
+    --blue: #54b5ff;
+    --blue-dim: rgba(84, 181, 255, 0.12);
+    --warn: #ff8e6b;
+    --warn-dim: rgba(255, 142, 107, 0.12);
+    --line: rgba(240, 244, 246, 0.08);
+    --line-strong: rgba(240, 244, 246, 0.15);
+    --sans: "Hanken Grotesk", "Space Grotesk", "Sauce Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --heading: "Space Grotesk", "Hanken Grotesk", sans-serif;
+    --mono: "SF Mono", Menlo, Consolas, "JetBrains Mono", monospace;
+    --mm: "Noto Sans Myanmar", "Myanmar MN", "Myanmar Sangam MN", sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 100%; height: 100%; background: #080c0e; overflow: hidden;
+    font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: antialiased;
+  }
+
+  #viewport { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
+  #stage {
+    width: 1600px; height: 900px; flex: none; position: relative; overflow: hidden;
+    background: var(--bg); transform-origin: center center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  }
+
+  .slide {
+    position: absolute; inset: 0; padding: 56px 80px 48px; display: none;
+    flex-direction: column; justify-content: space-between;
+  }
+  .slide.active { display: flex; }
+
+  /* Header typography */
+  .header { flex: none; }
+  .kicker {
+    font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--lime); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+  }
+  .kicker::before {
+    content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--lime);
+  }
+  h1 { font-family: var(--heading); font-size: 64px; line-height: 1.08; font-weight: 800; letter-spacing: -0.03em; color: #ffffff; }
+  h2 { font-family: var(--heading); font-size: 40px; line-height: 1.15; font-weight: 750; letter-spacing: -0.02em; color: #ffffff; }
+  .lede { font-size: 21px; line-height: 1.5; color: var(--ink2); margin-top: 10px; max-width: 1400px; }
+
+  /* Body container */
+  .body { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+
+  /* Footer */
+  .foot {
+    height: 44px; flex: none; display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--muted);
+  }
+
+  /* Grid Layouts */
+  .grid { display: grid; gap: 24px; align-items: stretch; }
+  .c2 { grid-template-columns: 1fr 1fr; }
+  .c3 { grid-template-columns: repeat(3, 1fr); }
+  .c4 { grid-template-columns: repeat(4, 1fr); }
+  .c64 { grid-template-columns: 1.4fr 1fr; }
+  .c46 { grid-template-columns: 1fr 1.4fr; }
+  .c55 { grid-template-columns: 1.1fr 0.9fr; }
+
+  /* Cards */
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 24px 28px; position: relative; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .card.hi { border-color: var(--lime-border); background: var(--card-hi); }
+  .card.lilac-hi { border-color: rgba(185, 165, 227, 0.4); }
+  .card.warn-hi { border-color: rgba(255, 142, 107, 0.4); }
+  .card h3 { font-family: var(--heading); font-size: 20px; font-weight: 700; margin-bottom: 12px; color: #ffffff; }
+  .card p { font-size: 18px; line-height: 1.5; color: var(--ink2); }
+
+  /* Metric hero units */
+  .stat-card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+    padding: 24px 26px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .stat-card.hi { border-color: var(--lime-border); background: var(--card-hi); }
+  .stat-val {
+    font-family: var(--heading); font-size: 52px; font-weight: 800; line-height: 1;
+    color: var(--lime); letter-spacing: -0.02em;
+  }
+  .stat-val.lilac { color: var(--lilac); }
+  .stat-val.blue { color: var(--blue); }
+  .stat-val.white { color: #ffffff; }
+  .stat-label { font-size: 18px; font-weight: 700; color: var(--ink); margin-top: 12px; }
+  .stat-desc { font-size: 15px; color: var(--ink2); margin-top: 6px; line-height: 1.4; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 18px; }
+  th {
+    text-align: left; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 10px 14px;
+    border-bottom: 1px solid var(--line-strong);
+  }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--line); color: var(--ink2); }
+  td.n, th.n { text-align: right; font-family: var(--mono); }
+  tr.hi td { background: var(--lime-dim); color: #ffffff; font-weight: 650; }
+  tr:last-child td { border-bottom: none; }
+
+  /* Callouts & badges */
+  .callout {
+    border-left: 4px solid var(--lime); background: var(--lime-dim); padding: 16px 20px;
+    border-radius: 0 10px 10px 0; font-size: 18px; line-height: 1.5; color: var(--ink);
+  }
+  .callout.lilac { border-color: var(--lilac); background: var(--lilac-dim); }
+  .callout.warn { border-color: var(--warn); background: var(--warn-dim); }
+  .badge {
+    display: inline-block; align-self: flex-start; width: fit-content;
+    font-family: var(--mono); font-size: 12px; font-weight: 600;
+    padding: 4px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .badge.lime { background: var(--lime-dim); color: var(--lime); border: 1px solid var(--lime-border); }
+  .badge.lilac { background: var(--lilac-dim); color: var(--lilac); border: 1px solid rgba(185, 165, 227, 0.35); }
+  .badge.warn { background: var(--warn-dim); color: var(--warn); border: 1px solid rgba(255, 142, 107, 0.35); }
+
+  /* Bullet lists */
+  ul.bullets { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  ul.bullets li {
+    padding-left: 20px; position: relative; font-size: 16px; line-height: 1.5; color: var(--ink2);
+  }
+  ul.bullets li::before {
+    content: ""; position: absolute; left: 0; top: 0.58em; width: 6px; height: 6px;
+    border-radius: 50%; background: var(--lime);
+  }
+  ul.bullets.lilac li::before { background: var(--lilac); }
+  ul.bullets.warn li::before { background: var(--warn); }
+
+  /* Horizontal sequence / flow */
+  .step-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .step-node {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 22px 20px; display: flex; flex-direction: column; justify-content: flex-start; gap: 8px;
+  }
+  .step-node .step-num { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--lime); }
+  .step-node h4 { font-family: var(--heading); font-size: 20px; font-weight: 700; color: #ffffff; }
+  .step-node p { font-size: 16px; line-height: 1.45; color: var(--ink2); }
+
+  /* Image framing */
+  .fig-frame {
+    background: #ffffff; border-radius: 12px; padding: 10px; display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 12px 36px rgba(0,0,0,0.4);
+    height: 100%; min-height: 380px; max-height: 480px; overflow: hidden;
+  }
+  .fig-frame img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+  /* Comparisons & Horizontal Bars */
+  .bar-list { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+  .bar-row { display: grid; grid-template-columns: 180px 1fr 140px; gap: 14px; align-items: center; font-size: 16px; }
+  .bar-lbl { color: var(--ink); font-weight: 600; text-align: right; }
+  .bar-track { height: 18px; background: rgba(255,255,255,0.06); border-radius: 4px; position: relative; overflow: hidden; }
+  .bar-fill-base { position: absolute; left: 0; top: 0; bottom: 0; background: rgba(154, 174, 183, 0.4); }
+  .bar-fill-gain { position: absolute; top: 0; bottom: 0; background: var(--lime); border-radius: 0 3px 3px 0; }
+  .bar-val { font-family: var(--mono); font-size: 14px; color: var(--ink); text-align: left; }
+
+  /* Utility */
+  .lime { color: var(--lime); }
+  .lilac { color: var(--lilac); }
+  .blue { color: var(--blue); }
+  .warn { color: var(--warn); }
+  .mono { font-family: var(--mono); }
+  .mm { font-family: var(--mm); line-height: 2.2; }
+  b, strong { color: #ffffff; font-weight: 700; }
+
+  /* Slide Controls & Notes */
+  .note { display: none; }
+  #progress { position: absolute; left: 0; bottom: 0; height: 4px; background: var(--lime); z-index: 10; transition: width 0.2s; }
+  #notes {
+    position: fixed; left: 0; right: 0; bottom: 0; max-height: 32vh; overflow-y: auto; display: none;
+    background: rgba(11, 16, 19, 0.97); border-top: 2px solid var(--lime); padding: 20px 40px;
+    font-size: 17px; line-height: 1.6; color: #ffffff; z-index: 100; box-shadow: 0 -10px 30px rgba(0,0,0,0.8);
+  }
+  #notes.open { display: block; }
+  #notes h4 { font-family: var(--mono); font-size: 13px; color: var(--lime); margin-bottom: 6px; text-transform: uppercase; }
+  #ctrl {
+    position: fixed; right: 24px; top: 20px; z-index: 90; font-family: var(--mono); font-size: 12px;
+    color: var(--muted); background: rgba(14, 20, 24, 0.85); border: 1px solid var(--line-strong);
+    border-radius: 999px; padding: 6px 14px; backdrop-filter: blur(8px);
+  }
+
+  @media print {
+    @page { size: 1600px 900px; margin: 0; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    html, body { overflow: visible; height: auto; background: var(--bg); }
+    #viewport { display: block; width: auto; height: auto; }
+    #stage { transform: none !important; height: auto; overflow: visible; box-shadow: none; }
+    .slide { display: flex !important; position: relative; width: 1600px; height: 900px; break-after: page; }
+    #progress, #notes, #ctrl { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div id="viewport">
+<div id="stage">
+<div id="progress"></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SLIDE 1: TITLE HERO
+══════════════════════════════════════════════════════════════ -->
+<section class="slide active">
+  <div class="header">
+    <div class="kicker">BDAPP · Fall 2026 · Sejong University · Prof. Mugahed A. Al-antari</div>
+    <h1>Reading Myanmar in Burmese</h1>
+    <p class="lede" style="font-size: 26px; color: #ffffff; margin-top: 14px; font-weight: 500;">
+      Humanitarian News Classification & Cross-Lingual RAG Without Translation
+    </p>
+    <p class="lede" style="font-size: 18px; color: var(--ink2); margin-top: 6px;">
+      Connecting international crisis analysts directly to frontline Burmese journalism.
+    </p>
+  </div>
+
+  <div class="body">
+    <div class="grid c4">
+      <div class="stat-card hi">
+        <div>
+          <div class="stat-val">134,667</div>
+          <div class="stat-label">Burmese Articles</div>
+        </div>
+        <div class="stat-desc">5 outlets · Feb 2021 – Sep 2026<br>372.7M characters archived</div>
+      </div>
+      <div class="stat-card">
+        <div>
+          <div class="stat-val lilac">16 / 19</div>
+          <div class="stat-label">Desks Won by XLM-R</div>
+        </div>
+        <div class="stat-desc">Macro-F1 0.672 vs 0.643 linear<br>62k articles · Weighted-F1 0.821</div>
+      </div>
+      <div class="stat-card">
+        <div>
+          <div class="stat-val blue">0.586</div>
+          <div class="stat-label">Recall@10 Retrieval</div>
+        </div>
+        <div class="stat-desc">Dense BGE-M3 + Suffix Gazetteer<br>Place-name queries improve most</div>
+      </div>
+      <div class="stat-card">
+        <div>
+          <div class="stat-val white">5/5 · 0</div>
+          <div class="stat-label">Refusals &amp; Citations</div>
+        </div>
+        <div class="stat-desc">5/5 negatives refused<br>0 invalid citations over 49 questions<br>Hand faithfulness check still open</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>Student: Zwe Htet Aung (23013124)</span>
+    <span>01 / 08</span>
+  </div>
+  <div class="note">
+    <h4>Speaker Notes — Slide 1 (Introduction)</h4>
+    Good morning, Professor Al-antari and peers. This is MyHumNews. Since the February 2021 coup in Myanmar, the primary accounts of civilian casualties, airstrikes, and displacement exist almost entirely in Burmese-language reporting. Most international humanitarian responders, however, query in English. Rather than relying on fragile machine translation, this project builds three full deliverables: a 134,667-article corpus, transformer topic classifiers, and an end-to-end English-to-Burmese retrieval and synthesis system.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SLIDE 2: THE HUGGING FACE DATASET + LABELS
+══════════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="header">
+    <div class="kicker">Deliverable 1 · Hugging Face Dataset</div>
+    <h2>MyHumNews: 134,667 Burmese Articles</h2>
+    <p class="lede">Publisher labels and model predictions are kept in separate columns. Private and gated.</p>
+  </div>
+
+  <div class="body">
+    <div class="grid c4">
+      <div class="stat-card hi">
+        <div class="stat-val">134,667</div>
+        <div class="stat-label">Articles</div>
+        <div class="stat-desc">Feb 2021 – Sep 2026 · 7,607 duplicates removed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val lilac">5</div>
+        <div class="stat-label">Outlets</div>
+        <div class="stat-desc">DVB 78k · RFA 24k · Irrawaddy 15k · BBC 9k · Myanmar Now 9k</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val blue">372.7M</div>
+        <div class="stat-label">Characters</div>
+        <div class="stat-desc">83.0% Burmese script</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val white">20</div>
+        <div class="stat-label">Topic labels</div>
+        <div class="stat-desc">19 DVB desks + Human Rights</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display: flex; height: 56px; border-radius: 10px; overflow: hidden; font-family: var(--heading); font-weight: 700; font-size: 20px; color: #0e1418;">
+        <div style="width: 59.6%; background: var(--lime); display: flex; align-items: center; justify-content: center;">59.6% publisher</div>
+        <div style="width: 32.7%; background: var(--lilac); display: flex; align-items: center; justify-content: center;">32.7% predicted</div>
+        <div style="width: 7.7%; background: rgba(255,255,255,0.15);"></div>
+      </div>
+      <div style="display: flex; justify-content: space-between; margin-top: 10px; font-family: var(--mono); font-size: 13px; color: var(--muted);">
+        <span>includes 14,377 crosswalked from Irrawaddy and BBC tags</span>
+        <span>trained on DVB only, set for 0.80 precision</span>
+        <span>no label 7.7%</span>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <strong>Honest limit:</strong> transfer to other outlets mostly fails. Only 2 of 13 labels reach 0.80 precision outside DVB.
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>Deliverable 1 · Dataset</span>
+    <span>02 / 08</span>
+  </div>
+  <div class="note">
+    <h4>Speaker Notes — Slide 2 (Dataset)</h4>
+    This is Deliverable 1. We crawled five Burmese newsrooms from February 2021 to September 2026: 142,274 raw rows, 7,607 duplicate URLs removed, HTML entities and timestamps fixed, giving 134,667 articles on Hugging Face as a private, gated dataset. The 20 labels are real newsroom desks: 19 from DVB plus human rights. We crosswalked Irrawaddy and BBC tags onto them, which gave 14,377 extra publisher labels, so 59.6% of articles have a publisher label. For RFA and Myanmar Now, which have almost none, a classifier trained on DVB fills in 32.7%, with thresholds set for 0.80 precision. Tested on other outlets, only 2 of 13 labels, economy and arts, reached 0.80, because each newsroom uses topics at different rates. So predictions live in their own column and are never merged with publisher labels. Note this dataset is not the RAG index, which uses only 38,092 articles from 2025 onward.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SLIDE 3: HUMSET — SMALL DATA, WEAK SUPERVISION, TARGETED LABELS
+══════════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="header">
+    <div class="kicker">Deliverable 2A · Humanitarian Classifier (7 HumSet labels)</div>
+    <h2>383 Gold Articles: What Moved the Score</h2>
+    <p class="lede">Macro-F1 on labels with at least 20 examples.</p>
+  </div>
+
+  <div class="body">
+    <div class="callout lilac">
+      <strong>Fair comparison:</strong> XLM-R reads only the first 512 tokens, which cuts <strong>60.1%</strong> of gold articles. So cards 1 and 3 give TF-IDF the same 512 tokens. Card 2 is a full-text TF-IDF run.
+    </div>
+
+    <div class="grid c3">
+      <div class="card">
+        <div class="badge lime" style="margin-bottom: 12px;">1 · Gold only</div>
+        <div class="stat-val white" style="font-size: 44px;">0.727 vs 0.621</div>
+        <div class="stat-label">TF-IDF beats XLM-R</div>
+        <div class="stat-desc">XLM-R is the mean of 3 seeds (sd 0.040)</div>
+      </div>
+
+      <div class="card warn-hi">
+        <div class="badge warn" style="margin-bottom: 12px;">2 · Weak labels</div>
+        <div class="stat-val" style="font-size: 44px; color: var(--warn);">0.755 &rarr; 0.702</div>
+        <div class="stat-label">16,087 section-name labels hurt</div>
+        <div class="stat-desc">More weak labels, lower score.</div>
+      </div>
+
+      <div class="card hi">
+        <div class="badge lime" style="margin-bottom: 12px;">3 · Targeted labels</div>
+        <div class="stat-val" style="font-size: 44px;">+0.040</div>
+        <div class="stat-label">XLM-R, after +180 articles</div>
+        <div class="stat-desc">TF-IDF gained +0.005. Gap 0.106 &rarr; 0.071.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Takeaway:</strong> the gap was supervision, not architecture. All 3 seeds improved, but 3 seeds is a small sample (paired p &asymp; 0.16).
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>Deliverable 2A · Humanitarian classifier · 383 gold articles</span>
+    <span>03 / 08</span>
+  </div>
+  <div class="note">
+    <h4>Speaker Notes — Slide 3 (HumSet Classifier)</h4>
+    This is the 7-label humanitarian classifier, trained on 383 gold articles labelled by hand, 298 by Hsu Lin Htet and 85 by me. First, a fairness point: Burmese breaks into many small tokens, so 60.1% of gold articles are longer than XLM-R's 512-token limit. A TF-IDF model reads the whole article, so in cards 1 and 3 I cut it to the same first 512 tokens. With so little data the linear model wins, 0.727 against 0.621 for XLM-R. I tried 16,087 weak labels made by rules on the newsrooms' section names, for example sport section means other. The score went down as I added more, from 0.755 to 0.702. Then I added 180 targeted articles: I ranked the corpus by how likely each article was to carry one of the two rare labels and hand-labelled the top ones. XLM-R gained 0.040 and TF-IDF only 0.005, so the gap shrank from 0.106 to 0.071. All three seeds improved, but with three seeds the evidence is suggestive, not proven.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SLIDE 4: DVB-19 AT SCALE + LABEL RELIABILITY
+══════════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="header">
+    <div class="kicker">Deliverable 2B · Newsroom Topics (19 DVB desks)</div>
+    <h2>With 62k Articles, XLM-R Wins 16 of 19 Desks</h2>
+    <p class="lede">Temporal split: train on articles up to 2024, test on 2025 and later.</p>
+  </div>
+
+  <div class="body">
+    <div class="grid c46">
+      <div class="grid" style="grid-template-rows: 1fr 1fr; gap: 16px;">
+        <div class="stat-card hi">
+          <div class="stat-val">0.672</div>
+          <div class="stat-label">XLM-R macro-F1</div>
+          <div class="stat-desc">Linear model on the same 512 tokens: 0.643</div>
+        </div>
+        <div class="stat-card warn-hi">
+          <div class="stat-val" style="color: var(--warn);">0.124</div>
+          <div class="stat-label">COVID19, down from 0.818</div>
+          <div class="stat-desc">Almost no COVID articles after 2024. Without it: 0.702.</div>
+        </div>
+      </div>
+
+      <div class="card" style="justify-content: center; gap: 18px;">
+        <h3>Biggest gains over the linear model (F1)</h3>
+        <div class="bar-list">
+          <div class="bar-row">
+            <span class="bar-lbl">Environment</span>
+            <div class="bar-track">
+              <div class="bar-fill-base" style="width: 69.1%;"></div>
+              <div class="bar-fill-gain" style="left: 69.1%; width: 17.6%;"></div>
+            </div>
+            <span class="bar-val"><span class="lime">+0.176</span> (0.867)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-lbl">Education</span>
+            <div class="bar-track">
+              <div class="bar-fill-base" style="width: 60.5%;"></div>
+              <div class="bar-fill-gain" style="left: 60.5%; width: 14.3%;"></div>
+            </div>
+            <span class="bar-val"><span class="lime">+0.143</span> (0.748)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-lbl">Arts</span>
+            <div class="bar-track">
+              <div class="bar-fill-base" style="width: 53.8%;"></div>
+              <div class="bar-fill-gain" style="left: 53.8%; width: 13.0%;"></div>
+            </div>
+            <span class="bar-val"><span class="lime">+0.130</span> (0.668)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-lbl">Election</span>
+            <div class="bar-track">
+              <div class="bar-fill-base" style="width: 64.6%;"></div>
+              <div class="bar-fill-gain" style="left: 64.6%; width: 12.5%;"></div>
+            </div>
+            <span class="bar-val"><span class="lime">+0.125</span> (0.771)</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-lbl">Media</span>
+            <div class="bar-track">
+              <div class="bar-fill-base" style="width: 56.5%;"></div>
+              <div class="bar-fill-gain" style="left: 56.5%; width: 11.2%;"></div>
+            </div>
+            <span class="bar-val"><span class="lime">+0.112</span> (0.677)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout lilac">
+      <strong>Low scores often mean the labels disagree.</strong> Across 13,283 near-identical DVB story pairs, newsroom agreement tracks model F1 at <strong>r = +0.874</strong>. On HumSet, two annotators agree at only <strong>&kappa; 0.091</strong> on humanitarian access.
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>62,016 articles: train 31,855 · val 5,622 · test 24,539</span>
+    <span>04 / 08</span>
+  </div>
+  <div class="note">
+    <h4>Speaker Notes — Slide 4 (DVB-19 at Scale)</h4>
+    Now the same question with 62,016 labelled articles and DVB's 19 desks. Train is everything up to 2024 and test is 2025 onward. XLM-R gets 0.672 macro-F1 (a single training run) against 0.643 for the linear model on the same 512 tokens, and it wins 16 of the 19 desks. The biggest gains are on topics where meaning matters more than keywords: environment, education, arts. The one big loss is COVID19, which collapses to 0.124 because there are almost no COVID articles after 2024. Without it XLM-R scores 0.702. Why do some labels score low? I found 13,283 pairs of near-identical DVB stories. When DVB tags the two versions differently, our model also scores low on that label; the correlation is 0.874. So for social and ethnic, part of the low score comes from the labels, not the model. Second check: I re-labelled 50 of Hsu Lin Htet's gold articles blind. On humanitarian access kappa is only 0.091, so that label is shown separately as low confidence in the app.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SLIDE 5: TRANSLITERATION TRAP + SUFFIX GAZETTEER
+══════════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="header">
+    <div class="kicker">Deliverable 3 · Cross-Lingual Retrieval (38,092 articles, 2025+)</div>
+    <h2>Names Break Retrieval; a 54-Place Gazetteer Helps</h2>
+    <p class="lede">English query in, Burmese articles out, no translation. Translated names align, transliterated names don't.</p>
+  </div>
+
+  <div class="body">
+    <div class="grid c2">
+      <div class="card hi">
+        <div class="badge lime" style="margin-bottom: 12px;">Translated · Mean cosine 0.734</div>
+        <table>
+          <tbody>
+            <tr><td>National Unity Govt (NUG)</td><td><span class="mm">အမျိုးသားညီညွတ်ရေးအစိုးရ</span></td><td class="n lime">0.790</td></tr>
+            <tr><td>World Food Programme</td><td><span class="mm">ကမ္ဘာ့စားနပ်ရိက္ခာအစီအစဉ်</span></td><td class="n lime">0.773</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card warn-hi">
+        <div class="badge warn" style="margin-bottom: 12px;">Transliterated · Places 0.487 · People 0.443</div>
+        <table>
+          <tbody>
+            <tr><td>Mandalay (<span class="mm">မန္တလေး</span>)</td><td class="n">0.403</td><td>loses to Naypyitaw <span class="mono warn">0.440</span></td></tr>
+            <tr><td>Myingyan (<span class="mm">မြင်းခြံ</span>)</td><td class="n">0.364</td><td>loses to Naypyitaw <span class="mono warn">0.476</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid c3">
+      <div class="stat-card hi">
+        <div class="stat-val">0.517 &rarr; 0.586</div>
+        <div class="stat-label">Recall@10 (15 &rarr; 17 of 29)</div>
+        <div class="stat-desc">R@1 0.207 &rarr; 0.276 · MRR 0.310 &rarr; 0.391</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val lilac">0.118 &rarr; 0.235</div>
+        <div class="stat-label">Place questions, Recall@1</div>
+        <div class="stat-desc">Myingyan rank 110 &rarr; 2</div>
+      </div>
+      <div class="stat-card warn-hi">
+        <div class="stat-val" style="color: var(--warn);">0.207 &rarr; 0.103</div>
+        <div class="stat-label">Chunking halved Recall@1</div>
+        <div class="stat-desc">15 of 29 questions worse, 5 better</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>BGE-M3 dense + 0.10 &times; gazetteer hit · 29 known-item questions</span>
+    <span>05 / 08</span>
+  </div>
+  <div class="note">
+    <h4>Speaker Notes — Slide 5 (Retrieval)</h4>
+    Deliverable 3 is cross-lingual RAG over 38,092 Burmese articles from 2025 onward, with no translation step. BGE-M3 alone gets 0.517 Recall@10. When I checked the 13 questions where the right article was not even in the top 20, 7 returned the right kind of event in the wrong place: Mandalay floods returned Assam, Naypyitaw housing returned Venezuela. Testing names directly showed why: translated names like National Unity Government align at 0.79, but transliterated place and person names sit around 0.44 to 0.49. Mandalay even scores lower against its own Burmese spelling than against Naypyitaw. So I added a 54-place English-to-Burmese lookup table with a +0.10 bonus. Burmese has no word spaces, so the town suffix is required: bare Kalay also means child and matches 18,086 articles; with the suffix it matches 1,059. Recall@10 rises from 0.517 to 0.586, 15 to 17 of 29 questions, and place-question Recall@1 doubles from 2 to 4 of 17. Questions without a place name do not change. I tested nine other variants and none beat it. Chunking into 218,000 pieces halved Recall@1. n is 29, so treat the direction as firmer than the exact gap.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SLIDE 6: GENERATION + LIVE DEMO
+══════════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="header">
+    <div class="kicker">Deliverable 3 · Answers (Gemini Free Tier) · Live on Azure</div>
+    <h2>Answers Cite Their Sources; Out-of-Scope Questions Are Refused</h2>
+    <p class="lede">The live system answering K04. 49 test questions, top 8 passages each.</p>
+  </div>
+
+  <div class="body">
+    <div class="grid" style="grid-template-columns: 669px 1fr; gap: 44px; align-items: center;">
+      <img src="figures/fig13_live_ui.png" alt="Live MyHumNews page answering a question about Myingyan with citations to Burmese articles"
+           style="width: 669px; height: 560px; object-fit: contain; background: #000; border-radius: 12px; border: 1px solid var(--line-strong); box-shadow: 0 12px 36px rgba(0,0,0,0.5);">
+
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div class="grid c2" style="gap: 16px;">
+          <div class="stat-card hi" style="padding: 18px 22px;">
+            <div class="stat-val" style="font-size: 40px;">5 / 5</div>
+            <div class="stat-label">Negatives refused</div>
+          </div>
+          <div class="stat-card" style="padding: 18px 22px;">
+            <div class="stat-val lilac" style="font-size: 40px;">0 / 16</div>
+            <div class="stat-label">False refusals</div>
+          </div>
+          <div class="stat-card" style="padding: 18px 22px;">
+            <div class="stat-val blue" style="font-size: 40px;">16 / 16</div>
+            <div class="stat-label">Gold article cited</div>
+          </div>
+          <div class="stat-card" style="padding: 18px 22px;">
+            <div class="stat-val white" style="font-size: 40px;">0</div>
+            <div class="stat-label">Invalid citations</div>
+          </div>
+        </div>
+        <div style="font-size: 18px; color: var(--ink2);">
+          <b class="lime">0.3 s</b> search · <b class="lilac">~7 s</b> answer · 4 GB, 2 vCPU, no GPU
+        </div>
+        <div class="callout warn" style="font-size: 16px;">
+          <strong>Open:</strong> 12 answers were written without the gold article retrieved. Hand-checking them against the Burmese is still to do.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>Live system · demo login on the last slide</span>
+    <span>06 / 08</span>
+  </div>
+  <div class="note">
+    <h4>Speaker Notes — Slide 6 (Answers and Live Demo)</h4>
+    Can we reject unanswerable questions with a score cutoff? No: asking about a SpaceX Starship launch gets 0.647 cosine, higher than 24 of our 29 real questions. So refusal happens in the generator. Gemini reads the top 8 Burmese passages and returns JSON saying whether the passages support an answer, plus which passages it used. Across 49 questions, all 5 out-of-scope questions were refused, none of the 16 answerable questions with the gold article retrieved were falsely refused, all 16 cited the gold article, and 0 citations were invalid. The screenshot is the live system on a small Azure VM with no GPU, answering K04: how many people fled the fighting around Myingyan. Search takes about a third of a second and the full answer about 7 seconds. The original Burmese articles are listed under the answer so a reader can check. One honest limit: on 12 questions where the gold article was not in the top 8, Gemini answered from other articles on the same topic, and hand-checking those 12 is still open work.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SLIDE 7: CONCLUSION & VERIFIED CONTRIBUTIONS
+══════════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="header">
+    <div class="kicker">Conclusion</div>
+    <h2>Ask Burmese News in English, Get Cited Answers</h2>
+    <p class="lede">Right article in the top 10 for 6 in 10 questions. Names are the weak spot.</p>
+  </div>
+
+  <div class="body">
+    <div class="grid c3">
+      <div class="card hi" style="justify-content: flex-start;">
+        <div class="badge lime" style="margin-bottom: 14px;">Labels</div>
+        <h3 style="font-size: 26px;">Part of the error is in the labels</h3>
+        <p>r = 0.874</p>
+      </div>
+      <div class="card lilac-hi" style="justify-content: flex-start;">
+        <div class="badge lilac" style="margin-bottom: 14px;">Classification</div>
+        <h3 style="font-size: 26px;">More labels beat a bigger model</h3>
+        <p>XLM-R wins 16 of 19 at 62k articles</p>
+      </div>
+      <div class="card warn-hi" style="justify-content: flex-start;">
+        <div class="badge warn" style="margin-bottom: 14px;">Retrieval</div>
+        <h3 style="font-size: 26px;">Meaning crosses languages, names don't</h3>
+        <p>Recall@10 0.586</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="kicker" style="margin-bottom: 14px;">Next · all 134,667 articles, 2021–2026</div>
+      <div class="step-flow">
+        <div class="step-node"><div class="step-num">01</div><h4>Test on 2021–2024</h4></div>
+        <div class="step-node"><div class="step-num">02</div><h4>Classify everything</h4></div>
+        <div class="step-node"><div class="step-num">03</div><h4>Search everything</h4></div>
+        <div class="step-node"><div class="step-num">04</div><h4>Check, then release</h4></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>Conclusion · MyHumNews · Zwe Htet Aung</span>
+    <span>07 / 08</span>
+  </div>
+  <div class="note">
+    <h4>Speaker Notes — Slide 7 (Conclusion)</h4>
+    The point of this project: someone who doesn't read Burmese can ask Burmese news a question in English and get a cited answer. The right article is in the top 10 for about 6 in 10 of our test questions, and names are the weak spot. Three lessons. First, part of the error is in the labels: when DVB tags near-identical stories differently, the model scores low on that topic too. Second, more labels beat a bigger model: with 383 hand-labelled articles the simple model wins, with 62 thousand XLM-R wins 16 of 19 topics. Third, meaning crosses languages but transliterated names don't, which is why the place-name table helped. Next, I'll go from the 38 thousand articles of 2025 onward to all 134,667, which adds the coup years. First I'll hand-label about 100 older articles to check the classifier still works on that period, since it has only seen 2025 news. Then classify and search everything, with new test questions and coup-era place and people names, and last, hand-check the 12 unverified answers and ask the newsrooms before a public release.
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     SLIDE 8: THANK YOU
+══════════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="header">
+    <div class="kicker">MyHumNews · Reading Myanmar in Burmese</div>
+  </div>
+
+  <div class="body" style="justify-content: center; gap: 18px;">
+    <h1 style="font-size: 120px;">Thank you</h1>
+    <p class="lede" style="font-size: 32px; color: var(--lime); margin-top: 0;">Questions?</p>
+    <div class="grid c2" style="margin-top: 36px; gap: 24px;">
+      <div class="card hi" style="justify-content: flex-start; gap: 10px;">
+        <div class="badge lime">Try the live demo</div>
+        <div class="mono" style="font-size: 19px; color: var(--lime); word-break: break-all;">https://humnews.indonesiacentral.cloudapp.azure.com/rag/</div>
+        <div style="font-size: 20px; color: var(--ink2);">Username <span class="mono" style="color: #fff;">demo</span> &nbsp;·&nbsp; Password <span class="mono" style="color: #fff;">humnews-demo</span></div>
+      </div>
+      <div class="card lilac-hi" style="justify-content: flex-start; gap: 10px;">
+        <div class="badge lilac">Dataset</div>
+        <div class="mono" style="font-size: 19px; color: var(--lilac); word-break: break-all;">https://huggingface.co/datasets/usagi-yojimbo/MyHumNews</div>
+        <div style="font-size: 20px; color: var(--ink2);">Private for now · access on request</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>Zwe Htet Aung (23013124) · BDAPP Fall 2026 · Sejong University</span>
+    <span>08 / 08</span>
+  </div>
+  <div class="note">
+    <h4>Speaker Notes — Slide 8 (Thank You)</h4>
+    Thank you. The demo login and the dataset link are on screen, so you can try it yourself. I'm happy to take questions, and I can show the live demo if there is time.
+  </div>
+</section>
+
+</div><!-- /#stage -->
+</div><!-- /#viewport -->
+
+<div id="notes"></div>
+<div id="ctrl">← → Navigate · [N] Notes · [F] Fullscreen · <span id="count">1 / 8</span></div>
+
+<script>
+(function () {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const stage = document.getElementById('stage');
+  const notes = document.getElementById('notes');
+  const count = document.getElementById('count');
+  const progress = document.getElementById('progress');
+  let current = 0;
+
+  function fit() {
+    const scale = Math.min(window.innerWidth / 1600, window.innerHeight / 900);
+    stage.style.transform = `scale(${scale})`;
+  }
+
+  function show(idx) {
+    current = Math.max(0, Math.min(slides.length - 1, idx));
+    slides.forEach((el, k) => el.classList.toggle('active', k === current));
+    count.textContent = `${current + 1} / ${slides.length}`;
+    progress.style.width = `${((current + 1) / slides.length) * 100}%`;
+    const noteEl = slides[current].querySelector('.note');
+    notes.innerHTML = noteEl ? noteEl.innerHTML : '<em>No speaker notes for this slide.</em>';
+    history.replaceState(null, '', '#' + (current + 1));
+  }
+
+  window.addEventListener('keydown', e => {
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) {
+      e.preventDefault(); show(current + 1);
+    } else if (['ArrowLeft', 'PageUp'].includes(e.key)) {
+      e.preventDefault(); show(current - 1);
+    } else if (e.key === 'Home') {
+      e.preventDefault(); show(0);
+    } else if (e.key === 'End') {
+      e.preventDefault(); show(slides.length - 1);
+    } else if (e.key.toLowerCase() === 'n') {
+      notes.classList.toggle('open');
+    } else if (e.key.toLowerCase() === 'f') {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+  });
+
+  stage.addEventListener('click', e => {
+    // Click on left/right half to advance/retreat
+    if (e.clientX > window.innerWidth / 2) {
+      show(current + 1);
+    } else {
+      show(current - 1);
+    }
+  });
+
+  window.addEventListener('resize', fit);
+  fit();
+
+  // Load from hash if present
+  const hashIdx = parseInt(window.location.hash.slice(1), 10);
+  show(Number.isFinite(hashIdx) ? hashIdx - 1 : 0);
+
+  // Check overflow if ?check is passed
+  if (window.location.search.includes('check')) {
+    const overflows = [];
+    slides.forEach((el, k) => {
+      const prevDisplay = el.style.display;
+      el.style.display = 'flex';
+      const body = el.querySelector('.body');
+      if (body && body.scrollHeight > body.clientHeight + 1) {
+        overflows.push(`Slide ${k + 1}: ${body.scrollHeight - body.clientHeight}px`);
+      }
+      el.style.display = prevDisplay;
+    });
+    document.body.setAttribute('data-overflow', overflows.join(', ') || 'none');
+    console.log('Overflow check:', overflows.join(', ') || 'none');
+  }
+})();
+</script>
+</body>
+</html>

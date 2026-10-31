@@ -1,0 +1,157 @@
+{
+ "target_precision": 0.8,
+ "min_consistency": 0.4,
+ "config": {
+  "C": 0.5,
+  "max_feat": 300000,
+  "min_df": 2
+ },
+ "trained_on": "dvb_burmese publisher-labelled only",
+ "n_train": 52715,
+ "n_val": 9303,
+ "n_crossoutlet_test": 18217,
+ "n_to_predict": 54432,
+ "excluded_labels": {
+  "ဘာသာရေး": 0.2857,
+  "လူမှုရေး": 0.1518,
+  "တိုင်းရင်းသား": 0.178,
+  "အမျိုးသမီး/လူငယ်": 0.25
+ },
+ "per_label": {
+  "sport": {
+   "train_pos": 4569,
+   "threshold": -0.8637,
+   "val_precision": 0.8004,
+   "val_recall": 1.0,
+   "xout_positives": 165,
+   "xout_precision": 0.1159,
+   "xout_recall": 0.9636
+  },
+  "နိုင်ငံတကာ": {
+   "train_pos": 12615,
+   "threshold": -0.8469,
+   "val_precision": 0.8001,
+   "val_recall": 0.9977,
+   "xout_positives": 3934,
+   "xout_precision": 0.6047,
+   "xout_recall": 0.7758
+  },
+  "ငြိမ်းချမ်းရေး/စစ်ရေး": {
+   "train_pos": 13256,
+   "threshold": -0.0713,
+   "val_precision": 0.8001,
+   "val_recall": 0.922,
+   "xout_positives": 6609,
+   "xout_precision": 0.7238,
+   "xout_recall": 0.5273
+  },
+  "အလုပ်သမား/ရွှေ့ပြောင်းလုပ်သား": {
+   "train_pos": 1519,
+   "threshold": 0.1256,
+   "val_precision": 0.8,
+   "val_recall": 0.8281,
+   "xout_positives": 227,
+   "xout_precision": 0.4734,
+   "xout_recall": 0.9031
+  },
+  "COVID19": {
+   "train_pos": 1237,
+   "threshold": -0.5261,
+   "val_precision": 0.8019,
+   "val_recall": 0.9884,
+   "xout_positives": 439,
+   "xout_precision": 0.6909,
+   "xout_recall": 0.8656
+  },
+  "ကျန်းမာရေး": {
+   "train_pos": 1269,
+   "threshold": 0.9435,
+   "val_precision": 0.8,
+   "val_recall": 0.3697,
+   "xout_positives": 492,
+   "xout_precision": 0.7619,
+   "xout_recall": 0.0976
+  },
+  "စီးပွားရေး": {
+   "train_pos": 2436,
+   "threshold": 0.1853,
+   "val_precision": 0.8009,
+   "val_recall": 0.8531,
+   "xout_positives": 2215,
+   "xout_precision": 0.8595,
+   "xout_recall": 0.6546
+  },
+  "စိုက်ပျိုးရေး/တောင်သူလယ်သမား": {
+   "train_pos": 482,
+   "threshold": 0.604,
+   "val_precision": 0.8,
+   "val_recall": 0.5652,
+   "xout_positives": 0,
+   "xout_precision": null,
+   "xout_recall": null
+  },
+  "သဘာဝပတ်ဝန်းကျင်/ရာသီဥတု/မိုးလေဝသ": {
+   "train_pos": 2079,
+   "threshold": -0.0629,
+   "val_precision": 0.8009,
+   "val_recall": 0.9111,
+   "xout_positives": 651,
+   "xout_precision": 0.6712,
+   "xout_recall": 0.6866
+  },
+  "crime": {
+   "train_pos": 4367,
+   "threshold": 0.3682,
+   "val_precision": 0.8003,
+   "val_recall": 0.7576,
+   "xout_positives": 1447,
+   "xout_precision": 0.603,
+   "xout_recall": 0.0829
+  },
+  "ပညာရေး/နည်းပညာ": {
+   "train_pos": 838,
+   "threshold": 0.2337,
+   "val_precision": 0.803,
+   "val_recall": 0.7413,
+   "xout_positives": 327,
+   "xout_precision": 0.5152,
+   "xout_recall": 0.2599
+  },
+  "အနုပညာ": {
+   "train_pos": 388,
+   "threshold": 0.4853,
+   "val_precision": 0.8182,
+   "val_recall": 0.5094,
+   "xout_positives": 546,
+   "xout_precision": 0.8448,
+   "xout_recall": 0.1795
+  },
+  "ရွေးကောက်ပွဲ": {
+   "train_pos": 484,
+   "threshold": 0.513,
+   "val_precision": 0.8,
+   "val_recall": 0.6593,
+   "xout_positives": 800,
+   "xout_precision": 0.5772,
+   "xout_recall": 0.0887
+  },
+  "နိုင်ငံရေး": {
+   "train_pos": 10438,
+   "threshold": 0.6086,
+   "val_precision": 0.8004,
+   "val_recall": 0.4379,
+   "xout_positives": 4621,
+   "xout_precision": 0.5469,
+   "xout_recall": 0.419
+  },
+  "သတင်းမီဒီယာ": {
+   "train_pos": 304,
+   "threshold": 0.2014,
+   "val_precision": 0.8,
+   "val_recall": 0.6667,
+   "xout_positives": 0,
+   "xout_precision": null,
+   "xout_recall": null
+  }
+ }
+}

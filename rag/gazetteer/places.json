@@ -1,0 +1,272 @@
+{
+ "Ayeyarwady": {
+  "burmese": "ဧရာဝတီ",
+  "hits": 3367,
+  "match": "ဧရာဝတီတိုင်း"
+ },
+ "Bago": {
+  "burmese": "ပဲခူး",
+  "hits": 2223,
+  "match": "ပဲခူးတိုင်း"
+ },
+ "Bhamo": {
+  "burmese": "ဗန်းမော်",
+  "hits": 1251,
+  "match": "ဗန်းမော်မြို့"
+ },
+ "Chin": {
+  "burmese": "ချင်း",
+  "hits": 2216,
+  "match": "ချင်းပြည်နယ်"
+ },
+ "China": {
+  "burmese": "တရုတ်",
+  "hits": 39811,
+  "match": "တရုတ်"
+ },
+ "Hpakant": {
+  "burmese": "ဖားကန့်",
+  "hits": 988,
+  "match": "ဖားကန့်မြို့"
+ },
+ "India": {
+  "burmese": "အိန္ဒိယ",
+  "hits": 8997,
+  "match": "အိန္ဒိယ"
+ },
+ "Japan": {
+  "burmese": "ဂျပန်",
+  "hits": 4924,
+  "match": "ဂျပန်"
+ },
+ "Kachin": {
+  "burmese": "ကချင်",
+  "hits": 2541,
+  "match": "ကချင်ပြည်နယ်"
+ },
+ "Kalay": {
+  "burmese": "ကလေး",
+  "hits": 1059,
+  "match": "ကလေးမြို့"
+ },
+ "Kanbalu": {
+  "burmese": "ကန့်ဘလူ",
+  "hits": 375,
+  "match": "ကန့်ဘလူမြို့"
+ },
+ "Kani": {
+  "burmese": "ကနီ",
+  "hits": 581,
+  "match": "ကနီမြို့"
+ },
+ "Karen": {
+  "burmese": "ကရင်",
+  "hits": 2222,
+  "match": "ကရင်ပြည်နယ်"
+ },
+ "Karenni": {
+  "burmese": "ကရင်နီ",
+  "hits": 867,
+  "match": "ကရင်နီပြည်နယ်"
+ },
+ "Kawkareik": {
+  "burmese": "ကော့ကရိတ်",
+  "hits": 365,
+  "match": "ကော့ကရိတ်မြို့"
+ },
+ "Kayah": {
+  "burmese": "ကယား",
+  "hits": 341,
+  "match": "ကယားပြည်နယ်"
+ },
+ "Kayin": {
+  "burmese": "ကရင်",
+  "hits": 2222,
+  "match": "ကရင်ပြည်နယ်"
+ },
+ "Kyaukme": {
+  "burmese": "ကျောက်မဲ",
+  "hits": 825,
+  "match": "ကျောက်မဲမြို့"
+ },
+ "Kyaukphyu": {
+  "burmese": "ကျောက်ဖြူ",
+  "hits": 1100,
+  "match": "ကျောက်ဖြူမြို့"
+ },
+ "Lashio": {
+  "burmese": "လားရှိုး",
+  "hits": 1712,
+  "match": "လားရှိုးမြို့"
+ },
+ "Launglon": {
+  "burmese": "လောင်းလုံး",
+  "hits": 113,
+  "match": "လောင်းလုံးမြို့"
+ },
+ "Lemyethna": {
+  "burmese": "လေးမျက်နှာ",
+  "hits": 753,
+  "match": "လေးမျက်နှာမြို့"
+ },
+ "Madaya": {
+  "burmese": "မတ္တရာ",
+  "hits": 742,
+  "match": "မတ္တရာမြို့"
+ },
+ "Magway": {
+  "burmese": "မကွေး",
+  "hits": 3290,
+  "match": "မကွေးတိုင်း"
+ },
+ "Mandalay": {
+  "burmese": "မန္တလေး",
+  "hits": 3448,
+  "match": "မန္တလေးတိုင်း"
+ },
+ "Maungdaw": {
+  "burmese": "မောင်တော",
+  "hits": 466,
+  "match": "မောင်တောမြို့"
+ },
+ "Mogok": {
+  "burmese": "မိုးကုတ်",
+  "hits": 1299,
+  "match": "မိုးကုတ်မြို့"
+ },
+ "Mon": {
+  "burmese": "မွန်",
+  "hits": 893,
+  "match": "မွန်ပြည်နယ်"
+ },
+ "Monywa": {
+  "burmese": "မုံရွာ",
+  "hits": 778,
+  "match": "မုံရွာမြို့"
+ },
+ "Myaing": {
+  "burmese": "မြိုင်",
+  "hits": 1013,
+  "match": "မြိုင်မြို့"
+ },
+ "Myawaddy": {
+  "burmese": "မြဝတီ",
+  "hits": 2031,
+  "match": "မြဝတီမြို့"
+ },
+ "Myingyan": {
+  "burmese": "မြင်းခြံ",
+  "hits": 447,
+  "match": "မြင်းခြံမြို့"
+ },
+ "Naungcho": {
+  "burmese": "နောင်ချို",
+  "hits": 1059,
+  "match": "နောင်ချိုမြို့"
+ },
+ "Naypyitaw": {
+  "burmese": "နေပြည်တော်",
+  "hits": 54,
+  "match": "နေပြည်တော်မြို့"
+ },
+ "Nyaunglebin": {
+  "burmese": "ညောင်လေးပင်",
+  "hits": 95,
+  "match": "ညောင်လေးပင်မြို့"
+ },
+ "Pakokku": {
+  "burmese": "ပခုက္ကူ",
+  "hits": 378,
+  "match": "ပခုက္ကူမြို့"
+ },
+ "Pale": {
+  "burmese": "ပုလဲ",
+  "hits": 570,
+  "match": "ပုလဲမြို့"
+ },
+ "Pauk": {
+  "burmese": "ပေါက်",
+  "hits": 924,
+  "match": "ပေါက်မြို့"
+ },
+ "Pauktaw": {
+  "burmese": "ပေါက်တော",
+  "hits": 263,
+  "match": "ပေါက်တောမြို့"
+ },
+ "Payathonzu": {
+  "burmese": "ဘုရားသုံးဆူ",
+  "hits": 96,
+  "match": "ဘုရားသုံးဆူမြို့"
+ },
+ "Ponnakyun": {
+  "burmese": "ပုဏ္ဏားကျွန်း",
+  "hits": 603,
+  "match": "ပုဏ္ဏားကျွန်းမြို့"
+ },
+ "Rakhine": {
+  "burmese": "ရခိုင်",
+  "hits": 5352,
+  "match": "ရခိုင်ပြည်နယ်"
+ },
+ "Ramree": {
+  "burmese": "ရမ်းဗြဲ",
+  "hits": 134,
+  "match": "ရမ်းဗြဲမြို့"
+ },
+ "Sagaing": {
+  "burmese": "စစ်ကိုင်း",
+  "hits": 5643,
+  "match": "စစ်ကိုင်းတိုင်း"
+ },
+ "Saw": {
+  "burmese": "ဆော",
+  "hits": 418,
+  "match": "ဆောမြို့"
+ },
+ "Shan": {
+  "burmese": "ရှမ်း",
+  "hits": 3720,
+  "match": "ရှမ်းပြည်နယ်"
+ },
+ "Shwebo": {
+  "burmese": "ရွှေဘို",
+  "hits": 728,
+  "match": "ရွှေဘိုမြို့"
+ },
+ "Sittwe": {
+  "burmese": "စစ်တွေ",
+  "hits": 1393,
+  "match": "စစ်တွေမြို့"
+ },
+ "Tanintharyi": {
+  "burmese": "တနင်္သာရီ",
+  "hits": 1174,
+  "match": "တနင်္သာရီတိုင်း"
+ },
+ "Thabeikkyin": {
+  "burmese": "သပိတ်ကျင်း",
+  "hits": 801,
+  "match": "သပိတ်ကျင်းမြို့"
+ },
+ "Thailand": {
+  "burmese": "ထိုင်း",
+  "hits": 33185,
+  "match": "ထိုင်း"
+ },
+ "Wetlet": {
+  "burmese": "ဝက်လက်",
+  "hits": 825,
+  "match": "ဝက်လက်မြို့"
+ },
+ "Yangon": {
+  "burmese": "ရန်ကုန်",
+  "hits": 1684,
+  "match": "ရန်ကုန်တိုင်း"
+ },
+ "Yekyi": {
+  "burmese": "ရေကြည်",
+  "hits": 516,
+  "match": "ရေကြည်မြို့"
+ }
+}

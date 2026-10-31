@@ -1,0 +1,1602 @@
+[
+ {
+  "burmese": "ရခိုင်",
+  "corpus_count": 5265
+ },
+ {
+  "burmese": "ရှမ်း",
+  "corpus_count": 3657
+ },
+ {
+  "burmese": "ရန်ကုန်",
+  "corpus_count": 2770
+ },
+ {
+  "burmese": "ကချင်",
+  "corpus_count": 2496
+ },
+ {
+  "burmese": "မြဝတီ",
+  "corpus_count": 2402
+ },
+ {
+  "burmese": "မန္တလေး",
+  "corpus_count": 2232
+ },
+ {
+  "burmese": "ကရင်",
+  "corpus_count": 2190
+ },
+ {
+  "burmese": "ချင်း",
+  "corpus_count": 2145
+ },
+ {
+  "burmese": "စစ်တွေ",
+  "corpus_count": 1829
+ },
+ {
+  "burmese": "လားရှိုး",
+  "corpus_count": 1741
+ },
+ {
+  "burmese": "ကျောက်ဖြူ",
+  "corpus_count": 1741
+ },
+ {
+  "burmese": "ပေါက်",
+  "corpus_count": 1636
+ },
+ {
+  "burmese": "မြိုင်",
+  "corpus_count": 1587
+ },
+ {
+  "burmese": "ဝက်လက်",
+  "corpus_count": 1539
+ },
+ {
+  "burmese": "စစ်ကိုင်း",
+  "corpus_count": 1466
+ },
+ {
+  "burmese": "လေးမျက်နှာ",
+  "corpus_count": 1362
+ },
+ {
+  "burmese": "မိုးကုတ်",
+  "corpus_count": 1354
+ },
+ {
+  "burmese": "ကလေး",
+  "corpus_count": 1346
+ },
+ {
+  "burmese": "ဖားကန့်",
+  "corpus_count": 1327
+ },
+ {
+  "burmese": "ဗန်းမော်",
+  "corpus_count": 1292
+ },
+ {
+  "burmese": "နောင်ချို",
+  "corpus_count": 1285
+ },
+ {
+  "burmese": "မတ္တရာ",
+  "corpus_count": 1275
+ },
+ {
+  "burmese": "သပိတ်ကျင်း",
+  "corpus_count": 1202
+ },
+ {
+  "burmese": "ရွှေဘို",
+  "corpus_count": 1100
+ },
+ {
+  "burmese": "မုံရွာ",
+  "corpus_count": 1063
+ },
+ {
+  "burmese": "ပုဏ္ဏားကျွန်း",
+  "corpus_count": 1046
+ },
+ {
+  "burmese": "ကနီ",
+  "corpus_count": 1029
+ },
+ {
+  "burmese": "ပုလဲ",
+  "corpus_count": 985
+ },
+ {
+  "burmese": "ကျောက်မဲ",
+  "corpus_count": 981
+ },
+ {
+  "burmese": "ရေကြည်",
+  "corpus_count": 962
+ },
+ {
+  "burmese": "ချောင်းဦး",
+  "corpus_count": 948
+ },
+ {
+  "burmese": "မွန်",
+  "corpus_count": 879
+ },
+ {
+  "burmese": "စဉ့်ကူး",
+  "corpus_count": 871
+ },
+ {
+  "burmese": "တောင်သာ",
+  "corpus_count": 871
+ },
+ {
+  "burmese": "ကရင်နီ",
+  "corpus_count": 854
+ },
+ {
+  "burmese": "တနင်္သာရီ",
+  "corpus_count": 844
+ },
+ {
+  "burmese": "ဂွ",
+  "corpus_count": 833
+ },
+ {
+  "burmese": "ခင်ဦး",
+  "corpus_count": 790
+ },
+ {
+  "burmese": "မဲဆောက်",
+  "corpus_count": 753
+ },
+ {
+  "burmese": "သာပေါင်း",
+  "corpus_count": 749
+ },
+ {
+  "burmese": "မောင်တော",
+  "corpus_count": 747
+ },
+ {
+  "burmese": "စလင်း",
+  "corpus_count": 732
+ },
+ {
+  "burmese": "ဒီပဲယင်း",
+  "corpus_count": 729
+ },
+ {
+  "burmese": "ပုသိမ်",
+  "corpus_count": 707
+ },
+ {
+  "burmese": "ပလက်ဝ",
+  "corpus_count": 707
+ },
+ {
+  "burmese": "ကန့်ဘလူ",
+  "corpus_count": 707
+ },
+ {
+  "burmese": "ဆော",
+  "corpus_count": 691
+ },
+ {
+  "burmese": "ဘန်ကောက်",
+  "corpus_count": 685
+ },
+ {
+  "burmese": "မြင်းခြံ",
+  "corpus_count": 682
+ },
+ {
+  "burmese": "အင်းတော်",
+  "corpus_count": 664
+ },
+ {
+  "burmese": "ဖလမ်း",
+  "corpus_count": 649
+ },
+ {
+  "burmese": "ကွတ်ခိုင်",
+  "corpus_count": 649
+ },
+ {
+  "burmese": "ဘုတလင်",
+  "corpus_count": 629
+ },
+ {
+  "burmese": "သီပေါ",
+  "corpus_count": 613
+ },
+ {
+  "burmese": "ရေစကြို",
+  "corpus_count": 609
+ },
+ {
+  "burmese": "ဒီးမော့ဆို",
+  "corpus_count": 607
+ },
+ {
+  "burmese": "မင်းတပ်",
+  "corpus_count": 602
+ },
+ {
+  "burmese": "ပခုက္ကူ",
+  "corpus_count": 597
+ },
+ {
+  "burmese": "ညောင်ဦး",
+  "corpus_count": 593
+ },
+ {
+  "burmese": "ကသာ",
+  "corpus_count": 577
+ },
+ {
+  "burmese": "အမ်း",
+  "corpus_count": 573
+ },
+ {
+  "burmese": "နွားထိုးကြီး",
+  "corpus_count": 567
+ },
+ {
+  "burmese": "ရွှေကူ",
+  "corpus_count": 561
+ },
+ {
+  "burmese": "ကျောက်တော်",
+  "corpus_count": 561
+ },
+ {
+  "burmese": "ဗန်းမောက်",
+  "corpus_count": 517
+ },
+ {
+  "burmese": "ဆားလင်းကြီး",
+  "corpus_count": 508
+ },
+ {
+  "burmese": "သံတွဲ",
+  "corpus_count": 500
+ },
+ {
+  "burmese": "မင်းကင်း",
+  "corpus_count": 499
+ },
+ {
+  "burmese": "မိုးဗြဲ",
+  "corpus_count": 489
+ },
+ {
+  "burmese": "မြောက်ဦး",
+  "corpus_count": 484
+ },
+ {
+  "burmese": "ငဖဲ",
+  "corpus_count": 483
+ },
+ {
+  "burmese": "ကော့ကရိတ်",
+  "corpus_count": 478
+ },
+ {
+  "burmese": "မင်းလှ",
+  "corpus_count": 459
+ },
+ {
+  "burmese": "တီးတိန်",
+  "corpus_count": 459
+ },
+ {
+  "burmese": "မြောင်",
+  "corpus_count": 456
+ },
+ {
+  "burmese": "ပေါက်တော",
+  "corpus_count": 454
+ },
+ {
+  "burmese": "မိုးမိတ်",
+  "corpus_count": 453
+ },
+ {
+  "burmese": "ဂန့်ဂေါ",
+  "corpus_count": 453
+ },
+ {
+  "burmese": "ပုလော",
+  "corpus_count": 450
+ },
+ {
+  "burmese": "ရွှေပြည်သာ",
+  "corpus_count": 448
+ },
+ {
+  "burmese": "ဘားအံ",
+  "corpus_count": 438
+ },
+ {
+  "burmese": "ပုသိမ်ကြီး",
+  "corpus_count": 421
+ },
+ {
+  "burmese": "ထို",
+  "corpus_count": 414
+ },
+ {
+  "burmese": "ရေဦး",
+  "corpus_count": 413
+ },
+ {
+  "burmese": "ချောက်",
+  "corpus_count": 409
+ },
+ {
+  "burmese": "ရသေ့တောင်",
+  "corpus_count": 403
+ },
+ {
+  "burmese": "ဖယ်ခုံ",
+  "corpus_count": 400
+ },
+ {
+  "burmese": "နယူးယောက်",
+  "corpus_count": 398
+ },
+ {
+  "burmese": "ငါန်းဇွန်",
+  "corpus_count": 395
+ },
+ {
+  "burmese": "ယင်းမာပင်",
+  "corpus_count": 391
+ },
+ {
+  "burmese": "တောင်ကြီး",
+  "corpus_count": 390
+ },
+ {
+  "burmese": "မြိတ်",
+  "corpus_count": 379
+ },
+ {
+  "burmese": "ပဲခူး",
+  "corpus_count": 375
+ },
+ {
+  "burmese": "ဖရူဆို",
+  "corpus_count": 368
+ },
+ {
+  "burmese": "တောင်ကုတ်",
+  "corpus_count": 362
+ },
+ {
+  "burmese": "အဲဒီ",
+  "corpus_count": 360
+ },
+ {
+  "burmese": "နတ်တလင်း",
+  "corpus_count": 360
+ },
+ {
+  "burmese": "ကောလင်း",
+  "corpus_count": 359
+ },
+ {
+  "burmese": "စတဲ့",
+  "corpus_count": 356
+ },
+ {
+  "burmese": "ကျုံပျော်",
+  "corpus_count": 343
+ },
+ {
+  "burmese": "လွိုင်ကော်",
+  "corpus_count": 343
+ },
+ {
+  "burmese": "ညောင်ရွှေ",
+  "corpus_count": 338
+ },
+ {
+  "burmese": "ပြင်ဦးလွင်",
+  "corpus_count": 337
+ },
+ {
+  "burmese": "လှိုင်သာယာ",
+  "corpus_count": 336
+ },
+ {
+  "burmese": "သိန္နီ",
+  "corpus_count": 336
+ },
+ {
+  "burmese": "ကယား",
+  "corpus_count": 334
+ },
+ {
+  "burmese": "တမူး",
+  "corpus_count": 333
+ },
+ {
+  "burmese": "ရေး",
+  "corpus_count": 330
+ },
+ {
+  "burmese": "မြစ်ကြီးနား",
+  "corpus_count": 325
+ },
+ {
+  "burmese": "ပန်းတောင်း",
+  "corpus_count": 323
+ },
+ {
+  "burmese": "မီဇိုရမ်",
+  "corpus_count": 322
+ },
+ {
+  "burmese": "ချင်းမိုင်",
+  "corpus_count": 315
+ },
+ {
+  "burmese": "မာန်အောင်",
+  "corpus_count": 314
+ },
+ {
+  "burmese": "မူဆယ်",
+  "corpus_count": 314
+ },
+ {
+  "burmese": "မင်းပြား",
+  "corpus_count": 311
+ },
+ {
+  "burmese": "မဟာအောင်မြေ",
+  "corpus_count": 310
+ },
+ {
+  "burmese": "ဆိပ်ဖြူ",
+  "corpus_count": 307
+ },
+ {
+  "burmese": "ဖားဆောင်း",
+  "corpus_count": 295
+ },
+ {
+  "burmese": "သရက်ချောင်း",
+  "corpus_count": 293
+ },
+ {
+  "burmese": "မြောက်ဥက္ကလာပ",
+  "corpus_count": 288
+ },
+ {
+  "burmese": "ယူနန်",
+  "corpus_count": 287
+ },
+ {
+  "burmese": "ဘူးသီးတောင်",
+  "corpus_count": 287
+ },
+ {
+  "burmese": "ငပုတော",
+  "corpus_count": 286
+ },
+ {
+  "burmese": "ဒီ",
+  "corpus_count": 284
+ },
+ {
+  "burmese": "အင်္ဂပူ",
+  "corpus_count": 283
+ },
+ {
+  "burmese": "တန့်ဆည်",
+  "corpus_count": 282
+ },
+ {
+  "burmese": "ကူမင်း",
+  "corpus_count": 267
+ },
+ {
+  "burmese": "ထားဝယ်",
+  "corpus_count": 266
+ },
+ {
+  "burmese": "ဟားခါး",
+  "corpus_count": 265
+ },
+ {
+  "burmese": "ဟင်္သာတ",
+  "corpus_count": 264
+ },
+ {
+  "burmese": "ဖြူး",
+  "corpus_count": 261
+ },
+ {
+  "burmese": "ဆီဆိုင်",
+  "corpus_count": 258
+ },
+ {
+  "burmese": "ဝိုင်းမော်",
+  "corpus_count": 258
+ },
+ {
+  "burmese": "ဖာပွန်",
+  "corpus_count": 256
+ },
+ {
+  "burmese": "ထီးလင်း",
+  "corpus_count": 256
+ },
+ {
+  "burmese": "ပွင့်ဖြူ",
+  "corpus_count": 245
+ },
+ {
+  "burmese": "ကန်ပက်လက်",
+  "corpus_count": 244
+ },
+ {
+  "burmese": "မင်းတုန်း",
+  "corpus_count": 242
+ },
+ {
+  "burmese": "အရာတော်",
+  "corpus_count": 242
+ },
+ {
+  "burmese": "ထီးချိုင့်",
+  "corpus_count": 240
+ },
+ {
+  "burmese": "နတ်မောက်",
+  "corpus_count": 240
+ },
+ {
+  "burmese": "သင်္ဃန်းကျွန်း",
+  "corpus_count": 238
+ },
+ {
+  "burmese": "ကျိုက်ထို",
+  "corpus_count": 238
+ },
+ {
+  "burmese": "အုတ်ဖို",
+  "corpus_count": 235
+ },
+ {
+  "burmese": "မအူပင်",
+  "corpus_count": 233
+ },
+ {
+  "burmese": "ရေတာရှည်",
+  "corpus_count": 228
+ },
+ {
+  "burmese": "တောင်ငူ",
+  "corpus_count": 227
+ },
+ {
+  "burmese": "ရမ်းဗြဲ",
+  "corpus_count": 226
+ },
+ {
+  "burmese": "တစ်",
+  "corpus_count": 226
+ },
+ {
+  "burmese": "ပျဉ်းမနား",
+  "corpus_count": 226
+ },
+ {
+  "burmese": "ကော့သောင်း",
+  "corpus_count": 226
+ },
+ {
+  "burmese": "ဘီးလင်း",
+  "corpus_count": 224
+ },
+ {
+  "burmese": "ကျောက်ကြီး",
+  "corpus_count": 223
+ },
+ {
+  "burmese": "ချမ်းမြသာစည်",
+  "corpus_count": 219
+ },
+ {
+  "burmese": "မံစီ",
+  "corpus_count": 217
+ },
+ {
+  "burmese": "တာချီလိတ်",
+  "corpus_count": 215
+ },
+ {
+  "burmese": "မလှိုင်",
+  "corpus_count": 214
+ },
+ {
+  "burmese": "ဒလ",
+  "corpus_count": 213
+ },
+ {
+  "burmese": "အင်းစိန်",
+  "corpus_count": 208
+ },
+ {
+  "burmese": "ထိန်းချုပ်",
+  "corpus_count": 205
+ },
+ {
+  "burmese": "ဟုမ္မလင်း",
+  "corpus_count": 205
+ },
+ {
+  "burmese": "ပြည်ကြီးတံခွန်",
+  "corpus_count": 205
+ },
+ {
+  "burmese": "လန်ဒန်",
+  "corpus_count": 203
+ },
+ {
+  "burmese": "မရမ်းကုန်း",
+  "corpus_count": 203
+ },
+ {
+  "burmese": "သုံး",
+  "corpus_count": 202
+ },
+ {
+  "burmese": "ဘောလခဲ",
+  "corpus_count": 202
+ },
+ {
+  "burmese": "ပင်လောင်း",
+  "corpus_count": 201
+ },
+ {
+  "burmese": "အောင်မြေသာစံ",
+  "corpus_count": 200
+ },
+ {
+  "burmese": "လောင်းလုံး",
+  "corpus_count": 200
+ },
+ {
+  "burmese": "အမရပူရ",
+  "corpus_count": 200
+ },
+ {
+  "burmese": "တကောင်း",
+  "corpus_count": 194
+ },
+ {
+  "burmese": "မင်္ဂလာဒုံ",
+  "corpus_count": 193
+ },
+ {
+  "burmese": "နမ္မတူ",
+  "corpus_count": 193
+ },
+ {
+  "burmese": "မှော်ဘီ",
+  "corpus_count": 192
+ },
+ {
+  "burmese": "မြင်းမူ",
+  "corpus_count": 191
+ },
+ {
+  "burmese": "နမ့်ခမ်း",
+  "corpus_count": 190
+ },
+ {
+  "burmese": "မိတ္ထီလာ",
+  "corpus_count": 186
+ },
+ {
+  "burmese": "ဒဂုံ",
+  "corpus_count": 186
+ },
+ {
+  "burmese": "မြေပုံ",
+  "corpus_count": 185
+ },
+ {
+  "burmese": "လှည်းကူး",
+  "corpus_count": 185
+ },
+ {
+  "burmese": "ရွှေသောင်ယံ",
+  "corpus_count": 180
+ },
+ {
+  "burmese": "ပြည်",
+  "corpus_count": 180
+ },
+ {
+  "burmese": "မောတောင်",
+  "corpus_count": 178
+ },
+ {
+  "burmese": "လယ်ဝေး",
+  "corpus_count": 176
+ },
+ {
+  "burmese": "ထန်းတပင်",
+  "corpus_count": 176
+ },
+ {
+  "burmese": "ချမ်းအေးသာစံ",
+  "corpus_count": 175
+ },
+ {
+  "burmese": "ညောင်တုန်း",
+  "corpus_count": 171
+ },
+ {
+  "burmese": "တပ်ကုန်း",
+  "corpus_count": 171
+ },
+ {
+  "burmese": "အခြား",
+  "corpus_count": 171
+ },
+ {
+  "burmese": "ဘိုကလေး",
+  "corpus_count": 171
+ },
+ {
+  "burmese": "ညောင်လေးပင်",
+  "corpus_count": 170
+ },
+ {
+  "burmese": "တိုကျို",
+  "corpus_count": 168
+ },
+ {
+  "burmese": "ရွှေကျင်",
+  "corpus_count": 168
+ },
+ {
+  "burmese": "လက်ပံတန်း",
+  "corpus_count": 167
+ },
+ {
+  "burmese": "ဝေါ",
+  "corpus_count": 166
+ },
+ {
+  "burmese": "မဘိမ်း",
+  "corpus_count": 165
+ },
+ {
+  "burmese": "တွန်းဇံ",
+  "corpus_count": 164
+ },
+ {
+  "burmese": "မော်လူး",
+  "corpus_count": 164
+ },
+ {
+  "burmese": "မော်စကို",
+  "corpus_count": 162
+ },
+ {
+  "burmese": "ရေဖြူ",
+  "corpus_count": 162
+ },
+ {
+  "burmese": "နှစ်",
+  "corpus_count": 162
+ },
+ {
+  "burmese": "သာကေတ",
+  "corpus_count": 161
+ },
+ {
+  "burmese": "လှိုင်",
+  "corpus_count": 159
+ },
+ {
+  "burmese": "နယ်စပ်",
+  "corpus_count": 157
+ },
+ {
+  "burmese": "လှိုင်းဘွဲ့",
+  "corpus_count": 156
+ },
+ {
+  "burmese": "ရွှေကုက္ကို",
+  "corpus_count": 153
+ },
+ {
+  "burmese": "ကြို့ပင်ကောက်",
+  "corpus_count": 153
+ },
+ {
+  "burmese": "ကျွန်းစု",
+  "corpus_count": 153
+ },
+ {
+  "burmese": "ကျွန်းလှ",
+  "corpus_count": 152
+ },
+ {
+  "burmese": "မိုးမောက်",
+  "corpus_count": 150
+ },
+ {
+  "burmese": "လသာ",
+  "corpus_count": 148
+ },
+ {
+  "burmese": "စမ်းချောင်း",
+  "corpus_count": 146
+ },
+ {
+  "burmese": "မကွေး",
+  "corpus_count": 145
+ },
+ {
+  "burmese": "ကျောက်တံခါး",
+  "corpus_count": 144
+ },
+ {
+  "burmese": "အုတ်တွင်း",
+  "corpus_count": 144
+ },
+ {
+  "burmese": "ကျုံဒိုး",
+  "corpus_count": 144
+ },
+ {
+  "burmese": "ကမာရွတ်",
+  "corpus_count": 143
+ },
+ {
+  "burmese": "ဇေယျာသီရိ",
+  "corpus_count": 142
+ },
+ {
+  "burmese": "လေး",
+  "corpus_count": 142
+ },
+ {
+  "burmese": "ပုဗ္ဗသီရိ",
+  "corpus_count": 142
+ },
+ {
+  "burmese": "ကိယက်ဗ်",
+  "corpus_count": 140
+ },
+ {
+  "burmese": "ထန်တလန်",
+  "corpus_count": 140
+ },
+ {
+  "burmese": "မော်လမြိုင်",
+  "corpus_count": 135
+ },
+ {
+  "burmese": "လမ်းမတော်",
+  "corpus_count": 134
+ },
+ {
+  "burmese": "မြစ်ခြေ",
+  "corpus_count": 133
+ },
+ {
+  "burmese": "မိုးညှင်း",
+  "corpus_count": 130
+ },
+ {
+  "burmese": "တချို့",
+  "corpus_count": 128
+ },
+ {
+  "burmese": "ပင်လည်ဘူး",
+  "corpus_count": 127
+ },
+ {
+  "burmese": "မြန်အောင်",
+  "corpus_count": 127
+ },
+ {
+  "burmese": "သန်လျင်",
+  "corpus_count": 126
+ },
+ {
+  "burmese": "ဆိုးလ်",
+  "corpus_count": 126
+ },
+ {
+  "burmese": "တနိုင်း",
+  "corpus_count": 126
+ },
+ {
+  "burmese": "ဖျာပုံ",
+  "corpus_count": 125
+ },
+ {
+  "burmese": "ဗဟန်း",
+  "corpus_count": 125
+ },
+ {
+  "burmese": "ဝမ်းတွင်း",
+  "corpus_count": 125
+ },
+ {
+  "burmese": "မင်းဘူး",
+  "corpus_count": 124
+ },
+ {
+  "burmese": "တောင်ဥက္ကလာပ",
+  "corpus_count": 124
+ },
+ {
+  "burmese": "ကျောက်ဆည်",
+  "corpus_count": 124
+ },
+ {
+  "burmese": "မြောက်ဒဂုံ",
+  "corpus_count": 123
+ },
+ {
+  "burmese": "ပေါက်ခေါင်း",
+  "corpus_count": 123
+ },
+ {
+  "burmese": "မန်တုံ",
+  "corpus_count": 122
+ },
+ {
+  "burmese": "မိုးကောင်း",
+  "corpus_count": 120
+ },
+ {
+  "burmese": "မြောင်းမြ",
+  "corpus_count": 120
+ },
+ {
+  "burmese": "တာမွေ",
+  "corpus_count": 119
+ },
+ {
+  "burmese": "လောက်ကိုင်",
+  "corpus_count": 118
+ },
+ {
+  "burmese": "တက္ကဆက်",
+  "corpus_count": 118
+ },
+ {
+  "burmese": "ဥတ္တရသီရိ",
+  "corpus_count": 118
+ },
+ {
+  "burmese": "ဇီးကုန်း",
+  "corpus_count": 117
+ },
+ {
+  "burmese": "မိုင်းရယ်",
+  "corpus_count": 115
+ },
+ {
+  "burmese": "ကမ္မ",
+  "corpus_count": 115
+ },
+ {
+  "burmese": "အောင်လံ",
+  "corpus_count": 115
+ },
+ {
+  "burmese": "စဥ့်ကူး",
+  "corpus_count": 113
+ },
+ {
+  "burmese": "ဝန်းသို",
+  "corpus_count": 113
+ },
+ {
+  "burmese": "သထုံ",
+  "corpus_count": 112
+ },
+ {
+  "burmese": "ဇမ္ဗူသီရိ",
+  "corpus_count": 112
+ },
+ {
+  "burmese": "ရွာငံ",
+  "corpus_count": 112
+ },
+ {
+  "burmese": "တံတားဦး",
+  "corpus_count": 109
+ },
+ {
+  "burmese": "မြို့တ",
+  "corpus_count": 107
+ },
+ {
+  "burmese": "ကျောင်းကုန်း",
+  "corpus_count": 106
+ },
+ {
+  "burmese": "ကလော",
+  "corpus_count": 105
+ },
+ {
+  "burmese": "တီဟီရန်",
+  "corpus_count": 105
+ },
+ {
+  "burmese": "ပေကျင်း",
+  "corpus_count": 105
+ },
+ {
+  "burmese": "ဆန်ခလပူရီ",
+  "corpus_count": 105
+ },
+ {
+  "burmese": "ဘုရားသုံးဆူ",
+  "corpus_count": 104
+ },
+ {
+  "burmese": "ဟိုပုံး",
+  "corpus_count": 104
+ },
+ {
+  "burmese": "စဉ့်ကူး",
+  "corpus_count": 104
+ },
+ {
+  "burmese": "လှိုင်းဘွဲ",
+  "corpus_count": 103
+ },
+ {
+  "burmese": "စနဲ",
+  "corpus_count": 102
+ },
+ {
+  "burmese": "နမ့်ဆန်",
+  "corpus_count": 102
+ },
+ {
+  "burmese": "ကော့မှူး",
+  "corpus_count": 102
+ },
+ {
+  "burmese": "ပန်းတနော်",
+  "corpus_count": 102
+ },
+ {
+  "burmese": "မတူပီ",
+  "corpus_count": 100
+ },
+ {
+  "burmese": "နန်းမယ်ခုံ",
+  "corpus_count": 100
+ },
+ {
+  "burmese": "မုဒုံ",
+  "corpus_count": 99
+ },
+ {
+  "burmese": "ဓနုဖြူ",
+  "corpus_count": 98
+ },
+ {
+  "burmese": "ရမည်းသင်း",
+  "corpus_count": 98
+ },
+ {
+  "burmese": "ရှားတော",
+  "corpus_count": 96
+ },
+ {
+  "burmese": "ကျောက်ထု",
+  "corpus_count": 95
+ },
+ {
+  "burmese": "ပေါင်းတည်",
+  "corpus_count": 95
+ },
+ {
+  "burmese": "ဖောင်းပြင်",
+  "corpus_count": 95
+ },
+ {
+  "burmese": "ကွာလာလမ်ပူ",
+  "corpus_count": 93
+ },
+ {
+  "burmese": "တောင်ဒဂုံ",
+  "corpus_count": 93
+ },
+ {
+  "burmese": "ဒုတိယ",
+  "corpus_count": 93
+ },
+ {
+  "burmese": "ဘုတ်ပြင်း",
+  "corpus_count": 93
+ },
+ {
+  "burmese": "အဆိုပါ",
+  "corpus_count": 93
+ },
+ {
+  "burmese": "ကျိုင်းတုံ",
+  "corpus_count": 91
+ },
+ {
+  "burmese": "စေတုတ္တရာ",
+  "corpus_count": 90
+ },
+ {
+  "burmese": "ဂါဇာ",
+  "corpus_count": 90
+ },
+ {
+  "burmese": "မြ၀တီ",
+  "corpus_count": 89
+ },
+ {
+  "burmese": "အလုံ",
+  "corpus_count": 88
+ },
+ {
+  "burmese": "ကြည့်မြင်တိုင်",
+  "corpus_count": 88
+ },
+ {
+  "burmese": "မယ်စဲ့",
+  "corpus_count": 88
+ },
+ {
+  "burmese": "ကျောက်တံတား",
+  "corpus_count": 87
+ },
+ {
+  "burmese": "လိုင်ဇာ",
+  "corpus_count": 86
+ },
+ {
+  "burmese": "ပလ",
+  "corpus_count": 86
+ },
+ {
+  "burmese": "ပြောပါတယ်။",
+  "corpus_count": 85
+ },
+ {
+  "burmese": "တိုင်းနှင့်",
+  "corpus_count": 85
+ },
+ {
+  "burmese": "ဖလော်ရီဒါ",
+  "corpus_count": 84
+ },
+ {
+  "burmese": "ဆင်ဖြူကျွန်း",
+  "corpus_count": 84
+ },
+ {
+  "burmese": "နယူးဒေလီ",
+  "corpus_count": 84
+ },
+ {
+  "burmese": "လေးကေ့ကော်",
+  "corpus_count": 84
+ },
+ {
+  "burmese": "ခါမ်းပါတ်",
+  "corpus_count": 84
+ },
+ {
+  "burmese": "ဆိပ်ကမ်း",
+  "corpus_count": 82
+ },
+ {
+  "burmese": "တန့်ယန်း",
+  "corpus_count": 82
+ },
+ {
+  "burmese": "ကြံခင်း",
+  "corpus_count": 82
+ },
+ {
+  "burmese": "ယူကရိန်း",
+  "corpus_count": 81
+ },
+ {
+  "burmese": "ပလောင်",
+  "corpus_count": 81
+ },
+ {
+  "burmese": "ကွမ်းခြံကုန်း",
+  "corpus_count": 81
+ },
+ {
+  "burmese": "အိမ်မဲ",
+  "corpus_count": 81
+ },
+ {
+  "burmese": "ငါး",
+  "corpus_count": 81
+ },
+ {
+  "burmese": "သံတောင်ကြီး",
+  "corpus_count": 80
+ },
+ {
+  "burmese": "မော်လိုက်",
+  "corpus_count": 78
+ },
+ {
+  "burmese": "ပါရီ",
+  "corpus_count": 77
+ },
+ {
+  "burmese": "ရနောင်း",
+  "corpus_count": 77
+ },
+ {
+  "burmese": "လက်ကျန်",
+  "corpus_count": 77
+ },
+ {
+  "burmese": "မနီလာ",
+  "corpus_count": 76
+ },
+ {
+  "burmese": "ဘယ်",
+  "corpus_count": 76
+ },
+ {
+  "burmese": "ပုဂံ",
+  "corpus_count": 76
+ },
+ {
+  "burmese": "ပျော်ဘွယ်",
+  "corpus_count": 76
+ },
+ {
+  "burmese": "စဉ့်ကိုင်",
+  "corpus_count": 76
+ },
+ {
+  "burmese": "ဇဗ္ဗူသီရိ",
+  "corpus_count": 76
+ },
+ {
+  "burmese": "ခရိုင်",
+  "corpus_count": 74
+ },
+ {
+  "burmese": "ဟတ်ယိုင်",
+  "corpus_count": 74
+ },
+ {
+  "burmese": "မဏိပူရ်",
+  "corpus_count": 74
+ },
+ {
+  "burmese": "ဝါးခယ်မ",
+  "corpus_count": 73
+ },
+ {
+  "burmese": "ရပ်စောက်",
+  "corpus_count": 72
+ },
+ {
+  "burmese": "မြို့မိ",
+  "corpus_count": 72
+ },
+ {
+  "burmese": "ကန်ကြီးထောင့်",
+  "corpus_count": 72
+ },
+ {
+  "burmese": "ပန်းဘဲတန်း",
+  "corpus_count": 71
+ },
+ {
+  "burmese": "ငပလီ",
+  "corpus_count": 71
+ },
+ {
+  "burmese": "ဂန့်ဂေါ",
+  "corpus_count": 71
+ },
+ {
+  "burmese": "ဒဂုံဆိပ်ကမ်း",
+  "corpus_count": 70
+ },
+ {
+  "burmese": "ဂျီနီဗာ",
+  "corpus_count": 70
+ },
+ {
+  "burmese": "ဒက္ခိဏသီရိ",
+  "corpus_count": 70
+ },
+ {
+  "burmese": "ဗိုလ်တထောင်",
+  "corpus_count": 69
+ },
+ {
+  "burmese": "အာသံ",
+  "corpus_count": 69
+ },
+ {
+  "burmese": "တိုက်ကြီး",
+  "corpus_count": 69
+ },
+ {
+  "burmese": "ပင်းတယ",
+  "corpus_count": 69
+ },
+ {
+  "burmese": "စသည့်",
+  "corpus_count": 69
+ },
+ {
+  "burmese": "တွံတေး",
+  "corpus_count": 68
+ },
+ {
+  "burmese": "မိုင်းဆတ်",
+  "corpus_count": 68
+ },
+ {
+  "burmese": "ဖားကန့်",
+  "corpus_count": 68
+ },
+ {
+  "burmese": "အကြီးဆုံး",
+  "corpus_count": 68
+ },
+ {
+  "burmese": "ဆင်ပေါင်ဝဲ",
+  "corpus_count": 68
+ },
+ {
+  "burmese": "ရောမ",
+  "corpus_count": 67
+ },
+ {
+  "burmese": "ချောင်းဆုံ",
+  "corpus_count": 66
+ },
+ {
+  "burmese": "ကမ်းရိုးတန်း",
+  "corpus_count": 65
+ },
+ {
+  "burmese": "ကျိန္တလီ",
+  "corpus_count": 65
+ },
+ {
+  "burmese": "မောက်မယ်",
+  "corpus_count": 65
+ },
+ {
+  "burmese": "ခေါင်လန်ဖူး",
+  "corpus_count": 64
+ },
+ {
+  "burmese": "ဝါရှင်တန်",
+  "corpus_count": 63
+ },
+ {
+  "burmese": "ဆစ်ဒနီ",
+  "corpus_count": 63
+ },
+ {
+  "burmese": "ပေါင်",
+  "corpus_count": 63
+ },
+ {
+  "burmese": "ကဝ",
+  "corpus_count": 63
+ },
+ {
+  "burmese": "ကိုး",
+  "corpus_count": 63
+ },
+ {
+  "burmese": "မယ်ဆိုင်",
+  "corpus_count": 62
+ },
+ {
+  "burmese": "အမေရိကန်",
+  "corpus_count": 62
+ },
+ {
+  "burmese": "ရေနံချောင်း",
+  "corpus_count": 61
+ },
+ {
+  "burmese": "ပူတာအို",
+  "corpus_count": 60
+ },
+ {
+  "burmese": "ကျိုက်လတ်",
+  "corpus_count": 60
+ },
+ {
+  "burmese": "တက္ကနဖ်",
+  "corpus_count": 60
+ },
+ {
+  "burmese": "ပလက်၀",
+  "corpus_count": 60
+ },
+ {
+  "burmese": "တရုတ်",
+  "corpus_count": 59
+ },
+ {
+  "burmese": "ကန့်ဘလူ",
+  "corpus_count": 59
+ },
+ {
+  "burmese": "သရက်",
+  "corpus_count": 59
+ },
+ {
+  "burmese": "ချီဖွေ",
+  "corpus_count": 59
+ },
+ {
+  "burmese": "ဟိုပန်",
+  "corpus_count": 58
+ },
+ {
+  "burmese": "ဒေါပုံ",
+  "corpus_count": 57
+ },
+ {
+  "burmese": "မြစ်သား",
+  "corpus_count": 57
+ },
+ {
+  "burmese": "အဓိက",
+  "corpus_count": 56
+ },
+ {
+  "burmese": "ဒုတိယအကြီးဆုံး",
+  "corpus_count": 56
+ },
+ {
+  "burmese": "မြို့သစ်",
+  "corpus_count": 56
+ },
+ {
+  "burmese": "ကံမ",
+  "corpus_count": 56
+ },
+ {
+  "burmese": "မုန်း",
+  "corpus_count": 55
+ },
+ {
+  "burmese": "စီးပွားရေး",
+  "corpus_count": 55
+ },
+ {
+  "burmese": "ကိုယ့်",
+  "corpus_count": 55
+ },
+ {
+  "burmese": "ထီးချိုင့်",
+  "corpus_count": 55
+ },
+ {
+  "burmese": "လပွတ္တာ",
+  "corpus_count": 55
+ },
+ {
+  "burmese": "ပဒါန်း",
+  "corpus_count": 55
+ },
+ {
+  "burmese": "ဒေလီ",
+  "corpus_count": 54
+ },
+ {
+  "burmese": "ရန်ကင်း",
+  "corpus_count": 54
+ },
+ {
+  "burmese": "နန်းယွန်း",
+  "corpus_count": 54
+ },
+ {
+  "burmese": "သံဖြူဇရပ်",
+  "corpus_count": 53
+ },
+ {
+  "burmese": "မဲ့အိုင်း",
+  "corpus_count": 53
+ },
+ {
+  "burmese": "မနှစ်",
+  "corpus_count": 52
+ },
+ {
+  "burmese": "ဥသျှစ်ပင်",
+  "corpus_count": 52
+ },
+ {
+  "burmese": "တောင်ပိုင်း",
+  "corpus_count": 52
+ },
+ {
+  "burmese": "မိုင်းလုံ",
+  "corpus_count": 52
+ },
+ {
+  "burmese": "ငရုတ်ကောင်း",
+  "corpus_count": 52
+ },
+ {
+  "burmese": "ဒေးဒရဲ",
+  "corpus_count": 52
+ },
+ {
+  "burmese": "ကျနော်တို့",
+  "corpus_count": 52
+ },
+ {
+  "burmese": "ရှစ်",
+  "corpus_count": 52
+ },
+ {
+  "burmese": "ဆော့လော်",
+  "corpus_count": 51
+ },
+ {
+  "burmese": "ရွှေလီ",
+  "corpus_count": 50
+ },
+ {
+  "burmese": "မဏိပူရ",
+  "corpus_count": 50
+ },
+ {
+  "burmese": "ပုဇွန်တောင်",
+  "corpus_count": 50
+ },
+ {
+  "burmese": "ပိုင်ကျုံ",
+  "corpus_count": 50
+ },
+ {
+  "burmese": "သာစည်",
+  "corpus_count": 50
+ },
+ {
+  "burmese": "သုံးခွ",
+  "corpus_count": 50
+ },
+ {
+  "burmese": "မိုင်းငေါ့",
+  "corpus_count": 50
+ }
+]

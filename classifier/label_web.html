@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RFA labelling</title>
+<style>
+  /* Noto Sans Myanmar ships with macOS; the browser shapes the text properly,
+     which is the whole reason this page exists instead of a terminal. */
+  :root{
+    --bg:#f7f6f3; --panel:#fff; --ink:#1a1a18; --mut:#6b6b66;
+    --line:#e2e0da; --accent:#2f6f4f; --warn:#8a5a2b;
+    --mm:"Noto Sans Myanmar","Myanmar MN","Padauk",sans-serif;
+    --ui:ui-sans-serif,-apple-system,"Helvetica Neue",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#17181a; --panel:#1f2124; --ink:#eceae5; --mut:#9a9a94;
+      --line:#2e3034; --accent:#6fbd92; --warn:#d6a35f;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#17181a; --panel:#1f2124; --ink:#eceae5; --mut:#9a9a94;
+    --line:#2e3034; --accent:#6fbd92; --warn:#d6a35f;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);
+       font-size:15px;line-height:1.5}
+  .wrap{max-width:880px;margin:0 auto;padding:0 16px 140px}
+  header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);
+         padding:12px 0 10px;z-index:5}
+  .bar{height:5px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:8px}
+  .bar>i{display:block;height:100%;background:var(--accent);width:0;transition:width .2s}
+  .meta{display:flex;gap:14px;flex-wrap:wrap;color:var(--mut);font-size:13px;
+        font-variant-numeric:tabular-nums}
+  .meta b{color:var(--ink);font-weight:600}
+  article{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+          padding:22px 24px;margin-top:16px}
+  /* Burmese needs generous line-height: marks stack above AND below the line,
+     and at 1.5 they collide with the neighbouring row. overflow-wrap:anywhere
+     is required because Burmese has no inter-word spaces, so the browser finds
+     no break opportunity and the paragraph would overflow horizontally. */
+  .mm{font-family:var(--mm);overflow-wrap:anywhere;word-break:normal}
+  h1{font-size:25px;line-height:2.0;margin:0 0 14px;font-weight:600}
+  .body{font-size:19px;line-height:2.25;white-space:pre-wrap}
+  .tags{margin-top:14px;color:var(--mut);font-size:13px}
+  footer{position:fixed;left:0;right:0;bottom:0;background:var(--panel);
+         border-top:1px solid var(--line);padding:10px 16px}
+  .keys{max-width:880px;margin:0 auto;display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:6px}
+  button{font-family:var(--ui);font-size:14px;padding:9px 10px;cursor:pointer;
+         background:var(--bg);color:var(--ink);border:1px solid var(--line);
+         border-radius:7px;text-align:left;display:flex;gap:8px;align-items:center}
+  button:hover{border-color:var(--accent)}
+  button kbd{font-family:ui-monospace,monospace;font-size:12px;background:var(--panel);
+             border:1px solid var(--line);border-radius:4px;padding:1px 6px;color:var(--mut)}
+  /* a toggled-on label must be unmistakable at a glance -- the whole risk of
+     multi-select is committing a set you did not mean */
+  button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  button.on kbd{background:rgba(255,255,255,.22);color:#fff;border-color:transparent}
+  button.go{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:600}
+  button.go:disabled{opacity:.35;cursor:not-allowed}
+  #sel{font-size:13px;color:var(--mut);margin-top:7px;min-height:1.3em}
+  #sel b{color:var(--accent)}
+  .defn{font-size:12.5px;color:var(--mut);margin-top:4px;line-height:1.5}
+  .alt{display:flex;gap:6px;justify-content:center;margin-top:7px;flex-wrap:wrap}
+  .alt button{text-align:center;justify-content:center}
+  #done{text-align:center;padding:70px 20px}
+  #done code{display:block;margin-top:14px;font-size:14px;color:var(--mut)}
+  .tally{color:var(--mut);font-size:12px;margin-top:7px;
+         font-variant-numeric:tabular-nums}
+  #help{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:20;
+        overflow:auto;padding:28px 16px;backdrop-filter:blur(2px)}
+  #help .sheet{max-width:620px;margin:0 auto;background:var(--panel);
+        border:1px solid var(--line);border-radius:12px;padding:22px 26px}
+  #help h3{margin:0 0 6px;font-size:17px}
+  #help h4{margin:18px 0 6px;font-size:14px;color:var(--accent);
+           text-transform:uppercase;letter-spacing:.04em}
+  #help p{margin:6px 0;color:var(--mut);font-size:13.5px;line-height:1.6}
+  #help table{width:100%;border-collapse:collapse;font-size:13.5px}
+  #help td{padding:4px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  #help td:last-child{text-align:right;color:var(--accent);white-space:nowrap;
+                      font-weight:600}
+  #help .dim{font-size:12.5px;margin-top:16px}
+  #help code{font-family:ui-monospace,monospace;font-size:12px}
+  #help>.sheet>button{margin-top:16px;width:100%;justify-content:center}
+  @media (max-width:560px){
+    h1{font-size:21px} .body{font-size:17px}
+    .keys{grid-template-columns:repeat(2,1fr)}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="meta">
+      <span><b id="n">0</b> / <span id="tot">0</span></span>
+      <span id="left"></span><span id="date"></span>
+      <span id="chars"></span><span id="eta"></span>
+    </div>
+    <div class="bar"><i id="fill"></i></div>
+    <div class="tally" id="tally"></div>
+    <div id="sel"></div>
+  </header>
+
+  <div id="pick" hidden style="padding:34px 4px;max-width:440px">
+    <h2 style="margin:0 0 8px;font-size:19px">Your name</h2>
+    <p style="color:var(--mut);margin:0 0 14px;font-size:14px">
+      Letters, digits, <code>-</code> and <code>_</code>. It names your label
+      file so your work stays separate from the other annotator's. You only
+      enter it once.</p>
+    <form onsubmit="setName(event)" style="display:flex;gap:8px">
+      <input id="nameIn" autocomplete="off" autofocus
+             style="flex:1;min-width:0;font:inherit;font-size:15px;padding:10px 12px;
+                    background:var(--panel);color:var(--ink);
+                    border:1px solid var(--line);border-radius:8px">
+      <button type="submit" style="justify-content:center">start</button>
+    </form>
+    <p style="color:var(--mut);font-size:13px;margin-top:14px">
+      You will be given <b>every</b> article, in the same order as the other
+      annotator. Whatever you both reach gets double-labelled, which is what
+      makes agreement measurable.</p>
+    <p id="pickErr" hidden style="color:var(--warn);font-size:13px;margin-top:10px"></p>
+  </div>
+
+  <article id="card">
+    <h1 class="mm" id="title"></h1>
+    <div class="mm body" id="body"></div>
+    <div class="tags" id="tags"></div>
+  </article>
+
+  <div id="done" hidden>
+    <h2>All 200 labelled.</h2>
+    <p>Stop the server with Ctrl-C, then measure:</p>
+    <code>python3 -m classifier.score_labels</code>
+  </div>
+</div>
+
+<footer>
+  <div class="keys" id="keys"></div>
+  <div class="alt">
+    <button onclick="commit()" id="nextBtn" class="go"><kbd>↵</kbd> next</button>
+    <button onclick="ambig()"><kbd>a</kbd> ambiguous</button>
+    <button onclick="skip()"><kbd>s</kbd> skip — not an article</button>
+    <button onclick="undo()" id="undoBtn"><kbd>b</kbd> undo last</button>
+    <button onclick="toggleHelp()"><kbd>?</kbd> rules</button>
+  </div>
+</footer>
+
+<div id="help" hidden>
+  <div class="sheet">
+    <h4 style="margin-top:0">international — almost never</h4>
+    <p><b>Only for foreign news with NO Myanmar angle.</b> Of 8,674 gold
+       <code>international</code> articles just <b>1.6%</b> mention Myanmar.
+       A foreign country acting <em>about</em> Myanmar is not international.</p>
+    <table>
+      <tr><td>Vietnamese PM hopes Myanmar stabilises</td><td>politics</td></tr>
+      <tr><td>Switzerland sanctions MOGE</td><td>economy</td></tr>
+      <tr><td>Britain urges action on the military</td><td>politics</td></tr>
+      <tr><td>UN: a third of Myanmar needs aid</td><td>politics</td></tr>
+      <tr><td>Russia tests nuclear weapons</td><td>international</td></tr>
+    </table>
+    <p>Test: <b>delete every mention of Myanmar — does the story survive?</b>
+       Yes &rarr; international. It collapses &rarr; label by its subject.</p>
+
+    <h4>s vs a — not interchangeable</h4>
+    <p><b>s</b> = not an article (programme announcement, boilerplate).
+       <b>a</b> = a real article the taxonomy can't decide.<br>
+       Skips are dropped from scoring, so using <b>s</b> on a hard real article
+       removes it from the measurement and flatters the model. Has a byline and
+       prose? Label it or press <b>a</b> — never <b>s</b>.</p>
+
+    <h3>Label the <em>consequence</em> reported, not the cause</h3>
+    <p>Myanmar's war is the backdrop to nearly everything, so "is the war
+       involved?" never discriminates. Ask what the article actually reports on.</p>
+
+    <h4>Conscription (စစ်မှုထမ်း)</h4>
+    <table>
+      <tr><td>military forcibly rounding people up</td><td>conflict</td></tr>
+      <tr><td>the law, arrests under it, fees and quotas</td><td>politics</td></tr>
+      <tr><td>workers quitting, employers pushing staff out</td><td>economy</td></tr>
+      <tr><td>students leaving for Thailand</td><td>education</td></tr>
+      <tr><td>another country's military service</td><td>international</td></tr>
+    </table>
+
+    <h4>Mining</h4>
+    <table>
+      <tr><td>military attacking a mining area</td><td>conflict</td></tr>
+      <tr><td>jade/gold mine collapse, mud pond burst</td><td><b>press a</b></td></tr>
+    </table>
+    <p>Gold labels contradict themselves on industrial accidents — the same
+       event appears as crime, politics <em>and</em> environment. No answer is
+       right, so don't guess.</p>
+
+    <h4>Landmines</h4>
+    <p>Casualties, risk, clearance &rarr; <b>conflict</b>. Framed around
+       displaced populations &rarr; politics.</p>
+
+    <h4>Quick calls</h4>
+    <table>
+      <tr><td>earthquake, weather, floods</td><td>environment</td></tr>
+      <tr><td>scam compounds, trafficking, drugs</td><td>crime</td></tr>
+      <tr><td>Rohingya, ethnic affairs, human rights, aid</td><td>politics</td></tr>
+      <tr><td>migrant workers abroad</td><td>economy</td></tr>
+      <tr><td>Myanmar at ASEAN/UN</td><td>politics</td></tr>
+      <tr><td>foreign news, no Myanmar angle</td><td>international</td></tr>
+    </table>
+
+    <p class="dim"><b>conflict</b> is first in RESOLUTION_ORDER, so where
+       conflict and politics both fit, conflict wins.<br>
+       Full version: <code>classifier/LABELLING_GUIDE.md</code></p>
+    <button onclick="toggleHelp()">close — Esc</button>
+  </div>
+</div>
+
+<script>
+// Digits 1-9 then 0, matching taxonomy.CLASSES order and label_cli's keys, so
+// muscle memory carries between the two tools.
+const DIGITS = ["1","2","3","4","5","6","7","8","9","0"];
+let S = null, t0 = Date.now(), n0 = null, busy = false;
+// Multi-label: digits TOGGLE into this set, Enter commits it. Single-label
+// keeps the old behaviour where a digit commits immediately.
+let sel = new Set();
+
+function esc(s){ return (s||"").replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+
+function render(){
+  document.getElementById("tot").textContent = S.total;
+  document.getElementById("n").textContent = Math.min(S.done + 1, S.total);
+  document.getElementById("fill").style.width = (S.done / S.total * 100) + "%";
+  document.getElementById("undoBtn").disabled = !S.can_undo;
+
+  if (n0 === null) n0 = S.done;
+  const did = S.done - n0;
+  document.getElementById("eta").textContent = did >= 3
+    ? "~" + Math.round((S.total - S.done) * ((Date.now() - t0) / did) / 60000) + " min left" : "";
+
+  const c = S.counts || {}, parts = [];
+  for (const k of S.classes) if (c[k]) parts.push(k + " " + c[k]);
+  if (c._skipped) parts.push("skipped " + c._skipped);
+  document.getElementById("tally").textContent = parts.join("   ");
+
+  // hosted mode and no name yet -> the name gate owns the screen
+  if (S.hosted && !S.who){
+    document.getElementById("pick").hidden = false;
+    document.getElementById("card").hidden = true;
+    document.getElementById("done").hidden = true;
+    document.getElementById("left").textContent = "";
+    return;
+  }
+  document.getElementById("pick").hidden = true;
+
+  const a = S.article;
+  if (!a){
+    document.getElementById("card").hidden = true;
+    document.getElementById("done").hidden = false;
+    document.getElementById("left").textContent = "";
+    return;
+  }
+  const peers = Object.entries(S.peers || {})
+    .map(([k, v]) => esc(k) + " " + v).join(", ");
+  document.getElementById("left").textContent = (S.total - S.done) + " to go"
+    + (S.who ? "  ·  " + S.who : "")
+    + (peers ? "  ·  also labelling: " + peers : "");
+  document.getElementById("date").textContent = (a.published_date || "").slice(0,10);
+  document.getElementById("chars").textContent = a.n_chars + " chars";
+  document.getElementById("title").textContent = a.title || "(no title)";
+  document.getElementById("body").textContent = a.body || "(empty body)";
+  document.getElementById("tags").innerHTML = (a.tags && a.tags.length)
+    ? "tags: " + a.tags.map(esc).join(", ") : "";
+  window.scrollTo(0,0);
+}
+
+function buildKeys(){
+  document.getElementById("keys").innerHTML = S.classes.map((c,i) => {
+    const name = (S.display && S.display[c]) || c;
+    const fn = S.multi ? `toggle('${c}')` : `send('${c}')`;
+    return `<button id="b-${c}" onclick="${fn}"><kbd>${DIGITS[i]}</kbd>${esc(name)}</button>`;
+  }).join("");
+  document.getElementById("nextBtn").hidden = !S.multi;
+}
+
+function paint(){
+  if (!S.multi) return;
+  for (const c of S.classes){
+    const b = document.getElementById("b-" + c);
+    if (b) b.classList.toggle("on", sel.has(c));
+  }
+  const names = [...sel].map(c => (S.display && S.display[c]) || c);
+  document.getElementById("sel").innerHTML = sel.size
+    ? "selected: <b>" + names.map(esc).join("</b>, <b>") + "</b>  — press ↵ for next"
+    : "no labels selected — press a digit to toggle, or s / a";
+  document.getElementById("nextBtn").disabled = sel.size === 0;
+}
+
+function toggle(c){
+  if (!S.article) return;
+  const ex = S.exclusive;
+  if (c === ex){ // "other" means no humanitarian content, so it stands alone
+    if (sel.has(ex)) sel.delete(ex); else { sel.clear(); sel.add(ex); }
+  } else {
+    if (ex) sel.delete(ex);
+    if (sel.has(c)) sel.delete(c); else sel.add(c);
+  }
+  paint();
+}
+
+function commit(){
+  if (!S.article || !sel.size) return;
+  post("label", {url: S.article.url, labels: [...sel]});
+}
+
+async function post(path, payload){
+  if (busy) return;
+  busy = true;
+  try {
+    const r = await fetch(path, {method:"POST", headers:{"Content-Type":"application/json"},
+                                body: JSON.stringify(payload||{})});
+    if (!r.ok) throw new Error(await r.text());
+    S = await r.json();
+    sel.clear();
+    render();
+    paint();
+  } catch (e) {
+    alert("Save failed — nothing was lost, but check the server is still running.\n\n" + e.message);
+  } finally { busy = false; }
+}
+
+const send = c => S.article && post("label", {url: S.article.url, label: c});
+const nolabel = reason => S.article && post("label",
+  S.multi ? {url: S.article.url, labels: [], reason}
+          : {url: S.article.url, label: null, reason});
+const skip  = () => nolabel("skip");
+const ambig = () => nolabel("ambiguous");
+const undo = () => post("undo", {});
+async function setName(ev){
+  ev.preventDefault();
+  const name = document.getElementById("nameIn").value.trim();
+  if (!name) return;
+  try {
+    const r = await fetch("name", {method:"POST",
+      headers:{"Content-Type":"application/json"}, body: JSON.stringify({name})});
+    if (!r.ok) throw new Error(await r.text());
+    S = await r.json();
+    sel.clear(); render(); paint();
+  } catch (e) {
+    const el = document.getElementById("pickErr");
+    el.textContent = e.message; el.hidden = false;
+  }
+}
+const toggleHelp = () => {
+  const h = document.getElementById("help");
+  if (S && S.multi && S.definition){
+    h.querySelector(".sheet").innerHTML =
+      "<h3>HumSet labels — an article can carry several</h3>" +
+      S.classes.map((c,i) =>
+        `<h4>${DIGITS[i]} &nbsp; ${esc((S.display&&S.display[c])||c)}</h4>`+
+        `<p>${esc(S.definition[c]||"")}</p>`).join("") +
+      "<p class=dim><b>↵</b> commits the selected set. <b>other</b> is "+
+      "exclusive. Full guide: <code>classifier/HUMSET_GUIDE.md</code></p>" +
+      "<button onclick=\"toggleHelp()\">close — Esc</button>";
+  }
+  h.hidden = !h.hidden;
+};
+
+addEventListener("keydown", e => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const i = DIGITS.indexOf(e.key);
+  if (i >= 0 && S && S.classes[i]) {
+    e.preventDefault();
+    S.multi ? toggle(S.classes[i]) : send(S.classes[i]);
+  }
+  else if (S && S.multi && (e.key === "Enter" || e.key === " ")) {
+    e.preventDefault(); commit();
+  }
+  else if (e.key === "s") { e.preventDefault(); skip(); }
+  else if (e.key === "a") { e.preventDefault(); ambig(); }
+  else if (e.key === "b") { e.preventDefault(); undo(); }
+  else if (e.key === "?" || e.key === "/") { e.preventDefault(); toggleHelp(); }
+  else if (e.key === "Escape") { document.getElementById("help").hidden = true; }
+});
+
+(async () => {
+  S = await (await fetch("state")).json();
+  buildKeys();
+  render();
+  paint();
+})();
+</script>
+</body>
+</html>

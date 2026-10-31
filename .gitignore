@@ -1,0 +1,46 @@
+# secrets -- never commit
+*.pem
+*.key
+.env
+
+# crawler output
+data/
+
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# editor
+.idea/
+data-vm/
+classifier/data/
+.scratch/
+.label_token
+
+# Colab upload bundles contain article bodies (copyrighted) — never commit.
+colab/*.zip
+data-backfill/
+
+# --- added 2026-10-31 for GitHub ---
+# Article text belongs to the newsrooms: the dataset goes out via the gated HF repo,
+# never via git. These all hold article bodies or snippets.
+data-backfill-vm/
+dataset/myhumnews.jsonl
+dataset/myhumnews.parquet
+dataset/dvb_xlmr_data.jsonl.gz
+dataset/dvb_topic_predictions.jsonl
+rag/serve_cache/
+rag/index/meta.jsonl
+rag/index_chunked/
+colab/*.jsonl*
+# Large binaries (GitHub rejects files over 100 MB); rebuildable with rag/build_index.py.
+rag/index/vectors.npy
+*.npy
+# Logs and local tool state
+logs/
+.claude/
+.DS_Store
+*.key.pub
+# Stray scp copy of an old README
+azureuser@*

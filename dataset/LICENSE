@@ -1,0 +1,88 @@
+MyHumNews — licence terms
+=========================
+
+This dataset has two parts under two different sets of rights. Read both.
+
+
+1. ANNOTATIONS, METADATA, LABEL SCHEMES AND CODE — CC-BY-4.0
+------------------------------------------------------------
+
+Copyright (c) 2026 Zwe Htet Aung
+
+The following are the author's own contribution and are licensed under the
+Creative Commons Attribution 4.0 International licence
+(https://creativecommons.org/licenses/by/4.0/):
+
+  - the label scheme (dataset/dvb_scheme.py and dataset/outlet_crosswalk.py --
+    the merges, the drops, the MIN_SUPPORT cut, and the mapping of four other
+    outlets' category vocabularies onto it) and the `topic_dvb19` and
+    `topic_dvb19_predicted` fields derived from them
+  - the hand-annotated humanitarian gold labels
+  - all non-text metadata fields assembled by this project, including the
+    deduplication, field normalisation and provenance columns
+  - the crawlers, build scripts, evaluation code and documentation
+
+You may share and adapt these for any purpose, including commercially, with
+attribution.
+
+
+2. ARTICLE TEXT — PUBLISHERS' COPYRIGHT, NOT LICENSED BY THE AUTHOR
+-------------------------------------------------------------------
+
+The `title` and `body` fields contain the full text of news articles that
+remain the copyright of their original publishers:
+
+  - BBC Burmese (British Broadcasting Corporation)
+  - DVB (Democratic Voice of Burma)
+  - The Irrawaddy
+  - Myanmar Now
+  - Radio Free Asia (RFA) Burmese
+
+The author does not hold these rights and therefore cannot and does not
+license them to you. The CC-BY-4.0 grant in Part 1 does not extend to the
+article text.
+
+The text is included for NON-COMMERCIAL RESEARCH USE. By accessing this
+dataset you accept that:
+
+  (a) you will use the article text for non-commercial research only;
+  (b) you will not redistribute the article text, in whole or in substantial
+      part, whether as a dataset, a derived corpus, or model training data
+      made available to others;
+  (c) you will not attempt to identify, locate or contact individuals named
+      in the articles.
+
+Condition (c) is not a copyright term. Four of the five outlets are exile or
+banned Myanmar media, and their reporting names local sources, witnesses and
+their families. It is a condition of access regardless of the copyright
+position.
+
+
+3. TAKEDOWN
+-----------
+
+Any of the five publishers may request removal of their content, in whole or
+in part, with no requirement to give a reason. Such a request will be
+honoured, and this dataset will be withdrawn or amended accordingly.
+
+Contact: zwehtetaung.doh@gmail.com
+
+Individuals named in the articles may use the same contact to request removal
+of records concerning them.
+
+
+4. NO WARRANTY
+--------------
+
+The dataset is provided as is, without warranty of any kind.
+
+Labels come in two columns and they are not equivalent. Every label in
+`topic_dvb19` is a publisher's own category assignment. Every label in
+`topic_dvb19_predicted` is the output of a classifier trained on DVB and
+applied to all five outlets; measured against other outlets' own labels its
+precision ranges from 0.860 down to 0.116, and only two of thirteen testable
+labels reach the 0.80 it was tuned for. The two are kept in separate columns so that neither is mistaken
+for the other. See the dataset card before using the predicted column for
+anything.
+
+The author accepts no liability arising from use of this dataset.

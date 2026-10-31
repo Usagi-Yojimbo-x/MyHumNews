@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MyHumNews search</title>
+<!-- Noto Sans Myanmar ships with macOS (/System/Library/Fonts), so the system
+     stack renders Burmese correctly with no network — the same reasoning as
+     classifier/label_web.html. The webfont is listed AFTER the local names as
+     a fallback, so the page still works offline. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#000000;          /* near-black field */
+    --panel:#223037;       /* deep teal-slate */
+    --panel-2:#1a262c;
+    --lime:#DCFB71;        /* the single loud colour */
+    --lilac:#B9A5E3;       /* sparingly, for counts */
+    --ink:#E8EDEF;         /* off-white, not pure — pure white haloes on black */
+    --mut:#7D8F97;
+    --mut-2:#5A6B73;
+    --line:rgba(232,237,239,.10);
+    --line-2:rgba(232,237,239,.06);
+    --mm:"Noto Sans Myanmar","Myanmar MN","Myanmar Sangam MN","Padauk",sans-serif;
+    --ui:ui-sans-serif,-apple-system,"Helvetica Neue",Inter,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);
+       font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+
+  .shell{max-width:1500px;margin:0 auto;height:100vh;overflow:hidden;
+         display:flex;flex-direction:column}
+
+  /* ── top bar ─────────────────────────────────────────── */
+  .top{display:flex;align-items:center;justify-content:space-between;
+       padding:20px 30px;border-bottom:1px solid var(--line);flex:none}
+  .brand{display:flex;align-items:center;gap:11px;font-size:16px;font-weight:500}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--lime);
+       flex:none;box-shadow:0 0 10px rgba(220,251,113,.5)}
+  .status{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+          color:var(--mut);font-variant-numeric:tabular-nums;text-align:right}
+
+  /* ── two panes ───────────────────────────────────────── */
+  .panes{display:grid;grid-template-columns:minmax(300px,36%) 1fr;flex:1;
+         min-height:0}
+  .left{border-right:1px solid var(--line);padding:38px 32px 30px;
+        overflow-y:auto}
+  .right{display:flex;flex-direction:column;min-height:0}
+
+  .lede{font-size:21px;line-height:1.45;color:var(--ink);margin:0 0 42px;
+        max-width:30ch;font-weight:400}
+  .lede em{font-style:normal;color:var(--mut)}
+
+  .micro{font-size:11px;letter-spacing:.19em;text-transform:uppercase;
+         color:var(--mut-2);font-weight:500;margin:0 0 6px}
+
+  .qlist{list-style:none;margin:14px 0 0;padding:0}
+  .qrow{display:flex;align-items:center;gap:16px;width:100%;
+        background:none;border:0;border-bottom:1px solid var(--line-2);
+        color:var(--ink);font-family:var(--ui);font-size:15px;line-height:1.5;
+        text-align:left;padding:17px 2px;cursor:pointer;transition:.15s}
+  .qrow:hover{color:var(--lime);padding-left:7px}
+  .qrow:hover .arr{color:var(--lime);transform:translateX(3px)}
+  .qrow .qt{flex:1}
+  .qrow .qid{font-family:var(--mono);font-size:10.5px;color:var(--mut-2);
+             letter-spacing:.04em}
+  .arr{color:var(--mut-2);font-size:16px;transition:.15s;flex:none}
+
+  /* ── right pane ──────────────────────────────────────── */
+  .stream{flex:1;overflow-y:auto;padding:34px 36px 10px;min-height:0}
+  .composer{padding:16px 36px 26px;border-top:1px solid var(--line);flex:none}
+  .pill{display:flex;align-items:center;gap:12px;background:var(--panel);
+        border:1px solid var(--line);border-radius:999px;padding:7px 7px 7px 24px}
+  .pill:focus-within{border-color:rgba(220,251,113,.45)}
+  .pill input{flex:1;background:none;border:0;outline:0;color:var(--ink);
+              font-family:var(--ui);font-size:16px;padding:12px 0}
+  .pill input::placeholder{color:var(--mut-2)}
+  .send{width:46px;height:46px;border-radius:50%;flex:none;cursor:pointer;
+        border:0;background:var(--lime);color:#17221a;font-size:19px;
+        display:flex;align-items:center;justify-content:center;transition:.15s}
+  .send:hover{transform:scale(1.06)}
+  .send:disabled{opacity:.35;cursor:default;transform:none}
+
+  .bubble{background:var(--panel);border-radius:16px;padding:17px 21px;
+          font-size:16px;line-height:1.6;max-width:62ch;color:var(--ink)}
+  .bubble b{color:var(--lime);font-weight:500}
+
+  /* ── why / matched places ────────────────────────────── */
+  .why{margin:0 0 24px;padding:17px 20px;border-radius:13px;
+       background:var(--panel)}
+  .why.none{background:var(--panel-2)}
+  .why p{margin:9px 0 0;font-size:13.5px;color:var(--mut);line-height:1.65}
+  .chip{display:inline-flex;align-items:center;gap:8px;margin:9px 8px 0 0;
+        padding:6px 13px;border-radius:999px;background:var(--lime);
+        color:#17221a;font-size:13px;font-weight:500}
+  .chip .mm{font-family:var(--mm);font-size:15px;font-weight:600}
+  .chip .n{background:var(--lilac);color:#20182e;border-radius:999px;
+           padding:1px 8px;font-size:11px;font-variant-numeric:tabular-nums}
+
+  .ans{margin:0 0 26px;padding:20px 22px;border-radius:14px;
+    background:linear-gradient(180deg,rgba(220,251,113,.07),rgba(220,251,113,.02));
+    border:1px solid rgba(220,251,113,.22)}
+  .ans.ref{background:var(--panel-2);border-color:var(--line)}
+  .ans.wait{background:var(--panel-2);border-color:var(--line)}
+  .ans .lab{font-size:11px;letter-spacing:.19em;text-transform:uppercase;
+    color:var(--lime);margin:0 0 10px}
+  .ans.ref .lab,.ans.wait .lab{color:var(--mut)}
+  .ans .body{margin:0;font-size:15px;line-height:1.72;color:var(--ink)}
+  .ans.ref .body{color:var(--mut);font-size:13.5px}
+  .ans .cites{margin:14px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+  .ans .cites a{font-size:11.5px;font-family:var(--mono);text-decoration:none;
+    color:var(--lime);background:rgba(220,251,113,.09);padding:4px 10px;
+    border-radius:20px;border:1px solid rgba(220,251,113,.2)}
+  .ans .cites a:hover{background:rgba(220,251,113,.17)}
+  .ans .foot{margin:13px 0 0;font-size:11px;color:var(--mut-2);line-height:1.6}
+  .card.cited{border-color:rgba(220,251,113,.42)}
+  .card.cited .rk{color:var(--lime)}
+  .card.cited .rk::before{content:"["}
+  .card.cited .rk::after{content:"]"}
+  .stat{color:var(--mut-2);font-size:11.5px;letter-spacing:.14em;
+        text-transform:uppercase;margin:0 0 14px;
+        font-variant-numeric:tabular-nums}
+
+  /* ── result cards ────────────────────────────────────── */
+  .card{background:var(--panel);border-radius:14px;padding:19px 22px;
+        margin:0 0 13px;border:1px solid transparent}
+  .chead{display:flex;gap:14px;align-items:baseline}
+  .rk{font-family:var(--mono);font-size:12px;color:var(--mut-2);min-width:2.2em;
+      font-variant-numeric:tabular-nums;padding-top:5px}
+  /* Burmese on a dark field: diacritics stack above AND below and thin out
+     when reversed out of black, so weight stays at 600/500 (never light) and
+     line-height runs well above what Latin needs. */
+  .ti{font-family:var(--mm);font-size:19px;line-height:2.15;font-weight:600;
+      flex:1;overflow-wrap:anywhere;word-break:normal;color:var(--ink)}
+  .meta{display:flex;gap:15px;flex-wrap:wrap;color:var(--mut);font-size:12px;
+        margin-top:9px;font-variant-numeric:tabular-nums;align-items:center}
+  .meta .ol{color:var(--ink);font-weight:500;letter-spacing:.04em;
+            text-transform:uppercase;font-size:11px}
+  .meta .cat{font-family:var(--mm);font-size:14px;font-weight:500}
+  .src{color:var(--mut);font-size:12px;text-decoration:none;
+       border-bottom:1px solid var(--line)}
+  .src:hover{color:var(--lime);border-bottom-color:var(--lime)}
+  /* Clamp by LINES, never by pixel height: a max-height cut slices through
+     a row of Burmese and leaves half-drawn diacritics along the card edge.
+     Colour is lifted off --mut because stacked marks thin out on dark. */
+  .sn{font-family:var(--mm);font-size:16px;line-height:2.25;font-weight:400;
+      margin-top:12px;color:#AEBEC6;overflow-wrap:anywhere;word-break:normal;
+      display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;
+      overflow:hidden}
+  .scores{display:flex;gap:18px;flex-wrap:wrap;margin-top:13px;font-size:11.5px;
+          font-family:var(--mono);color:var(--mut-2);
+          font-variant-numeric:tabular-nums;
+          border-top:1px solid var(--line-2);padding-top:11px}
+  .scores b{color:var(--lime);font-weight:500}
+  .scores .on b{color:var(--lime)}
+  .hum{margin-top:11px;font-size:11.5px;color:var(--mut-2);display:flex;
+       flex-wrap:wrap;gap:7px;align-items:center}
+  .hum .hl{font-family:var(--mono);font-size:11px;color:var(--ink);
+       background:rgba(232,237,239,.07);padding:3px 9px;border-radius:20px}
+  .hum .hl.lo{color:var(--mut-2);background:none;
+       border:1px dashed rgba(232,237,239,.16)}
+  .hum .hnote{color:var(--mut-2)}
+  .hum code{font-family:var(--mono);font-size:11px;color:var(--mut)}
+
+  /* ── footer ──────────────────────────────────────────── */
+  .foot{border-top:1px solid var(--line);padding:17px 30px;font-size:13px;
+        color:var(--mut);flex:none}
+  .foot button{background:none;border:0;color:var(--ink);font-family:var(--ui);
+               font-size:13px;cursor:pointer;padding:0;
+               border-bottom:1px solid var(--mut)}
+  .foot button:hover{color:var(--lime);border-bottom-color:var(--lime)}
+  #browse{display:none;padding:18px 30px 26px;border-top:1px solid var(--line-2);
+          font-size:13px;color:var(--mut);line-height:1.8;flex:none;
+          max-height:40vh;overflow-y:auto}
+  #browse.on{display:block}
+  #browse h4{margin:0 0 9px;font-size:11px;letter-spacing:.17em;
+             text-transform:uppercase;color:var(--mut-2);font-weight:500}
+  #browse .g{font-family:var(--mm);font-size:14px;color:var(--ink)}
+  #browse code{font-family:var(--mono);font-size:11.5px;color:var(--lime)}
+  #err{color:#ff9d7a;font-size:14px;margin-bottom:16px}
+
+  @media (max-width:900px){
+    .panes{grid-template-columns:1fr}
+    .left{border-right:0;border-bottom:1px solid var(--line);padding:26px 20px}
+    .stream{padding:24px 20px 10px}
+    .composer{padding:14px 20px 20px}
+    .top,.foot{padding-left:20px;padding-right:20px}
+    .lede{font-size:18px;margin-bottom:30px}
+    .status{font-size:10px;max-width:11ch}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <div class="top">
+    <div class="brand"><span class="dot"></span>MyHumNews</div>
+    <div class="status" id="scope">loading&hellip;</div>
+  </div>
+
+  <div class="panes">
+    <div class="left">
+      <p class="lede">It searches Burmese news in English, <em>and translates nothing.</em></p>
+      <p class="micro">Try asking</p>
+      <ul class="qlist" id="qlist"></ul>
+    </div>
+
+    <div class="right">
+      <div class="stream" id="stream">
+        <div id="intro">
+          <div class="bubble">Ask in English and I will rank Burmese news articles
+            by meaning, with <b>no translation step</b> anywhere. Pick one on the
+            left, or type your own below.</div>
+        </div>
+        <div id="err" hidden></div>
+        <div id="why" hidden></div>
+        <div class="stat" id="stat" hidden></div>
+        <div class="ans" id="answer" hidden></div>
+        <div id="out"></div>
+      </div>
+
+      <div class="composer">
+        <form class="pill" id="f">
+          <input type="text" id="q" autocomplete="off" autofocus
+                 placeholder="Ask about Myanmar in English">
+          <button class="send" type="submit" id="go" aria-label="Search">&rarr;</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Rather just browse? <button type="button" id="bt">What is actually in here &darr;</button>
+  </div>
+  <div id="browse"></div>
+</div>
+
+<script>
+let META = null;
+
+function esc(s){ return (s||"").replace(/[&<>"]/g, c =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+async function boot(){
+  try{
+    META = await (await fetch("meta")).json();
+  }catch(e){
+    document.getElementById("scope").textContent = "SERVER UNREACHABLE";
+    return;
+  }
+  const n = META.n_indexed.toLocaleString();
+  // The scope limit lives in the status line, where the reference puts
+  // "ONLINE" — it stays visible without needing a banner.
+  document.getElementById("scope").innerHTML = n + " articles &middot; 2025-01 &rarr;";
+
+  document.getElementById("qlist").innerHTML = (META.examples || []).map(e =>
+    '<li><button class="qrow" type="button" data-q="' + esc(e.question) + '">'
+    + '<span class="qt">' + esc(e.question) + '</span>'
+    + '<span class="qid">' + esc(e.qid) + '</span>'
+    + '<span class="arr">&rarr;</span></button></li>').join("");
+  document.querySelectorAll(".qrow").forEach(b => b.onclick = () => {
+    document.getElementById("q").value = b.dataset.q;
+    run();
+  });
+
+  const m = META.manifest || {};
+  document.getElementById("browse").innerHTML =
+    '<h4>The index</h4>' + n + ' articles from <b>5 Myanmar news outlets</b>'
+    + ', published <b>January 2025 onward</b>, ' + (m.min_chars || "?")
+    + '+ characters, embedded with <code>' + esc(m.model || "?") + '</code> ('
+    + (m.pooling || "?") + ', ' + (m.max_len || "?") + ' tokens).<br>'
+    + 'The full dataset reaches back to Feb 2021, but this index is deliberately '
+    + 'frozen at the initial corpus &mdash; <b>questions about 2021&ndash;2024 will fail</b>.'
+    + '<h4 style="margin-top:17px">Gazetteer &mdash; ' + META.n_places
+    + ' verified place names</h4><span class="g">'
+    + (META.places || []).map(esc).join(" &middot; ") + '</span>';
+}
+
+function renderWhy(d){
+  const el = document.getElementById("why");
+  el.hidden = false;
+  if(!d.matched.length){
+    el.className = "why none";
+    el.innerHTML = '<p class="micro" style="color:var(--mut-2)">No place matched</p>'
+      + '<p>No place name in your question is in the gazetteer, so <b>only the '
+      + 'dense cross-lingual score is used</b> — there is no lexical match. '
+      + 'Ranking is BGE-M3 similarity alone.</p>';
+    return;
+  }
+  el.className = "why";
+  el.innerHTML = '<p class="micro">Matched place names &mdash; English &rarr; Burmese</p>'
+    + d.matched.map(m => '<span class="chip">' + esc(m.english) + ' &rarr; '
+        + '<span class="mm">' + esc(m.match_form) + '</span>'
+        + '<span class="n">' + m.n_docs.toLocaleString() + '</span></span>').join("")
+    + '<p>' + d.n_lexical.toLocaleString() + ' of ' + d.n_indexed.toLocaleString()
+    + ' articles contain at least one of these and received +' + d.alpha
+    + '. The suffix is required: a bare short Burmese name is a substring of '
+    + 'common words.</p>';
+}
+
+function card(r){
+  return '<div class="card" data-rank="' + r.rank + '">'
+    + '<div class="chead"><span class="rk">' + r.rank + '</span>'
+    + '<span class="ti">' + esc(r.title || "(no title)") + '</span></div>'
+    + '<div class="meta"><span class="ol">' + esc(r.outlet) + '</span>'
+    + '<span>' + esc(r.published || "no date") + '</span>'
+    + (r.category ? '<span class="cat">' + esc(r.category) + '</span>' : "")
+    + '<a class="src" href="' + esc(r.url) + '" target="_blank" rel="noopener">original &nearr;</a>'
+    + '</div>'
+    + (r.snippet ? '<div class="sn">' + esc(r.snippet) + '</div>' : "")
+    + '<div class="scores">'
+    + '<span>score <b>' + r.score.toFixed(4) + '</b></span>'
+    + '<span>cosine <b>' + r.dense.toFixed(4) + '</b></span>'
+    + '<span class="' + (r.lexical ? "on" : "") + '">bonus <b>'
+    + (r.lexical ? "+" + r.bonus.toFixed(2) + " place matched" : "0 no place match")
+    + '</b></span></div>'
+    + hum(r.humanitarian)
+    + '</div>';
+}
+
+// The two label sets are kept apart because predict_corpus.py keeps them
+// apart: humanitarian_access (16 gold positives, kappa 0.091 between
+// annotators) and information_communication (6) are excluded from the
+// trusted set and shown dashed, never as plain labels.
+function hum(h){
+  if(!h) return '';
+  const ok = (h.labels || []), lo = (h.low || []);
+  if(!ok.length && !lo.length)
+    return '<div class="hum"><span class="hnote">no humanitarian label '
+      + 'above threshold</span></div>';
+  return '<div class="hum">'
+    + ok.map(l => '<span class="hl">' + esc(l) + '</span>').join("")
+    + lo.map(l => '<span class="hl lo" title="excluded from the trusted set: '
+        + 'too few gold positives, and no agreed annotator boundary">'
+        + esc(l) + ' ?</span>').join("")
+    + (lo.length ? '<span class="hnote">dashed = low confidence</span>' : "")
+    + '</div>';
+}
+
+async function run(){
+  const q = document.getElementById("q").value.trim();
+  if(!q) return;
+  const go = document.getElementById("go"), err = document.getElementById("err");
+  go.disabled = true; err.hidden = true;
+  document.getElementById("answer").hidden = true;   // drop the previous one
+  const intro = document.getElementById("intro");
+  if(intro) intro.remove();
+  try{
+    const res = await fetch("search", {method:"POST",
+      headers:{"Content-Type":"application/json"}, body: JSON.stringify({q, k:20})});
+    if(!res.ok) throw new Error(await res.text());
+    const d = await res.json();
+    renderWhy(d);
+    const s = document.getElementById("stat");
+    s.hidden = false;
+    s.textContent = "top " + d.results.length + " of "
+      + d.n_indexed.toLocaleString() + " · " + d.took_ms + " ms";
+    document.getElementById("out").innerHTML = d.results.map(card).join("");
+    document.getElementById("stream").scrollTop = 0;
+    ask(q);                      // not awaited: sources should not wait on it
+  }catch(e){
+    err.hidden = false; err.textContent = "search failed: " + e.message;
+  }finally{
+    go.disabled = false;
+  }
+}
+
+// Generation is a SECOND request, deliberately. /search is local and ~0.4s;
+// /answer costs a Gemini round trip, so the sources render first and the
+// answer arrives into the space above them. k=8 matches what
+// rag/eval/eval_answers.py measured -- a demo that generates from a
+// different number of passages than the published numbers is a lie.
+const GEN_K = 8;
+
+async function ask(q){
+  const el = document.getElementById("answer");
+  el.hidden = false;
+  el.className = "ans wait";
+  el.innerHTML = '<p class="lab">reading the Burmese sources&hellip;</p>'
+    + '<p class="body" style="color:var(--mut)">asking the model whether these '
+    + 'passages actually answer the question.</p>';
+  try{
+    const res = await fetch("answer", {method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({q, k: GEN_K})});
+    const d = await res.json();
+
+    if(d.error){
+      el.className = "ans ref";
+      el.innerHTML = '<p class="lab">no answer generated</p>'
+        + '<p class="body">' + esc(d.error) + '</p>'
+        + '<p class="foot">Retrieval still works. Generation needs '
+        + 'GEMINI_API_KEY in .env &mdash; see rag/generate.py.</p>';
+      return;
+    }
+
+    if(!d.supported){
+      // A refusal is the system working. Retrieval similarity cannot tell
+      // "nothing here answers this" from "here is the answer" -- the two
+      // distributions overlap completely -- so refusing is the generator's
+      // job and worth showing plainly rather than as an error.
+      el.className = "ans ref";
+      el.innerHTML = '<p class="lab">nothing here answers that</p>'
+        + '<p class="body">' + esc(d.unsupported_reason
+            || "The retrieved passages do not support an answer.") + '</p>'
+        + '<p class="foot">The articles below were still the closest matches. '
+        + 'Similarity alone cannot reject an out-of-scope question, so the '
+        + 'generator is asked to judge support before answering.</p>';
+      return;
+    }
+
+    el.className = "ans";
+    const cites = (d.cited_urls || []).map((u, n) =>
+      '<a href="' + esc(u) + '" target="_blank" rel="noopener">['
+      + d.citations[n] + '] source</a>').join("");
+    el.innerHTML = '<p class="lab">answer &middot; english, from burmese sources</p>'
+      + '<p class="body">' + esc(d.answer) + '</p>'
+      + (cites ? '<div class="cites">' + cites + '</div>' : "")
+      + '<p class="foot">Generated from the top ' + d.n_passages
+      + ' passages, cited by number. '
+      + (d.invalid_citations && d.invalid_citations.length
+          ? '<b>' + d.invalid_citations.length + ' invalid citation(s)</b> &mdash; '
+            + 'the model named a passage it was not given.'
+          : 'No invalid citations.')
+      + ' Not verified against the Burmese by a human.</p>';
+
+    // Mark the cards the answer actually leaned on.
+    (d.citations || []).forEach(n => {
+      const c = document.querySelector('.card[data-rank="' + n + '"]');
+      if(c) c.classList.add("cited");
+    });
+  }catch(e){
+    el.className = "ans ref";
+    el.innerHTML = '<p class="lab">generation failed</p>'
+      + '<p class="body">' + esc(e.message) + '</p>';
+  }
+}
+
+document.getElementById("f").onsubmit = e => { e.preventDefault(); run(); };
+document.getElementById("bt").onclick = () =>
+  document.getElementById("browse").classList.toggle("on");
+
+// ?q=... runs a query on load, so a search is a shareable link.
+boot().then(() => {
+  const q = new URLSearchParams(location.search).get("q");
+  if(q){ document.getElementById("q").value = q; run(); }
+});
+</script>
+</body>
+</html>

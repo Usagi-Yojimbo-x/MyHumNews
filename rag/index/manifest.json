@@ -1,0 +1,12 @@
+{
+ "model": "BAAI/bge-m3",
+ "max_len": 512,
+ "dim": 1024,
+ "n": 38092,
+ "dtype": "torch.float16",
+ "device": "mps",
+ "pooling": "cls+l2norm",
+ "min_chars": 200,
+ "data": "data-vm",
+ "built": "2026-10-17T22:28:05"
+}

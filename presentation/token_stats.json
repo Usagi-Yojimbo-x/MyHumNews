@@ -1,0 +1,2904 @@
+{
+ "model": "xlm-roberta-base",
+ "n": 383,
+ "max_len": 512,
+ "chars_mean": 2109.331592689295,
+ "chars_median": 1856,
+ "tokens_mean": 650.1592689295039,
+ "tokens_median": 564,
+ "tokens_p90": 1144,
+ "tokens_max": 1971,
+ "tokens_per_char": 0.3082299962617933,
+ "truncated": 230,
+ "truncated_frac": 0.6005221932114883,
+ "tokens_total": 249011,
+ "tokens_discarded": 74245,
+ "tokens_discarded_frac": 0.298159519057391,
+ "per_article": [
+  {
+   "tokens": 659,
+   "chars": 2142,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1314,
+   "chars": 4331,
+   "labels": [
+    "casualties",
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 280,
+   "chars": 1008,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1389,
+   "chars": 4510,
+   "labels": [
+    "context",
+    "displacement"
+   ]
+  },
+  {
+   "tokens": 749,
+   "chars": 2647,
+   "labels": [
+    "context",
+    "displacement"
+   ]
+  },
+  {
+   "tokens": 1464,
+   "chars": 4672,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 340,
+   "chars": 1125,
+   "labels": [
+    "displacement",
+    "humanitarian_access"
+   ]
+  },
+  {
+   "tokens": 451,
+   "chars": 1572,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1195,
+   "chars": 3890,
+   "labels": [
+    "displacement",
+    "humanitarian_access"
+   ]
+  },
+  {
+   "tokens": 591,
+   "chars": 1955,
+   "labels": [
+    "context",
+    "displacement",
+    "humanitarian_access"
+   ]
+  },
+  {
+   "tokens": 1530,
+   "chars": 5005,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 402,
+   "chars": 1314,
+   "labels": [
+    "context",
+    "displacement"
+   ]
+  },
+  {
+   "tokens": 1971,
+   "chars": 6595,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 584,
+   "chars": 1887,
+   "labels": [
+    "displacement",
+    "humanitarian_access",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 518,
+   "chars": 1664,
+   "labels": [
+    "context",
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 456,
+   "chars": 1573,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 382,
+   "chars": 1275,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 609,
+   "chars": 1895,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 439,
+   "chars": 1344,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 924,
+   "chars": 3030,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 513,
+   "chars": 1671,
+   "labels": [
+    "context",
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 376,
+   "chars": 1346,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 482,
+   "chars": 1685,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 424,
+   "chars": 1363,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 678,
+   "chars": 2316,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 560,
+   "chars": 1866,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1597,
+   "chars": 5397,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 309,
+   "chars": 1028,
+   "labels": [
+    "displacement"
+   ]
+  },
+  {
+   "tokens": 457,
+   "chars": 1723,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1069,
+   "chars": 3392,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1206,
+   "chars": 4182,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 266,
+   "chars": 902,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1280,
+   "chars": 4055,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 433,
+   "chars": 1457,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 704,
+   "chars": 2148,
+   "labels": [
+    "casualties",
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1315,
+   "chars": 4243,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1221,
+   "chars": 4173,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1018,
+   "chars": 3483,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 331,
+   "chars": 1018,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 455,
+   "chars": 1591,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 587,
+   "chars": 2001,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 378,
+   "chars": 1208,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 850,
+   "chars": 2648,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 625,
+   "chars": 2066,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 376,
+   "chars": 1283,
+   "labels": [
+    "information_communication",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 442,
+   "chars": 1577,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 592,
+   "chars": 1945,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 701,
+   "chars": 2571,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 554,
+   "chars": 1718,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 464,
+   "chars": 1561,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 990,
+   "chars": 3146,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 512,
+   "chars": 1783,
+   "labels": [
+    "context",
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1393,
+   "chars": 4556,
+   "labels": [
+    "humanitarian_access"
+   ]
+  },
+  {
+   "tokens": 554,
+   "chars": 1944,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1236,
+   "chars": 3875,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 512,
+   "chars": 1763,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 534,
+   "chars": 1862,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1346,
+   "chars": 4275,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 768,
+   "chars": 2523,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 562,
+   "chars": 1846,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 519,
+   "chars": 1844,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 444,
+   "chars": 1516,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1099,
+   "chars": 3534,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 377,
+   "chars": 1335,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 612,
+   "chars": 2007,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 729,
+   "chars": 2066,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 553,
+   "chars": 1728,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 505,
+   "chars": 1799,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 660,
+   "chars": 2090,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 521,
+   "chars": 1820,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 528,
+   "chars": 1779,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 479,
+   "chars": 1615,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 575,
+   "chars": 1995,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 715,
+   "chars": 2351,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 279,
+   "chars": 943,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1040,
+   "chars": 3425,
+   "labels": [
+    "humanitarian_access"
+   ]
+  },
+  {
+   "tokens": 397,
+   "chars": 1283,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1197,
+   "chars": 3944,
+   "labels": [
+    "context",
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 472,
+   "chars": 1618,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 286,
+   "chars": 1014,
+   "labels": [
+    "context",
+    "humanitarian_access"
+   ]
+  },
+  {
+   "tokens": 276,
+   "chars": 880,
+   "labels": [
+    "context",
+    "humanitarian_access"
+   ]
+  },
+  {
+   "tokens": 453,
+   "chars": 1371,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 405,
+   "chars": 1250,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 470,
+   "chars": 1491,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 365,
+   "chars": 1252,
+   "labels": [
+    "humanitarian_access",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 510,
+   "chars": 1688,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 564,
+   "chars": 1762,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 730,
+   "chars": 2372,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1049,
+   "chars": 3473,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 734,
+   "chars": 2319,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 419,
+   "chars": 1362,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 329,
+   "chars": 943,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 274,
+   "chars": 896,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 405,
+   "chars": 1434,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1640,
+   "chars": 5011,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1049,
+   "chars": 3300,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1443,
+   "chars": 4748,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 190,
+   "chars": 659,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 867,
+   "chars": 2986,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 699,
+   "chars": 2176,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 720,
+   "chars": 2429,
+   "labels": [
+    "casualties",
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 417,
+   "chars": 1413,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 256,
+   "chars": 818,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1184,
+   "chars": 3873,
+   "labels": [
+    "casualties",
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 181,
+   "chars": 591,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 832,
+   "chars": 2850,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 926,
+   "chars": 2892,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 382,
+   "chars": 1226,
+   "labels": [
+    "humanitarian_access"
+   ]
+  },
+  {
+   "tokens": 445,
+   "chars": 1347,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 548,
+   "chars": 1757,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 876,
+   "chars": 2923,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 634,
+   "chars": 1981,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 985,
+   "chars": 3182,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 390,
+   "chars": 1288,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 605,
+   "chars": 1829,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 1013,
+   "chars": 3100,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 344,
+   "chars": 1197,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 380,
+   "chars": 1207,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 867,
+   "chars": 2814,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 593,
+   "chars": 1970,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 632,
+   "chars": 2152,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 899,
+   "chars": 2743,
+   "labels": [
+    "casualties",
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 826,
+   "chars": 2763,
+   "labels": [
+    "information_communication",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 732,
+   "chars": 2481,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 502,
+   "chars": 1796,
+   "labels": [
+    "casualties",
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1223,
+   "chars": 3824,
+   "labels": [
+    "casualties",
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 461,
+   "chars": 1517,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 915,
+   "chars": 3219,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 878,
+   "chars": 2926,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 633,
+   "chars": 2047,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 752,
+   "chars": 2391,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1244,
+   "chars": 4321,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 765,
+   "chars": 2570,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 545,
+   "chars": 1829,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 685,
+   "chars": 2263,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 629,
+   "chars": 2160,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 382,
+   "chars": 1223,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 633,
+   "chars": 1933,
+   "labels": [
+    "context",
+    "displacement"
+   ]
+  },
+  {
+   "tokens": 609,
+   "chars": 1871,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1003,
+   "chars": 3263,
+   "labels": [
+    "context",
+    "displacement"
+   ]
+  },
+  {
+   "tokens": 405,
+   "chars": 1282,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 976,
+   "chars": 3327,
+   "labels": [
+    "context",
+    "displacement"
+   ]
+  },
+  {
+   "tokens": 322,
+   "chars": 915,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 398,
+   "chars": 1200,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 398,
+   "chars": 1251,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 505,
+   "chars": 1654,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1072,
+   "chars": 3552,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 908,
+   "chars": 3307,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 564,
+   "chars": 1911,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 499,
+   "chars": 1563,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 1436,
+   "chars": 4659,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 268,
+   "chars": 858,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 927,
+   "chars": 3130,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 722,
+   "chars": 2420,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 271,
+   "chars": 773,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 364,
+   "chars": 1083,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 296,
+   "chars": 926,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 237,
+   "chars": 795,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 363,
+   "chars": 1143,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1111,
+   "chars": 3572,
+   "labels": [
+    "context",
+    "displacement"
+   ]
+  },
+  {
+   "tokens": 878,
+   "chars": 3116,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 943,
+   "chars": 2824,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 483,
+   "chars": 1607,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 972,
+   "chars": 3291,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1276,
+   "chars": 4067,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 466,
+   "chars": 1442,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 280,
+   "chars": 895,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 589,
+   "chars": 1898,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 402,
+   "chars": 1230,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 571,
+   "chars": 2033,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 800,
+   "chars": 2612,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 709,
+   "chars": 2278,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1158,
+   "chars": 3503,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 447,
+   "chars": 1369,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 907,
+   "chars": 2751,
+   "labels": [
+    "context",
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 542,
+   "chars": 1726,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 352,
+   "chars": 996,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 1534,
+   "chars": 4644,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 494,
+   "chars": 1532,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 291,
+   "chars": 884,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 587,
+   "chars": 1842,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 510,
+   "chars": 1825,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 407,
+   "chars": 1323,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 675,
+   "chars": 2390,
+   "labels": [
+    "context",
+    "information_communication"
+   ]
+  },
+  {
+   "tokens": 816,
+   "chars": 2580,
+   "labels": [
+    "context",
+    "displacement"
+   ]
+  },
+  {
+   "tokens": 243,
+   "chars": 798,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 529,
+   "chars": 1859,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 448,
+   "chars": 1327,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 304,
+   "chars": 918,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 1823,
+   "chars": 5960,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 239,
+   "chars": 697,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 531,
+   "chars": 1843,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 459,
+   "chars": 1519,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 1050,
+   "chars": 3627,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 783,
+   "chars": 2357,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 311,
+   "chars": 914,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 831,
+   "chars": 2767,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 471,
+   "chars": 1405,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 369,
+   "chars": 1234,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 851,
+   "chars": 2502,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 544,
+   "chars": 1825,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 733,
+   "chars": 2373,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 945,
+   "chars": 2835,
+   "labels": [
+    "casualties",
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 295,
+   "chars": 870,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 414,
+   "chars": 1297,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 638,
+   "chars": 2060,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 354,
+   "chars": 1104,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 683,
+   "chars": 2567,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 499,
+   "chars": 1548,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 559,
+   "chars": 1842,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 476,
+   "chars": 1487,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 620,
+   "chars": 1928,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 1080,
+   "chars": 3435,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 602,
+   "chars": 1938,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 772,
+   "chars": 2404,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 681,
+   "chars": 2246,
+   "labels": [
+    "casualties",
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 541,
+   "chars": 1768,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 440,
+   "chars": 1486,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 719,
+   "chars": 2511,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 412,
+   "chars": 1290,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1266,
+   "chars": 4215,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 610,
+   "chars": 1987,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 554,
+   "chars": 1821,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 470,
+   "chars": 1552,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 551,
+   "chars": 1985,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 329,
+   "chars": 1100,
+   "labels": [
+    "casualties",
+    "information_communication",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 368,
+   "chars": 1158,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 965,
+   "chars": 3278,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1771,
+   "chars": 5683,
+   "labels": [
+    "context",
+    "displacement"
+   ]
+  },
+  {
+   "tokens": 918,
+   "chars": 2802,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 648,
+   "chars": 2240,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 679,
+   "chars": 2138,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1164,
+   "chars": 3860,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 744,
+   "chars": 2229,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 275,
+   "chars": 996,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 713,
+   "chars": 2256,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 892,
+   "chars": 3030,
+   "labels": [
+    "casualties",
+    "context",
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1175,
+   "chars": 3939,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 259,
+   "chars": 741,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 1153,
+   "chars": 3697,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 485,
+   "chars": 1443,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 918,
+   "chars": 3405,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 707,
+   "chars": 2257,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 301,
+   "chars": 958,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 772,
+   "chars": 2455,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 664,
+   "chars": 2068,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 543,
+   "chars": 1661,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 526,
+   "chars": 1637,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 347,
+   "chars": 1101,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 785,
+   "chars": 2662,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 645,
+   "chars": 2081,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 636,
+   "chars": 2001,
+   "labels": [
+    "context",
+    "displacement",
+    "humanitarian_access"
+   ]
+  },
+  {
+   "tokens": 538,
+   "chars": 1802,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 471,
+   "chars": 1576,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 342,
+   "chars": 1065,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 310,
+   "chars": 910,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 459,
+   "chars": 1465,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 637,
+   "chars": 1898,
+   "labels": [
+    "casualties",
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 575,
+   "chars": 1911,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 634,
+   "chars": 1927,
+   "labels": [
+    "context",
+    "information_communication"
+   ]
+  },
+  {
+   "tokens": 461,
+   "chars": 1549,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 213,
+   "chars": 607,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 725,
+   "chars": 2110,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 454,
+   "chars": 1358,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 545,
+   "chars": 1755,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 610,
+   "chars": 1856,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 361,
+   "chars": 1120,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 445,
+   "chars": 1349,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 453,
+   "chars": 1442,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 781,
+   "chars": 2831,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 339,
+   "chars": 1115,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 426,
+   "chars": 1358,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 553,
+   "chars": 1723,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 661,
+   "chars": 2337,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 273,
+   "chars": 778,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 226,
+   "chars": 681,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 439,
+   "chars": 1538,
+   "labels": [
+    "context",
+    "information_communication"
+   ]
+  },
+  {
+   "tokens": 238,
+   "chars": 755,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 775,
+   "chars": 2332,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 388,
+   "chars": 1340,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1193,
+   "chars": 3948,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 706,
+   "chars": 2193,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 442,
+   "chars": 1384,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 285,
+   "chars": 911,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 373,
+   "chars": 1162,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 216,
+   "chars": 783,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 556,
+   "chars": 1847,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 603,
+   "chars": 1850,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 776,
+   "chars": 2453,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1282,
+   "chars": 4025,
+   "labels": [
+    "casualties",
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 953,
+   "chars": 3116,
+   "labels": [
+    "context",
+    "displacement"
+   ]
+  },
+  {
+   "tokens": 531,
+   "chars": 1643,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1204,
+   "chars": 3863,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 612,
+   "chars": 1981,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 481,
+   "chars": 1492,
+   "labels": [
+    "humanitarian_access",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 583,
+   "chars": 1854,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 470,
+   "chars": 1559,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 396,
+   "chars": 1276,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 600,
+   "chars": 1730,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 244,
+   "chars": 823,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 397,
+   "chars": 1253,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1280,
+   "chars": 3876,
+   "labels": [
+    "casualties",
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 736,
+   "chars": 2369,
+   "labels": [
+    "casualties",
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 258,
+   "chars": 863,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 492,
+   "chars": 1555,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 283,
+   "chars": 809,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 193,
+   "chars": 628,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 402,
+   "chars": 1282,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 330,
+   "chars": 1112,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 238,
+   "chars": 664,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 632,
+   "chars": 2016,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 943,
+   "chars": 3296,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 1046,
+   "chars": 3321,
+   "labels": [
+    "casualties",
+    "context",
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 359,
+   "chars": 1095,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 508,
+   "chars": 1547,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 564,
+   "chars": 1639,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 462,
+   "chars": 1384,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 1144,
+   "chars": 3873,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 879,
+   "chars": 2989,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 611,
+   "chars": 1907,
+   "labels": [
+    "context",
+    "humanitarian_access"
+   ]
+  },
+  {
+   "tokens": 743,
+   "chars": 2606,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 249,
+   "chars": 689,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 1097,
+   "chars": 3624,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 756,
+   "chars": 2462,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 523,
+   "chars": 1651,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 1056,
+   "chars": 3382,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 736,
+   "chars": 2544,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 589,
+   "chars": 1896,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 283,
+   "chars": 879,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1467,
+   "chars": 4824,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 806,
+   "chars": 2360,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 1334,
+   "chars": 4549,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 448,
+   "chars": 1413,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 653,
+   "chars": 2223,
+   "labels": [
+    "casualties",
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 513,
+   "chars": 1503,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 727,
+   "chars": 2246,
+   "labels": [
+    "humanitarian_access"
+   ]
+  },
+  {
+   "tokens": 262,
+   "chars": 774,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 813,
+   "chars": 2502,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 663,
+   "chars": 2266,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 291,
+   "chars": 834,
+   "labels": [
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 471,
+   "chars": 1333,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 640,
+   "chars": 1960,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1092,
+   "chars": 3677,
+   "labels": [
+    "context",
+    "humanitarian_access"
+   ]
+  },
+  {
+   "tokens": 604,
+   "chars": 1878,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 555,
+   "chars": 1872,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 598,
+   "chars": 1859,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 941,
+   "chars": 2921,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 527,
+   "chars": 1843,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 407,
+   "chars": 1289,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 697,
+   "chars": 2253,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 370,
+   "chars": 1143,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 468,
+   "chars": 1440,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 280,
+   "chars": 834,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 636,
+   "chars": 2011,
+   "labels": [
+    "casualties",
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 967,
+   "chars": 3007,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 333,
+   "chars": 1016,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 259,
+   "chars": 722,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 630,
+   "chars": 1972,
+   "labels": [
+    "context",
+    "displacement",
+    "humanitarian_access",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 264,
+   "chars": 895,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1083,
+   "chars": 3293,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 881,
+   "chars": 2788,
+   "labels": [
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1015,
+   "chars": 3463,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 613,
+   "chars": 1796,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 1129,
+   "chars": 3976,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 562,
+   "chars": 1748,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 965,
+   "chars": 3193,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 226,
+   "chars": 695,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 451,
+   "chars": 1385,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 519,
+   "chars": 1570,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 881,
+   "chars": 2806,
+   "labels": [
+    "context",
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 528,
+   "chars": 1570,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 1247,
+   "chars": 4396,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 186,
+   "chars": 634,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 267,
+   "chars": 746,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 221,
+   "chars": 662,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 529,
+   "chars": 1785,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 798,
+   "chars": 2535,
+   "labels": [
+    "casualties",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 287,
+   "chars": 901,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 693,
+   "chars": 2148,
+   "labels": [
+    "other"
+   ]
+  },
+  {
+   "tokens": 773,
+   "chars": 2509,
+   "labels": [
+    "casualties",
+    "displacement",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 388,
+   "chars": 1365,
+   "labels": [
+    "context"
+   ]
+  },
+  {
+   "tokens": 736,
+   "chars": 2357,
+   "labels": [
+    "context",
+    "shock_event"
+   ]
+  },
+  {
+   "tokens": 1176,
+   "chars": 3904,
+   "labels": [
+    "casualties",
+    "context",
+    "shock_event"
+   ]
+  }
+ ]
+}

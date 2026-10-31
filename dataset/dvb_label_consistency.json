@@ -1,0 +1,702 @@
+{
+ "head_chars": 1200,
+ "window_days": 3,
+ "n_articles": 62016,
+ "n_dated": 62016,
+ "f1_reference": {
+  "sport": 0.985,
+  "နိုင်ငံတကာ": 0.98,
+  "ငြိမ်းချမ်းရေး/စစ်ရေး": 0.824,
+  "အလုပ်သမား/ရွှေ့ပြောင်းလုပ်သား": 0.798,
+  "COVID19": 0.75,
+  "ကျန်းမာရေး": 0.745,
+  "စီးပွားရေး": 0.741,
+  "စိုက်ပျိုးရေး/တောင်သူလယ်သမား": 0.735,
+  "သဘာဝပတ်ဝန်းကျင်/ရာသီဥတု/မိုးလေဝသ": 0.732,
+  "crime": 0.728,
+  "ပညာရေး/နည်းပညာ": 0.708,
+  "အနုပညာ": 0.684,
+  "ရွေးကောက်ပွဲ": 0.627,
+  "နိုင်ငံရေး": 0.599,
+  "သတင်းမီဒီယာ": 0.588,
+  "ဘာသာရေး": 0.37,
+  "လူမှုရေး": 0.285,
+  "တိုင်းရင်းသား": 0.264,
+  "အမျိုးသမီး/လူငယ်": 0.25
+ },
+ "prevalence": {
+  "sport": 0.08641318369453044,
+  "နိုင်ငံတကာ": 0.23885771413828688,
+  "ငြိမ်းချမ်းရေး/စစ်ရေး": 0.2515641124871001,
+  "အလုပ်သမား/ရွှေ့ပြောင်းလုပ်သား": 0.029089267285861715,
+  "COVID19": 0.024106682146542827,
+  "ကျန်းမာရေး": 0.02430018059855521,
+  "စီးပွားရေး": 0.046197755417956655,
+  "စိုက်ပျိုးရေး/တောင်သူလယ်သမား": 0.009255675954592363,
+  "သဘာဝပတ်ဝန်းကျင်/ရာသီဥတု/မိုးလေဝသ": 0.03950593395252838,
+  "crime": 0.08312371001031992,
+  "ပညာရေး/နည်းပညာ": 0.015818498452012383,
+  "အနုပညာ": 0.007111068111455108,
+  "ရွေးကောက်ပွဲ": 0.0092234262125903,
+  "နိုင်ငံရေး": 0.19754579463364294,
+  "သတင်းမီဒီယာ": 0.005675954592363261,
+  "ဘာသာရေး": 0.0027896026831785345,
+  "လူမှုရေး": 0.039312435500515996,
+  "တိုင်းရင်းသား": 0.016656991744066048,
+  "အမျိုးသမီး/လူငယ်": 0.00348297213622291
+ },
+ "by_threshold": {
+  "0.3": {
+   "n_pairs": 22609,
+   "labels": {
+    "sport": {
+     "pairs_either": 2102,
+     "pairs_both": 2075,
+     "agreement": 0.9872,
+     "chance": 0.0452,
+     "f1_linear": 0.985
+    },
+    "နိုင်ငံတကာ": {
+     "pairs_either": 4402,
+     "pairs_both": 4204,
+     "agreement": 0.955,
+     "chance": 0.1356,
+     "f1_linear": 0.98
+    },
+    "ငြိမ်းချမ်းရေး/စစ်ရေး": {
+     "pairs_either": 6190,
+     "pairs_both": 4685,
+     "agreement": 0.7569,
+     "chance": 0.1439,
+     "f1_linear": 0.824
+    },
+    "အလုပ်သမား/ရွှေ့ပြောင်းလုပ်သား": {
+     "pairs_either": 414,
+     "pairs_both": 289,
+     "agreement": 0.6981,
+     "chance": 0.0148,
+     "f1_linear": 0.798
+    },
+    "COVID19": {
+     "pairs_either": 3243,
+     "pairs_both": 3121,
+     "agreement": 0.9624,
+     "chance": 0.0122,
+     "f1_linear": 0.75
+    },
+    "ကျန်းမာရေး": {
+     "pairs_either": 2540,
+     "pairs_both": 1008,
+     "agreement": 0.3969,
+     "chance": 0.0123,
+     "f1_linear": 0.745
+    },
+    "စီးပွားရေး": {
+     "pairs_either": 542,
+     "pairs_both": 328,
+     "agreement": 0.6052,
+     "chance": 0.0236,
+     "f1_linear": 0.741
+    },
+    "စိုက်ပျိုးရေး/တောင်သူလယ်သမား": {
+     "pairs_either": 77,
+     "pairs_both": 32,
+     "agreement": 0.4156,
+     "chance": 0.0046,
+     "f1_linear": 0.735
+    },
+    "သဘာဝပတ်ဝန်းကျင်/ရာသီဥတု/မိုးလေဝသ": {
+     "pairs_either": 1303,
+     "pairs_both": 1142,
+     "agreement": 0.8764,
+     "chance": 0.0202,
+     "f1_linear": 0.732
+    },
+    "crime": {
+     "pairs_either": 814,
+     "pairs_both": 413,
+     "agreement": 0.5074,
+     "chance": 0.0434,
+     "f1_linear": 0.728
+    },
+    "ပညာရေး/နည်းပညာ": {
+     "pairs_either": 333,
+     "pairs_both": 213,
+     "agreement": 0.6396,
+     "chance": 0.008,
+     "f1_linear": 0.708
+    },
+    "အနုပညာ": {
+     "pairs_either": 121,
+     "pairs_both": 65,
+     "agreement": 0.5372,
+     "chance": 0.0036,
+     "f1_linear": 0.684
+    },
+    "ရွေးကောက်ပွဲ": {
+     "pairs_either": 243,
+     "pairs_both": 111,
+     "agreement": 0.4568,
+     "chance": 0.0046,
+     "f1_linear": 0.627
+    },
+    "နိုင်ငံရေး": {
+     "pairs_either": 6654,
+     "pairs_both": 3847,
+     "agreement": 0.5781,
+     "chance": 0.1096,
+     "f1_linear": 0.599
+    },
+    "သတင်းမီဒီယာ": {
+     "pairs_either": 82,
+     "pairs_both": 42,
+     "agreement": 0.5122,
+     "chance": 0.0028,
+     "f1_linear": 0.588
+    },
+    "ဘာသာရေး": {
+     "pairs_either": 101,
+     "pairs_both": 25,
+     "agreement": 0.2475,
+     "chance": 0.0014,
+     "f1_linear": 0.37
+    },
+    "လူမှုရေး": {
+     "pairs_either": 944,
+     "pairs_both": 129,
+     "agreement": 0.1367,
+     "chance": 0.0201,
+     "f1_linear": 0.285
+    },
+    "တိုင်းရင်းသား": {
+     "pairs_either": 606,
+     "pairs_both": 98,
+     "agreement": 0.1617,
+     "chance": 0.0084,
+     "f1_linear": 0.264
+    },
+    "အမျိုးသမီး/လူငယ်": {
+     "pairs_either": 35,
+     "pairs_both": 7,
+     "agreement": 0.2,
+     "chance": 0.0017,
+     "f1_linear": 0.25
+    }
+   },
+   "corr_agreement_f1": 0.8701
+  },
+  "0.35": {
+   "n_pairs": 13283,
+   "labels": {
+    "sport": {
+     "pairs_either": 1169,
+     "pairs_both": 1152,
+     "agreement": 0.9855,
+     "chance": 0.0452,
+     "f1_linear": 0.985
+    },
+    "နိုင်ငံတကာ": {
+     "pairs_either": 2119,
+     "pairs_both": 2044,
+     "agreement": 0.9646,
+     "chance": 0.1356,
+     "f1_linear": 0.98
+    },
+    "ငြိမ်းချမ်းရေး/စစ်ရေး": {
+     "pairs_either": 3539,
+     "pairs_both": 2594,
+     "agreement": 0.733,
+     "chance": 0.1439,
+     "f1_linear": 0.824
+    },
+    "အလုပ်သမား/ရွှေ့ပြောင်းလုပ်သား": {
+     "pairs_either": 252,
+     "pairs_both": 187,
+     "agreement": 0.7421,
+     "chance": 0.0148,
+     "f1_linear": 0.798
+    },
+    "COVID19": {
+     "pairs_either": 2589,
+     "pairs_both": 2500,
+     "agreement": 0.9656,
+     "chance": 0.0122,
+     "f1_linear": 0.75
+    },
+    "ကျန်းမာရေး": {
+     "pairs_either": 2018,
+     "pairs_both": 813,
+     "agreement": 0.4029,
+     "chance": 0.0123,
+     "f1_linear": 0.745
+    },
+    "စီးပွားရေး": {
+     "pairs_either": 342,
+     "pairs_both": 216,
+     "agreement": 0.6316,
+     "chance": 0.0236,
+     "f1_linear": 0.741
+    },
+    "စိုက်ပျိုးရေး/တောင်သူလယ်သမား": {
+     "pairs_either": 41,
+     "pairs_both": 21,
+     "agreement": 0.5122,
+     "chance": 0.0046,
+     "f1_linear": 0.735
+    },
+    "သဘာဝပတ်ဝန်းကျင်/ရာသီဥတု/မိုးလေဝသ": {
+     "pairs_either": 676,
+     "pairs_both": 605,
+     "agreement": 0.895,
+     "chance": 0.0202,
+     "f1_linear": 0.732
+    },
+    "crime": {
+     "pairs_either": 456,
+     "pairs_both": 240,
+     "agreement": 0.5263,
+     "chance": 0.0434,
+     "f1_linear": 0.728
+    },
+    "ပညာရေး/နည်းပညာ": {
+     "pairs_either": 207,
+     "pairs_both": 143,
+     "agreement": 0.6908,
+     "chance": 0.008,
+     "f1_linear": 0.708
+    },
+    "အနုပညာ": {
+     "pairs_either": 97,
+     "pairs_both": 61,
+     "agreement": 0.6289,
+     "chance": 0.0036,
+     "f1_linear": 0.684
+    },
+    "ရွေးကောက်ပွဲ": {
+     "pairs_either": 126,
+     "pairs_both": 61,
+     "agreement": 0.4841,
+     "chance": 0.0046,
+     "f1_linear": 0.627
+    },
+    "နိုင်ငံရေး": {
+     "pairs_either": 3844,
+     "pairs_both": 2168,
+     "agreement": 0.564,
+     "chance": 0.1096,
+     "f1_linear": 0.599
+    },
+    "သတင်းမီဒီယာ": {
+     "pairs_either": 57,
+     "pairs_both": 35,
+     "agreement": 0.614,
+     "chance": 0.0028,
+     "f1_linear": 0.588
+    },
+    "ဘာသာရေး": {
+     "pairs_either": 70,
+     "pairs_both": 20,
+     "agreement": 0.2857,
+     "chance": 0.0014,
+     "f1_linear": 0.37
+    },
+    "လူမှုရေး": {
+     "pairs_either": 494,
+     "pairs_both": 75,
+     "agreement": 0.1518,
+     "chance": 0.0201,
+     "f1_linear": 0.285
+    },
+    "တိုင်းရင်းသား": {
+     "pairs_either": 337,
+     "pairs_both": 60,
+     "agreement": 0.178,
+     "chance": 0.0084,
+     "f1_linear": 0.264
+    },
+    "အမျိုးသမီး/လူငယ်": {
+     "pairs_either": 20,
+     "pairs_both": 5,
+     "agreement": 0.25,
+     "chance": 0.0017,
+     "f1_linear": 0.25
+    }
+   },
+   "corr_agreement_f1": 0.8744
+  },
+  "0.4": {
+   "n_pairs": 8393,
+   "labels": {
+    "sport": {
+     "pairs_either": 647,
+     "pairs_both": 636,
+     "agreement": 0.983,
+     "chance": 0.0452,
+     "f1_linear": 0.985
+    },
+    "နိုင်ငံတကာ": {
+     "pairs_either": 928,
+     "pairs_both": 893,
+     "agreement": 0.9623,
+     "chance": 0.1356,
+     "f1_linear": 0.98
+    },
+    "ငြိမ်းချမ်းရေး/စစ်ရေး": {
+     "pairs_either": 2106,
+     "pairs_both": 1474,
+     "agreement": 0.6999,
+     "chance": 0.1439,
+     "f1_linear": 0.824
+    },
+    "အလုပ်သမား/ရွှေ့ပြောင်းလုပ်သား": {
+     "pairs_either": 155,
+     "pairs_both": 120,
+     "agreement": 0.7742,
+     "chance": 0.0148,
+     "f1_linear": 0.798
+    },
+    "COVID19": {
+     "pairs_either": 2288,
+     "pairs_both": 2216,
+     "agreement": 0.9685,
+     "chance": 0.0122,
+     "f1_linear": 0.75
+    },
+    "ကျန်းမာရေး": {
+     "pairs_either": 1767,
+     "pairs_both": 745,
+     "agreement": 0.4216,
+     "chance": 0.0123,
+     "f1_linear": 0.745
+    },
+    "စီးပွားရေး": {
+     "pairs_either": 213,
+     "pairs_both": 140,
+     "agreement": 0.6573,
+     "chance": 0.0236,
+     "f1_linear": 0.741
+    },
+    "သဘာဝပတ်ဝန်းကျင်/ရာသီဥတု/မိုးလေဝသ": {
+     "pairs_either": 397,
+     "pairs_both": 357,
+     "agreement": 0.8992,
+     "chance": 0.0202,
+     "f1_linear": 0.732
+    },
+    "crime": {
+     "pairs_either": 266,
+     "pairs_both": 137,
+     "agreement": 0.515,
+     "chance": 0.0434,
+     "f1_linear": 0.728
+    },
+    "ပညာရေး/နည်းပညာ": {
+     "pairs_either": 132,
+     "pairs_both": 97,
+     "agreement": 0.7348,
+     "chance": 0.008,
+     "f1_linear": 0.708
+    },
+    "အနုပညာ": {
+     "pairs_either": 79,
+     "pairs_both": 52,
+     "agreement": 0.6582,
+     "chance": 0.0036,
+     "f1_linear": 0.684
+    },
+    "ရွေးကောက်ပွဲ": {
+     "pairs_either": 75,
+     "pairs_both": 35,
+     "agreement": 0.4667,
+     "chance": 0.0046,
+     "f1_linear": 0.627
+    },
+    "နိုင်ငံရေး": {
+     "pairs_either": 2443,
+     "pairs_both": 1366,
+     "agreement": 0.5591,
+     "chance": 0.1096,
+     "f1_linear": 0.599
+    },
+    "သတင်းမီဒီယာ": {
+     "pairs_either": 36,
+     "pairs_both": 20,
+     "agreement": 0.5556,
+     "chance": 0.0028,
+     "f1_linear": 0.588
+    },
+    "ဘာသာရေး": {
+     "pairs_either": 38,
+     "pairs_both": 14,
+     "agreement": 0.3684,
+     "chance": 0.0014,
+     "f1_linear": 0.37
+    },
+    "လူမှုရေး": {
+     "pairs_either": 263,
+     "pairs_both": 48,
+     "agreement": 0.1825,
+     "chance": 0.0201,
+     "f1_linear": 0.285
+    },
+    "တိုင်းရင်းသား": {
+     "pairs_either": 187,
+     "pairs_both": 37,
+     "agreement": 0.1979,
+     "chance": 0.0084,
+     "f1_linear": 0.264
+    }
+   },
+   "corr_agreement_f1": 0.8653
+  },
+  "0.5": {
+   "n_pairs": 4263,
+   "labels": {
+    "sport": {
+     "pairs_either": 188,
+     "pairs_both": 185,
+     "agreement": 0.984,
+     "chance": 0.0452,
+     "f1_linear": 0.985
+    },
+    "နိုင်ငံတကာ": {
+     "pairs_either": 148,
+     "pairs_both": 139,
+     "agreement": 0.9392,
+     "chance": 0.1356,
+     "f1_linear": 0.98
+    },
+    "ငြိမ်းချမ်းရေး/စစ်ရေး": {
+     "pairs_either": 981,
+     "pairs_both": 600,
+     "agreement": 0.6116,
+     "chance": 0.1439,
+     "f1_linear": 0.824
+    },
+    "အလုပ်သမား/ရွှေ့ပြောင်းလုပ်သား": {
+     "pairs_either": 67,
+     "pairs_both": 51,
+     "agreement": 0.7612,
+     "chance": 0.0148,
+     "f1_linear": 0.798
+    },
+    "COVID19": {
+     "pairs_either": 1792,
+     "pairs_both": 1737,
+     "agreement": 0.9693,
+     "chance": 0.0122,
+     "f1_linear": 0.75
+    },
+    "ကျန်းမာရေး": {
+     "pairs_either": 1395,
+     "pairs_both": 611,
+     "agreement": 0.438,
+     "chance": 0.0123,
+     "f1_linear": 0.745
+    },
+    "စီးပွားရေး": {
+     "pairs_either": 83,
+     "pairs_both": 61,
+     "agreement": 0.7349,
+     "chance": 0.0236,
+     "f1_linear": 0.741
+    },
+    "သဘာဝပတ်ဝန်းကျင်/ရာသီဥတု/မိုးလေဝသ": {
+     "pairs_either": 152,
+     "pairs_both": 142,
+     "agreement": 0.9342,
+     "chance": 0.0202,
+     "f1_linear": 0.732
+    },
+    "crime": {
+     "pairs_either": 91,
+     "pairs_both": 48,
+     "agreement": 0.5275,
+     "chance": 0.0434,
+     "f1_linear": 0.728
+    },
+    "ပညာရေး/နည်းပညာ": {
+     "pairs_either": 38,
+     "pairs_both": 27,
+     "agreement": 0.7105,
+     "chance": 0.008,
+     "f1_linear": 0.708
+    },
+    "အနုပညာ": {
+     "pairs_either": 45,
+     "pairs_both": 29,
+     "agreement": 0.6444,
+     "chance": 0.0036,
+     "f1_linear": 0.684
+    },
+    "ရွေးကောက်ပွဲ": {
+     "pairs_either": 25,
+     "pairs_both": 10,
+     "agreement": 0.4,
+     "chance": 0.0046,
+     "f1_linear": 0.627
+    },
+    "နိုင်ငံရေး": {
+     "pairs_either": 1315,
+     "pairs_both": 749,
+     "agreement": 0.5696,
+     "chance": 0.1096,
+     "f1_linear": 0.599
+    },
+    "လူမှုရေး": {
+     "pairs_either": 78,
+     "pairs_both": 23,
+     "agreement": 0.2949,
+     "chance": 0.0201,
+     "f1_linear": 0.285
+    },
+    "တိုင်းရင်းသား": {
+     "pairs_either": 58,
+     "pairs_both": 11,
+     "agreement": 0.1897,
+     "chance": 0.0084,
+     "f1_linear": 0.264
+    }
+   },
+   "corr_agreement_f1": 0.8131
+  },
+  "0.6": {
+   "n_pairs": 3059,
+   "labels": {
+    "sport": {
+     "pairs_either": 40,
+     "pairs_both": 38,
+     "agreement": 0.95,
+     "chance": 0.0452,
+     "f1_linear": 0.985
+    },
+    "နိုင်ငံတကာ": {
+     "pairs_either": 42,
+     "pairs_both": 38,
+     "agreement": 0.9048,
+     "chance": 0.1356,
+     "f1_linear": 0.98
+    },
+    "ငြိမ်းချမ်းရေး/စစ်ရေး": {
+     "pairs_either": 652,
+     "pairs_both": 343,
+     "agreement": 0.5261,
+     "chance": 0.1439,
+     "f1_linear": 0.824
+    },
+    "အလုပ်သမား/ရွှေ့ပြောင်းလုပ်သား": {
+     "pairs_either": 22,
+     "pairs_both": 15,
+     "agreement": 0.6818,
+     "chance": 0.0148,
+     "f1_linear": 0.798
+    },
+    "COVID19": {
+     "pairs_either": 1594,
+     "pairs_both": 1558,
+     "agreement": 0.9774,
+     "chance": 0.0122,
+     "f1_linear": 0.75
+    },
+    "ကျန်းမာရေး": {
+     "pairs_either": 1230,
+     "pairs_both": 543,
+     "agreement": 0.4415,
+     "chance": 0.0123,
+     "f1_linear": 0.745
+    },
+    "စီးပွားရေး": {
+     "pairs_either": 28,
+     "pairs_both": 15,
+     "agreement": 0.5357,
+     "chance": 0.0236,
+     "f1_linear": 0.741
+    },
+    "သဘာဝပတ်ဝန်းကျင်/ရာသီဥတု/မိုးလေဝသ": {
+     "pairs_either": 69,
+     "pairs_both": 65,
+     "agreement": 0.942,
+     "chance": 0.0202,
+     "f1_linear": 0.732
+    },
+    "crime": {
+     "pairs_either": 35,
+     "pairs_both": 13,
+     "agreement": 0.3714,
+     "chance": 0.0434,
+     "f1_linear": 0.728
+    },
+    "အနုပညာ": {
+     "pairs_either": 31,
+     "pairs_both": 20,
+     "agreement": 0.6452,
+     "chance": 0.0036,
+     "f1_linear": 0.684
+    },
+    "နိုင်ငံရေး": {
+     "pairs_either": 983,
+     "pairs_both": 575,
+     "agreement": 0.5849,
+     "chance": 0.1096,
+     "f1_linear": 0.599
+    },
+    "လူမှုရေး": {
+     "pairs_either": 32,
+     "pairs_both": 12,
+     "agreement": 0.375,
+     "chance": 0.0201,
+     "f1_linear": 0.285
+    }
+   },
+   "corr_agreement_f1": 0.5812
+  },
+  "0.7": {
+   "n_pairs": 2540,
+   "labels": {
+    "နိုင်ငံတကာ": {
+     "pairs_either": 22,
+     "pairs_both": 21,
+     "agreement": 0.9545,
+     "chance": 0.1356,
+     "f1_linear": 0.98
+    },
+    "ငြိမ်းချမ်းရေး/စစ်ရေး": {
+     "pairs_either": 499,
+     "pairs_both": 233,
+     "agreement": 0.4669,
+     "chance": 0.1439,
+     "f1_linear": 0.824
+    },
+    "COVID19": {
+     "pairs_either": 1493,
+     "pairs_both": 1458,
+     "agreement": 0.9766,
+     "chance": 0.0122,
+     "f1_linear": 0.75
+    },
+    "ကျန်းမာရေး": {
+     "pairs_either": 1159,
+     "pairs_both": 513,
+     "agreement": 0.4426,
+     "chance": 0.0123,
+     "f1_linear": 0.745
+    },
+    "သဘာဝပတ်ဝန်းကျင်/ရာသီဥတု/မိုးလေဝသ": {
+     "pairs_either": 23,
+     "pairs_both": 22,
+     "agreement": 0.9565,
+     "chance": 0.0202,
+     "f1_linear": 0.732
+    },
+    "နိုင်ငံရေး": {
+     "pairs_either": 782,
+     "pairs_both": 460,
+     "agreement": 0.5882,
+     "chance": 0.1096,
+     "f1_linear": 0.599
+    }
+   },
+   "corr_agreement_f1": 0.3132
+  }
+ }
+}
