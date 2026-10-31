@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this code or the MyHumNews dataset, please cite it as below."
+title: "MyHumNews: Reading Myanmar in Burmese"
+abstract: "A 134,667-article Burmese news dataset from five outlets, humanitarian and newsroom-topic classifiers, and a cross-lingual retrieval-augmented system that answers English questions from Burmese news with citations."
+authors:
+  - family-names: "Aung"
+    given-names: "Zwe Htet"
+    affiliation: "Sejong University"
+date-released: 2026-10-31
+license: CC-BY-4.0
+repository-code: "https://github.com/Usagi-Yojimbo-x/MyHumNews"
+keywords: [Burmese, Myanmar, humanitarian, news, multilingual, retrieval-augmented generation, text classification]

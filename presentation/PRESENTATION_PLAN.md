@@ -99,7 +99,7 @@ flowchart LR
 - **2 · Weak labels:** 16,087 keyword labels, `0.755 → 0.702`. Dilution, not label noise.
 - **3 · Targeted labels:** +180 articles, XLM-R `+0.040` vs TF-IDF `+0.005`; gap `0.106 → 0.071`.
 - **Takeaway:** the gap was supervision, not architecture. Caveat: 3 seeds, paired p ≈ 0.16.
-- **Source:** `ROUND2_RESULTS.md`, README weak-supervision section.
+- **Source:** `docs/ROUND2_RESULTS.md`, README weak-supervision section.
 
 ---
 

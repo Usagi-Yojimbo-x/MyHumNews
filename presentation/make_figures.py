@@ -6,7 +6,7 @@ Numbers come from, in order of preference:
   presentation/token_stats.json   recomputed with the xlm-roberta-base tokenizer
   presentation/model_stats.json   recomputed from prediction dumps + checkpoints
   classifier/data/*.jsonl         read directly
-  README.md                       ONLY where the generating script is not in the
+  docs/WORKLOG.md                 ONLY where the generating script is not in the
                                   repo; each such table is marked README_* below
                                   with its line number.
 """
@@ -47,23 +47,23 @@ OUTLET = {"dvb": "DVB", "irrawaddy": "Irrawaddy", "bbc": "BBC",
           "myanmarnow": "Myanmar Now", "rfa": "RFA"}
 
 # ---- README-sourced tables (generating scripts are not in the repo) ----
-README_LEARNING_CURVE = {            # README.md:1477-1480
+README_LEARNING_CURVE = {            # docs/WORKLOG.md:1477-1480
     "shock_event":  {5: .026, 10: .223, 15: .433, 20: .556, 30: .678, 45: .772},
     "context":      {5: .000, 10: .048, 15: .101, 20: .210, 30: .387, 45: .627},
     "casualties":   {5: .008, 10: .103, 15: .241, 20: .379, 30: .539, 45: .675},
     "displacement": {5: .000, 10: .055, 15: .148, 20: .343, 30: .505, 45: .627},
 }
-README_WEAK = [                      # README.md:1602-1608
+README_WEAK = [                      # docs/WORKLOG.md:1602-1608
     ("gold only", 0,      .755, .569), ("400",       400,   .759, .546),
     ("1,200",     1200,   .745, .509), ("3,000",     3000,  .729, .449),
     ("16,087",    16087,  .702, .290),
 ]
-README_MATCHED = {                   # README.md:1744-1756 (TRUNC column)
+README_MATCHED = {                   # docs/WORKLOG.md:1744-1756 (TRUNC column)
     "context": .810, "shock_event": .861, "casualties": .733, "other": .760,
     "displacement": .472, "humanitarian_access": .000,
     "information_communication": .000,
 }
-README_MATCHED_MACRO = 0.727         # README.md:1754
+README_MATCHED_MACRO = 0.727         # docs/WORKLOG.md:1754
 TFIDF_FULL_MACRO = 0.755
 
 def _num(x, _p=None):

@@ -22,7 +22,7 @@ All PNGs are 300 dpi on a light background, sized for 16:9 slides.
 | `presentation/model_stats.json` | **Recomputed** from `humset_tfidf_cv.jsonl` and the four `xlmr_ckpt*.json` checkpoints, using `train_humset.prf`/`repair`/`MIN_SUPPORT`. No training. Figures 9, 11. |
 | `classifier/data/humset_gold.jsonl` | Read directly. Figures 5, 6, 7, 8, 11. |
 | round-2 labels (360 rows) | Read directly, filtered to `annotator == "HsuLinHtet"`. Figure 7. |
-| `README.md` | **Transcribed**, only where the generating script is not in the repo: the learning curve (L1477-1480), the weak-supervision dose-response (L1602-1608), and the matched-input TF-IDF column (L1744-1756). Figures 8, 10, 11, and TF-IDF's 0.727 in figure 9. |
+| `docs/WORKLOG.md` | **Transcribed**, only where the generating script is not in the repo: the learning curve (L1477-1480), the weak-supervision dose-response (L1602-1608), and the matched-input TF-IDF column (L1744-1756). Figures 8, 10, 11, and TF-IDF's 0.727 in figure 9. |
 
 Every recomputed number was checked against the README and agrees. The one apparent conflict is explained below.
 

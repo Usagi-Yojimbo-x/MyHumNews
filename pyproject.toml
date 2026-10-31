@@ -1,5 +1,22 @@
 [project]
 name = "myhumnews"
 version = "0.1.0"
+description = "Burmese news dataset, humanitarian classifiers and cross-lingual RAG"
+readme = "README.md"
+license = "CC-BY-4.0"
+authors = [{ name = "Zwe Htet Aung" }]
 requires-python = ">=3.13"
-dependencies = []
+# Versions are the ones the reported results were produced with (lower bounds).
+dependencies = [
+    "requests>=2.34",
+    "beautifulsoup4>=4.15",
+    "lxml>=6.1",
+    "numpy>=2.5",
+    "scipy>=1.18",
+    "scikit-learn>=1.9",
+    "torch>=2.14",
+    "transformers>=5.19",
+    "matplotlib>=3.11",
+    "pyarrow>=26.0",
+    "tqdm>=4.70",
+]
