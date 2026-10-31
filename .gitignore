@@ -44,3 +44,8 @@ logs/
 *.key.pub
 # Stray scp copy of an old README
 azureuser@*
+
+# Instructions for coding agents (Claude Code, agy): local only, they hold deployment details
+AGENTS.md
+GEMINI.md
+CLAUDE.md
