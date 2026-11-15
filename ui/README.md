@@ -114,8 +114,7 @@ badly (rank 87). A demo built only from the wins would misrepresent it, and
 drawing from the eval set makes the panel a window onto what was actually
 measured.
 
-**Design**: palette and layout follow the two references in `ui/inspiration/`
-— a near-black field with `#223037` panels and `#DCFB71` as the single loud
+**Design**: a near-black field with `#223037` panels and `#DCFB71` as the single loud
 colour, in a two-pane split with the composer pinned to the bottom of the
 results pane. Lime is reserved for the thing worth looking at: the matched
 gazetteer chips and the lexical bonus. A muted lilac `#B9A5E3` carries the

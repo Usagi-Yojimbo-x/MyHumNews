@@ -7,6 +7,9 @@ classifiers that tag articles with humanitarian and newsroom topic labels.
 BDAPP course project, Fall 2026, Sejong University (Prof. Mugahed A. Al-antari).
 Author: Zwe Htet Aung.
 
+**Live demo:** <https://humnews.indonesiacentral.cloudapp.azure.com/rag/> (English search over
+38,092 Burmese articles; login available on request)
+
 ![Pipeline](presentation/figures/fig01_pipeline.png)
 
 ## Why
